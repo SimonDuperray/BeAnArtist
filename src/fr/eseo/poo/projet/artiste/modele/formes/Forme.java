@@ -5,8 +5,9 @@ import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 public abstract class Forme {
 	// constantes de classe
 	public static final double LARGEUR_PAR_DEFAUT = 100.0;
-	public static final double HAUTEUR_PAR_DEFAUT = 50.0;
-	
+	public static final double HAUTEUR_PAR_DEFAUT = 100.0;
+	public static final double EPSILON = 0.2;
+
 	// attributs
 	private Coordonnees position;
 	private double largeur, hauteur;
@@ -104,4 +105,5 @@ public abstract class Forme {
 	}
 	public abstract double aire();
 	public abstract double perimetre();
+	public abstract boolean contient(Coordonnees position);
 }

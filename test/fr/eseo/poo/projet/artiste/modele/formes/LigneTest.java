@@ -7,7 +7,7 @@ import org.junit.Test;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {
-	final double EPSILON = 0.1;
+	public static final double EPSILON = 0.2;
 
 	// instanciations
 	Coordonnees defaultCoord = new Coordonnees();
@@ -19,7 +19,7 @@ public class LigneTest {
 		assertEquals("defaultCoordAbs", defaultCoord.getAbscisse(), defaultLigne.getPosition().getAbscisse(), EPSILON);
 		assertEquals("defaultCoordOrd", defaultCoord.getOrdonnee(), defaultLigne.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("defaultLargeur", 100.0, defaultLigne.getLargeur(), EPSILON);
-		assertEquals("defaultHauteur", 50.0, defaultLigne.getHauteur(), EPSILON);
+		assertEquals("defaultHauteur", 100.0, defaultLigne.getHauteur(), EPSILON);
 	}
 	@Test
 	public void dimConstructor(){
@@ -36,7 +36,7 @@ public class LigneTest {
 		assertEquals("defaultCoordAbs", 4, ligne1.getPosition().getAbscisse(), EPSILON);
 		assertEquals("defaultCoordOrd", -7, ligne1.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("defaultLargeur", 100.0, ligne1.getLargeur(), EPSILON);
-		assertEquals("defaultHauteur", 50.0, ligne1.getHauteur(), EPSILON);
+		assertEquals("defaultHauteur", 100.0, ligne1.getHauteur(), EPSILON);
 	}
 	@Test
 	public void fullConstructor(){

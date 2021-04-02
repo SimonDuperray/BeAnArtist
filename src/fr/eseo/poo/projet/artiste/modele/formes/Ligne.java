@@ -8,6 +8,9 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 
 public class Ligne extends Forme {
+
+	public static final double EPSILON = 0.2;
+
 	// constructeurs
 	public Ligne() {
 		super();
@@ -79,6 +82,18 @@ public class Ligne extends Forme {
 	@Override
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
+	}
+	@Override
+	public boolean contient(Coordonnees position) {
+		double distanceC1 = Math.abs(this.getC1().distanceVers(position));
+		double distanceC2 = Math.abs(this.getC2().distanceVers(position));
+		double distanceC1C2 = Math.abs(this.getC1().distanceVers(this.getC2()));
+		double distance = distanceC1 + distanceC2 - distanceC1C2;
+		if(distance<=EPSILON){
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }
