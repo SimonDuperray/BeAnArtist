@@ -124,4 +124,19 @@ public class LigneTest {
 		);
 	}
 
+	// contient
+	@Test
+	public void contientTrue(){
+		Coordonnees testCoord = new Coordonnees(2.0, 2.0);
+		Ligne testLigne = new Ligne(testCoord, 1.0, 1.0);
+		assertEquals("contientTrue", true, testLigne.contient(testCoord));
+	}
+	@Test
+	public void contientFalse(){
+		Coordonnees testCoord = new Coordonnees(2.0, 2.0);
+		Coordonnees compare = new Coordonnees(75.0, 75.0);
+		Ligne testLigne = new Ligne(testCoord, 1.0, 1.0);
+		assertEquals("contientFalse", false, testLigne.contient(compare));
+	}
+
 }

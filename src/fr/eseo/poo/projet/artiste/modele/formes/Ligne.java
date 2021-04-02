@@ -83,7 +83,6 @@ public class Ligne extends Forme {
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
 	}
-	@Override
 	public boolean contient(Coordonnees position) {
 		double distanceC1 = Math.abs(this.getC1().distanceVers(position));
 		double distanceC2 = Math.abs(this.getC2().distanceVers(position));

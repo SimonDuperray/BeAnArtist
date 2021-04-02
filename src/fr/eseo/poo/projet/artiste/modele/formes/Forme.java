@@ -2,36 +2,44 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
+import java.awt.Color;
+
 public abstract class Forme {
 	// constantes de classe
 	public static final double LARGEUR_PAR_DEFAUT = 100.0;
 	public static final double HAUTEUR_PAR_DEFAUT = 100.0;
 	public static final double EPSILON = 0.2;
+	public static final Color COULEUR_PAR_DEFAUT = javax.swing.UIManager.getColor("Panel.foreground");
 
 	// attributs
 	private Coordonnees position;
 	private double largeur, hauteur;
+	Color couleur;
 	
 	// constructeurs
 	public Forme() {
 		this.position = new Coordonnees();
 		this.largeur=LARGEUR_PAR_DEFAUT;
 		this.hauteur=HAUTEUR_PAR_DEFAUT;
+		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	public Forme(double largeur, double hauteur) {
 		this.position = new Coordonnees();
 		this.largeur=largeur;
 		this.hauteur=hauteur;
+		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	public Forme(Coordonnees position) {
 		this.position = position;
 		this.largeur=LARGEUR_PAR_DEFAUT;
 		this.hauteur=HAUTEUR_PAR_DEFAUT;
+		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	public Forme(Coordonnees position, double largeur, double hauteur) {
 		this.position = position;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
+		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	
 	// bonus functions
@@ -51,6 +59,9 @@ public abstract class Forme {
 	}
 	public double getHauteur() {
 		return this.hauteur;
+	}
+	public Color getCouleur(){
+		return this.couleur;
 	}
 	
 	public double getCadreMinX() {
@@ -92,6 +103,9 @@ public abstract class Forme {
 	}
 	public void setHauteur(double hauteur) {
 		this.hauteur = hauteur;
+	}
+	public void setCouleur(Color couleur){
+		this.couleur=couleur;
 	}
 	
 	// methodes

@@ -82,4 +82,30 @@ public class EllipseTest {
 		assertEquals("aire", 76.45067, testEllipse.perimetre(), EPSILON);
 	}
 
+	// contient
+	@Test
+	public void contientTrue(){
+		assertEquals(
+			"contientTrue",
+			true,
+			defaultEllipse.contient(new Coordonnees(50.0, 50.0))
+		);
+	}
+	@Test
+	public void contientTrue2(){
+		assertEquals(
+			"contientIn",
+			true,
+			defaultEllipse.contient(new Coordonnees(0.0, 50.0))
+		);
+	}
+	@Test
+	public void contientFalse(){
+		assertEquals(
+			"contientTrue",
+			false,
+			defaultEllipse.contient(new Coordonnees(0.0, 0.0))
+		);
+	}
+
 }
