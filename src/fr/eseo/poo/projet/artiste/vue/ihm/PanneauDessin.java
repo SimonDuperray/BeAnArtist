@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
+import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
 
@@ -14,6 +17,7 @@ public class PanneauDessin extends javax.swing.JPanel{
 
    private static final long serialVersionUID = 1L;
    // constances de classe
+   private Outil outilCourant;
    public static final int LARGEUR_PAR_DEFAUT = 300;
    public static final int HAUTEUR_PAR_DEFAUT = 300;
    public static final java.awt.Color COULEUR_FOND_PAR_DEFAUT = new Color(255, 255, 255);
@@ -46,6 +50,14 @@ public class PanneauDessin extends javax.swing.JPanel{
    public List<VueForme> getVueFormes(){
       return this.vueFormes;
    }
+   public Outil getOutilCourant(){
+      return this.outilCourant;
+   }
+
+   // setters
+   private void setOutilCourant(Outil outil){
+      this.outilCourant = outil;
+   }
 
    // methodes
    public void ajouterVueForme(VueForme vueForme){
@@ -58,5 +70,29 @@ public class PanneauDessin extends javax.swing.JPanel{
          vueFormes.get(i).affiche(g2d);
       }
       g2d.dispose(); // nettoie memoire
+   }
+   public void associerOutil(Outil outil){
+      if(outil != null){
+         if(this.getOutilCourant()==null){
+            this.setOutilCourant(outil);
+            this.getOutilCourant().setPanneauDessin(this);
+            this.addMouseListener(outil);
+            // this.addMouseMotionListener(outil);
+         } else {
+            this.dissocierOutil();
+            this.setOutilCourant(outil);
+            this.getOutilCourant().setPanneauDessin(this);
+            this.addMouseListener(outil);
+            // this.addMouseMotionListener(outil);
+         }
+      }
+   }
+   private void dissocierOutil(){
+      if(this.getOutilCourant() != null){
+         this.removeMouseListener(this.getOutilCourant());
+         // this.removeMouseMotionListener(his.getOutilCourant());
+         this.getOutilCourant().setPanneauDessin(null);
+         this.setOutilCourant(null);
+      }
    }
 }
