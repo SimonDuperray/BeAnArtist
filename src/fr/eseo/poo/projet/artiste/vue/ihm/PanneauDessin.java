@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
+import fr.eseo.poo.projet.artiste.controleur.outils.OutilSelectionner;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
 
