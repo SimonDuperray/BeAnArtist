@@ -49,7 +49,7 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
 
    }
    public void mousePressed(MouseEvent event){
-      this.setDebut(
+      setDebut(
          new Coordonnees(
             (double)event.getX(),
             (double)event.getY()
@@ -57,7 +57,7 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
       );
    }
    public void mouseReleased(MouseEvent event){
-      this.setFin(
+      setFin(
          new Coordonnees(
             (double)event.getX(),
             (double)event.getY()

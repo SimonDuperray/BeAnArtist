@@ -14,7 +14,7 @@ public abstract class Forme {
 	// attributs
 	private Coordonnees position;
 	private double largeur, hauteur;
-	Color couleur;
+	private Color couleur;
 	
 	// constructeurs
 	public Forme() {
@@ -40,6 +40,12 @@ public abstract class Forme {
 		this.largeur = largeur;
 		this.hauteur = hauteur;
 		this.couleur=COULEUR_PAR_DEFAUT;
+	}
+	public Forme(Coordonnees position, double largeur, double hauteur, Color couleur){
+		this.position = position;
+		this.largeur = largeur;
+		this.hauteur = hauteur;
+		this.couleur = couleur;
 	}
 	
 	// bonus functions

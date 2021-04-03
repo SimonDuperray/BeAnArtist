@@ -17,7 +17,7 @@ public abstract class OutilForme extends Outil {
       );
       if(event.getClickCount()==2){
          this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
-         // this.getPanneauDessin().repaint();
+         this.getPanneauDessin().repaint();
       }
    }
    public void mouseReleased(MouseEvent event){
@@ -29,7 +29,7 @@ public abstract class OutilForme extends Outil {
       );
       if(this.getDebut().getAbscisse() != this.getFin().getAbscisse() || this.getDebut().getOrdonnee() != this.getFin().getOrdonnee()){
          this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
-         // this.getPanneauDessin().repaint();
+         this.getPanneauDessin().repaint();
       }
    }
    protected abstract VueForme creerVueForme();

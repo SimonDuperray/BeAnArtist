@@ -6,6 +6,7 @@ import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import java.text.DecimalFormat;
 // external imports
 import java.util.Locale;
+import java.awt.Color;
 
 public class Ligne extends Forme {
 
@@ -23,6 +24,9 @@ public class Ligne extends Forme {
 	}
 	public Ligne(Coordonnees coordonnees, double largeur, double hauteur) {
 		super(coordonnees, largeur, hauteur);
+	}
+	public Ligne(Coordonnees coordonnees, double largeur, double hauteur, Color couleur){
+		super(coordonnees, largeur, hauteur, couleur);
 	}
 	
 	// getters
