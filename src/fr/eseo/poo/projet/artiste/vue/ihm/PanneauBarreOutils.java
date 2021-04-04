@@ -1,12 +1,14 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JToggleButton;
 import javax.swing.ButtonGroup;
 
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirCouleur;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirForme;
+import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirRemplissage;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionSelectionner;
 
@@ -82,5 +84,12 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       );
       boutonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
       this.add(boutonCouleur);
+
+      // remplissage
+      JCheckBox boutonFond = new JCheckBox(
+         new ActionChoisirRemplissage(this.panneauDessin)
+      );
+      boutonFond.setName(ActionChoisirRemplissage.NOM_ACTION);
+      this.add(boutonFond);
    }
 }

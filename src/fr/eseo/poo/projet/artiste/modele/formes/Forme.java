@@ -49,14 +49,6 @@ public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloria
 		this.couleur = couleur;
 	}
 	
-	// bonus functions
-	private double getFX() {
-		return this.getPosition().getAbscisse();
-	}
-	private double getFY() {
-		return this.getPosition().getOrdonnee();
-	}
-	
 	// getters
 	public Coordonnees getPosition() {
 		return this.position;
@@ -69,6 +61,14 @@ public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloria
 	}
 	public Color getCouleur(){
 		return this.couleur;
+	}
+
+	// bonus functions
+	private double getFX() {
+		return this.getPosition().getAbscisse();
+	}
+	private double getFY() {
+		return this.getPosition().getOrdonnee();
 	}
 	
 	public double getCadreMinX() {
