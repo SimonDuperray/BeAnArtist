@@ -43,6 +43,7 @@ public class OutilEllipse extends OutilForme {
             new Coordonnees(x1, y1)
          );
       }
+      ellipse.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueEllipse(ellipse);
    }
 }

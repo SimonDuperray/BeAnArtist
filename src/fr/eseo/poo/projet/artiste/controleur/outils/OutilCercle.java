@@ -59,6 +59,7 @@ public class OutilCercle extends OutilForme {
             )
          );
       }
+      cercle.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueCercle(cercle);
    }
    public void mouseClicked(MouseEvent event){
