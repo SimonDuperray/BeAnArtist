@@ -14,21 +14,21 @@ public class PanneauBarreOutilsTest {
 
 	public void testConstructeurSelection(){
 		javax.swing.JFrame frame = new javax.swing.JFrame();
-		frame.setTitle("Etre un Artiste des OutilLignes");
+		frame.setTitle("Etre un Artiste - Selection");
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 		OutilSelectionner outilSelectionner = new OutilSelectionner();
 		PanneauDessin panneau = new PanneauDessin(900, 400);
-		PanneauBarreOutils panneauBarreOutils = new PanneauBarreOutils(panneau);
 		panneau.associerOutil(outilSelectionner);
 		frame.add(panneau, java.awt.BorderLayout.CENTER);
+		PanneauBarreOutils panneauBarreOutils = new PanneauBarreOutils(panneau);
 		frame.add(panneauBarreOutils, java.awt.BorderLayout.EAST);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.pack();
-		panneau.repaint();
+		frame.repaint();
 	}
 
-	public static void main(String[] args){
+	public static void main(String [] args){
 		javax.swing.SwingUtilities.invokeLater(new Runnable(){
 			@Override
 			public void run(){

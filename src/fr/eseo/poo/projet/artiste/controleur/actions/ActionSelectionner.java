@@ -6,7 +6,9 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 import java.awt.event.ActionEvent;
 
 public class ActionSelectionner extends javax.swing.AbstractAction {
-   
+
+   private static final long serialVersionUID = 1L;
+
    // constantes de classe
    public static final String NOM_ACTION = "Selectionner";
    

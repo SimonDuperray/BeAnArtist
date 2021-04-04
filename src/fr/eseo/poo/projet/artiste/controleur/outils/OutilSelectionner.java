@@ -8,28 +8,22 @@ import javax.swing.JOptionPane;
 
 public class OutilSelectionner extends fr.eseo.poo.projet.artiste.controleur.outils.Outil {
    // attributs
-   private Forme forme;
+   private Forme formeSelectionnee;
 
    // constructeur
    public OutilSelectionner(){}
 
    // methodes
    public void mouseClicked(MouseEvent event){
-      for(int i=1; i<this.getPanneauDessin().getVueFormes().size(); i++){
-         if(this.getPanneauDessin().getVueFormes().get(i).getForme().contient(
-            new Coordonnees(
-               event.getX(), 
-               event.getY()
-            ))
-         ) {
-            this.forme = this.getPanneauDessin().getVueFormes().get(i).getForme();
+      for(int cpt=1; cpt<this.getPanneauDessin().getVueFormes().size(); cpt++){
+         if(this.getPanneauDessin().getVueFormes().get(cpt).getForme().contient(
+            new Coordonnees(event.getX(), event.getY())
+         )) {
+            this.formeSelectionnee = this.getPanneauDessin().getVueFormes().get(cpt).getForme();
          }
       }
-      JOptionPane.showMessageDialog(
-         this.getPanneauDessin(),
-         this.forme.toString(),
-         ActionSelectionner.NOM_ACTION,
-         JOptionPane.INFORMATION_MESSAGE
+      JOptionPane.showConfirmDialog(this.getPanneauDessin(), this.formeSelectionnee,
+         ActionSelectionner.NOM_ACTION, JOptionPane.INFORMATION_MESSAGE
       );
    }
 }
