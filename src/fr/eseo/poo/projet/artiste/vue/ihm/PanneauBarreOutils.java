@@ -1,9 +1,11 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JToggleButton;
 import javax.swing.ButtonGroup;
 
+import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirCouleur;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirForme;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionSelectionner;
@@ -73,5 +75,12 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       selectionnerBtn.setName(ActionSelectionner.NOM_ACTION);
       groupBtn.add(selectionnerBtn);
       this.add(selectionnerBtn);
+
+      // choisir couleur
+      JButton boutonCouleur = new JButton(
+         new ActionChoisirCouleur(this.panneauDessin)
+      );
+      boutonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
+      this.add(boutonCouleur);
    }
 }

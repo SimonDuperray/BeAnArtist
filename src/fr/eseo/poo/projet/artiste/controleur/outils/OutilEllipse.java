@@ -15,6 +15,7 @@ public class OutilEllipse extends OutilForme {
       Ellipse ellipse = new Ellipse();
       ellipse.setLargeur(Math.abs(x2 - x1));
       ellipse.setHauteur(Math.abs(y2 - y1));
+      ellipse.setCouleur(this.getPanneauDessin().getCouleurCourante());
       // pattern shapes
       // from TL to BR
       if(x1<x2 && y1<y2){

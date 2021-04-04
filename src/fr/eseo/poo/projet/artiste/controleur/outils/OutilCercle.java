@@ -20,6 +20,7 @@ public class OutilCercle extends OutilForme {
             Math.abs(y2-y1)
          )
       );
+      cercle.setCouleur(this.getPanneauDessin().getCouleurCourante());
       // pattern shapes
       // from TL to BR
       if(x1<x2 && y1<y2){
