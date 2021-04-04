@@ -50,6 +50,14 @@ public class CercleTest {
 		assertEquals("emptyConstructorHaut", 20.0, testCercle.getHauteur(), EPSILON);
 	}
 
+	// getters
+	@Test
+	public void testRempli(){
+		Cercle testCercle = new Cercle();
+		testCercle.setRempli(true);
+		assertEquals("estRempli", true, testCercle.getRempli());
+	}
+
 	// setters
 	@Test
 	public void setHauteur(){

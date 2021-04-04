@@ -30,7 +30,7 @@ public class Cercle extends Ellipse {
    }
 
    // getters
-   public boolean getRempli(){
+   public boolean estRempli(){
       return this.estRempli;
    }
 
@@ -66,7 +66,7 @@ public class Cercle extends Ellipse {
 			couleur="Bad Language";
       }
       String rempli="";
-		if(this.getRempli()){
+		if(this.estRempli()){
 			rempli="-Rempli";
 		}
       return "[Cercle"+rempli+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "

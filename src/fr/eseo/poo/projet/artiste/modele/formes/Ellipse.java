@@ -34,7 +34,7 @@ public class Ellipse extends Forme implements fr.eseo.poo.projet.artiste.modele.
 	}
 	
 	// getters
-	public boolean getRempli(){
+	public boolean estRempli(){
 		return this.estRempli;
 	}
 
@@ -65,7 +65,7 @@ public class Ellipse extends Forme implements fr.eseo.poo.projet.artiste.modele.
 			couleur="Bad Language";
 		}
 		String rempli="";
-		if(this.getRempli()){
+		if(this.estRempli()){
 			rempli="-Rempli";
 		}
 		return "[Ellipse"+rempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "

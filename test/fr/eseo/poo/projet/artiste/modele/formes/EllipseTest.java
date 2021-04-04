@@ -51,6 +51,14 @@ public class EllipseTest {
 		assertEquals("emptyConstructorHaut", 45.0, testEllipse.getHauteur(), EPSILON);
 	}
 
+	// getters
+	@Test
+	public void testRempli(){
+		Ellipse testEllipse = new Ellipse();
+		testEllipse.setRempli(true);
+		assertEquals("estRempli", true, testEllipse.getRempli());
+	}
+
 	// setters
 	@Test
 	public void setHauteur(){
