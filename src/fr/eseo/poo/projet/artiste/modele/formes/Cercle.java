@@ -12,17 +12,26 @@ public class Cercle extends Ellipse {
    // constructeurs
    public Cercle(){
       super();
+      this.estRempli=false;
    }
    public Cercle(double taille) throws IllegalArgumentException{
       super(taille, taille);
       isNegative();
+      this.estRempli=false;
    }
    public Cercle(Coordonnees coordonnees){
       super(coordonnees);
+      this.estRempli=false;
    }
    public Cercle(Coordonnees coordonnees, double taille) throws IllegalArgumentException{
       super(coordonnees, taille, taille);
       isNegative();
+      this.estRempli=false;
+   }
+
+   // getters
+   public boolean getRempli(){
+      return this.estRempli;
    }
 
    // setters
@@ -35,6 +44,9 @@ public class Cercle extends Ellipse {
       super.setLargeur(largeur);
       super.setHauteur(largeur);
       isNegative();
+   }
+   public void setRempli(boolean rempli){
+      this.estRempli=rempli;
    }
 
    // methodes
@@ -52,8 +64,12 @@ public class Cercle extends Ellipse {
 			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
 			couleur="Bad Language";
+      }
+      String rempli="";
+		if(this.getRempli()){
+			rempli="-Rempli";
 		}
-      return "[Cercle] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+      return "[Cercle"+rempli+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
          +decimalFormat.format(bufferCoord.getOrdonnee())
          +") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
          +" périmètre : "+decimalFormat.format(this.perimetre())

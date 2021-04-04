@@ -7,17 +7,22 @@ import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import java.util.Locale;
 import java.text.DecimalFormat;
 
-public class Ellipse extends Forme {
+public class Ellipse extends Forme implements fr.eseo.poo.projet.artiste.modele.Remplissable {
 
 	public static final double EPSILON = 0.2;
+
+	// attribut
+	public boolean estRempli;
 
 	// constructeurs
 	public Ellipse(){
 		super();
+		this.estRempli = false;
 	}
 	public Ellipse(double largeur, double hauteur){
 		super(largeur, hauteur);
 		isNegative();
+		this.estRempli = false;
 	}
 	public Ellipse(Coordonnees coordonnees){
 		super(coordonnees);
@@ -25,6 +30,12 @@ public class Ellipse extends Forme {
 	public Ellipse(Coordonnees coordonnees, double largeur, double hauteur){
 		super(coordonnees, largeur, hauteur);
 		isNegative();
+		this.estRempli = false;
+	}
+	
+	// getters
+	public boolean getRempli(){
+		return this.estRempli;
 	}
 
 	// setters
@@ -35,6 +46,9 @@ public class Ellipse extends Forme {
 	public void setLargeur(double largeur){
 		super.setLargeur(largeur);
 		isNegative();
+	}
+	public void setRempli(boolean rempli){
+		this.estRempli = rempli;
 	}
 
 	// methodes
@@ -50,19 +64,20 @@ public class Ellipse extends Forme {
 		} else {
 			couleur="Bad Language";
 		}
-		return "[Ellipse] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+		String rempli="";
+		if(this.getRempli()){
+			rempli="-Rempli";
+		}
+		return "[Ellipse"+rempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
 			+decimalFormat.format(bufferCoord.getOrdonnee())
 			+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
 			+" périmètre : "+decimalFormat.format(this.perimetre())
 			+" aire : "+decimalFormat.format(this.aire())
 			+" couleur = "+couleur;
 	}
-	@Override
 	public double aire() {
 		return Math.PI*(super.getLargeur()/2)*(super.getHauteur()/2);
 	}
-
-	@Override
 	public double perimetre() {
 		double a = super.getLargeur()/2;
 		double b = super.getHauteur()/2;
@@ -86,5 +101,4 @@ public class Ellipse extends Forme {
 			+ this.getHauteur() / 2), 2) / (Math.pow(this.getHauteur() / 2, 2))) <= 1
 		);
 	}
-
 }
