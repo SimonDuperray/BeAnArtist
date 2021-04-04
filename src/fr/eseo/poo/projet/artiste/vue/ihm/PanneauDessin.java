@@ -19,6 +19,7 @@ public class PanneauDessin extends javax.swing.JPanel{
    private static final long serialVersionUID = 1L;
    // constances de classe
    private Outil outilCourant;
+   private boolean modeRemplissage;
    public static final int LARGEUR_PAR_DEFAUT = 300;
    public static final int HAUTEUR_PAR_DEFAUT = 300;
    public static final java.awt.Color COULEUR_FOND_PAR_DEFAUT = new Color(0, 0, 255);
@@ -65,6 +66,9 @@ public class PanneauDessin extends javax.swing.JPanel{
    public Color getCouleurCourante(){
       return this.couleurCourante;
    }
+   public boolean getModeRemplissage(){
+      return this.modeRemplissage;
+   }
 
    // setters
    private void setOutilCourant(Outil outil){
@@ -72,6 +76,9 @@ public class PanneauDessin extends javax.swing.JPanel{
    }
    public void setCouleurCourante(Color couleurCourante){
       this.couleurCourante = couleurCourante;
+   }
+   public void setModeRemplissage(boolean mode){
+      this.modeRemplissage = mode;
    }
 
    // methodes

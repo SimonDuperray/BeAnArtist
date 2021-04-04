@@ -36,5 +36,4 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
          this.panneauDessin.associerOutil(new OutilCercle());
       }
    }
-
 }
