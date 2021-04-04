@@ -11,7 +11,7 @@ public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloria
 	public static final double HAUTEUR_PAR_DEFAUT = 100.0;
 	public static final double EPSILON = 0.2;
 	public static final Color COULEUR_PAR_DEFAUT = UIManager.getColor("Panel.foreground");
-
+	public static final Coordonnees POSITION_PAR_DEFAUT = new Coordonnees();
 	// attributs
 	private Coordonnees position;
 	private double largeur, hauteur;

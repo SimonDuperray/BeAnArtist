@@ -13,7 +13,7 @@ import fr.eseo.poo.projet.artiste.modele.formes.LigneTest;
 	CoordonneesTest.class, 
 	LigneTest.class, 
 	EllipseTest.class,
-	CercleTest.class
+	CercleTest.class,
 })
 public class ModeleTests {
 
