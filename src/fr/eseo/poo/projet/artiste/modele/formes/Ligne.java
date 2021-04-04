@@ -62,20 +62,24 @@ public class Ligne extends Forme {
 		return angle;
 	}
 	public String toString() {
-		Locale locale = new Locale("fr");
+		String couleur="";
+		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
-		if(locale.getLanguage()=="fr") {
-			String angle = this.radToDeg(decimalFormat);
-			return "[Ligne] c1 : (" +decimalFormat.format(this.getC1().getAbscisse())
-				+ " , " +decimalFormat.format(this.getC1().getOrdonnee())
-				+ ") c2 : (" +decimalFormat.format(this.getC2().getAbscisse())
-				+ " , " +decimalFormat.format(this.getC2().getOrdonnee())
-				+ ") longueur : " +decimalFormat.format(this.perimetre())
-				+ " angle : " +angle +"°";
+		if(locale.getLanguage()=="fr"){
+			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+		} else if(locale.getLanguage()=="en"){
+			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
-			return "Bad Language";
+			couleur="Bad Language";
 		}
-		
+		String angle = this.radToDeg(decimalFormat);
+		return "[Ligne] c1 : (" +decimalFormat.format(this.getC1().getAbscisse())
+			+ " , " +decimalFormat.format(this.getC1().getOrdonnee())
+			+ ") c2 : (" +decimalFormat.format(this.getC2().getAbscisse())
+			+ " , " +decimalFormat.format(this.getC2().getOrdonnee())
+			+ ") longueur : " +decimalFormat.format(this.perimetre())
+			+ " angle : " +angle +"°"
+			+ " couleur = "+couleur;		
 	}
 		
 	@Override

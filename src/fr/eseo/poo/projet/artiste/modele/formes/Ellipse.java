@@ -39,18 +39,23 @@ public class Ellipse extends Forme {
 
 	// methodes
 	public String toString(){
-		Locale locale = new Locale("fr");
+		String couleur = "";
+		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
+		Coordonnees bufferCoord = super.getPosition();
 		if(locale.getLanguage()=="fr"){
-			Coordonnees bufferCoord = super.getPosition();
-			return "[Ellipse] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
-				+decimalFormat.format(bufferCoord.getOrdonnee())
-				+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
-				+" périmètre : "+decimalFormat.format(this.perimetre())
-				+" aire : "+decimalFormat.format(this.aire());
+			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+		} else if(locale.getLanguage()=="en"){
+			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
-			return "Bad language";
+			couleur="Bad Language";
 		}
+		return "[Ellipse] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+			+decimalFormat.format(bufferCoord.getOrdonnee())
+			+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
+			+" périmètre : "+decimalFormat.format(this.perimetre())
+			+" aire : "+decimalFormat.format(this.aire())
+			+" couleur = "+couleur;
 	}
 	@Override
 	public double aire() {

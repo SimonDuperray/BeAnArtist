@@ -17,7 +17,6 @@ public class PanneauDessinTest {
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.setTitle("Etre un Artiste");
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
-		// java.awt.Color color = new Color(0, 0, 255);
 		PanneauDessin panneau = new PanneauDessin(900, 400);
 		frame.setContentPane(panneau);
 		frame.pack();
@@ -43,5 +42,4 @@ public class PanneauDessinTest {
 			}
 		});
 	}
-
 }

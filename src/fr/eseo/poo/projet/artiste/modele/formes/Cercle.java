@@ -42,18 +42,23 @@ public class Cercle extends Ellipse {
       return 2*Math.PI*super.getLargeur()/2;
    }
    public String toString(){
-		Locale locale = new Locale("fr");
+      String couleur="";
+		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
-		if(locale.getLanguage()=="fr"){
-			Coordonnees bufferCoord = super.getPosition();
-			return "[Cercle] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
-				+decimalFormat.format(bufferCoord.getOrdonnee())
-				+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
-				+" périmètre : "+decimalFormat.format(this.perimetre())
-				+" aire : "+decimalFormat.format(this.aire());
+      Coordonnees bufferCoord = super.getPosition();
+      if(locale.getLanguage()=="fr"){
+			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+		} else if(locale.getLanguage()=="en"){
+			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
-			return "Bad language";
+			couleur="Bad Language";
 		}
+      return "[Cercle] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+         +decimalFormat.format(bufferCoord.getOrdonnee())
+         +") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
+         +" périmètre : "+decimalFormat.format(this.perimetre())
+         +" aire : "+decimalFormat.format(this.aire())
+         +" couleur = "+couleur;
 	}
    public void isNegative(){
       if(super.getLargeur()<0){

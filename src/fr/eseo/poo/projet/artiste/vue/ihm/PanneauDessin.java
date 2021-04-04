@@ -22,7 +22,10 @@ public class PanneauDessin extends javax.swing.JPanel{
    public static final int LARGEUR_PAR_DEFAUT = 300;
    public static final int HAUTEUR_PAR_DEFAUT = 300;
    public static final java.awt.Color COULEUR_FOND_PAR_DEFAUT = new Color(0, 0, 255);
+   
+   // attributs
    private final List<VueForme> vueFormes;
+   private Color couleurCourante;
 
    // constructeurs
    public PanneauDessin(){
@@ -31,20 +34,25 @@ public class PanneauDessin extends javax.swing.JPanel{
          new Dimension(
             LARGEUR_PAR_DEFAUT,
             HAUTEUR_PAR_DEFAUT
-         ));
+         )
+      );
       super.setBackground(COULEUR_FOND_PAR_DEFAUT);
       this.vueFormes = new ArrayList<VueForme>();
+      this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
    }
+   
    public PanneauDessin(int largeur, int hauteur, java.awt.Color fond){
       super();
       super.setPreferredSize(new Dimension(largeur, hauteur));
       super.setBackground(fond);
       this.vueFormes = new ArrayList<VueForme>();
+      this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
    }
    public PanneauDessin(int largeur, int hauteur){
       super();
       super.setPreferredSize(new Dimension(largeur, hauteur));
       this.vueFormes = new ArrayList<VueForme>();
+      this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
    }
 
    // getters
@@ -54,10 +62,16 @@ public class PanneauDessin extends javax.swing.JPanel{
    public Outil getOutilCourant(){
       return this.outilCourant;
    }
+   public Color getCouleurCourante(){
+      return this.couleurCourante;
+   }
 
    // setters
    private void setOutilCourant(Outil outil){
       this.outilCourant = outil;
+   }
+   public void setCouleurCourante(Color couleurCourante){
+      this.couleurCourante = couleurCourante;
    }
 
    // methodes

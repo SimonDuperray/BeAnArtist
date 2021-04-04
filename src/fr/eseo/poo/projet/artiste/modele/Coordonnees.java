@@ -56,7 +56,7 @@ public class Coordonnees {
         		coord.getAbscisse() - this.getAbscisse())));
    	}
 	public String toString(){
-		DecimalFormat format = new DecimalFormat("0.0#"); // "#.0#"
+		DecimalFormat format = new DecimalFormat("0.0#");
 		return "("+format.format(this.getAbscisse())+" , "+format.format(this.getOrdonnee())+")";
 	}
 	

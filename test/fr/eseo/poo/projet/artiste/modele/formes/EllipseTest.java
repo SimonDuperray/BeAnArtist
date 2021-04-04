@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.awt.Color;
+
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class EllipseTest {
@@ -64,11 +66,17 @@ public class EllipseTest {
 		assertEquals("setHauteur", 100.0, testEllipse.getHauteur(), EPSILON);
 		assertEquals("testGetLargeur", 40.0, testEllipse.getLargeur(), EPSILON);
 	}
+	@Test
+	public void setCouleurT(){
+		Ellipse ellipse = new Ellipse();
+		ellipse.setCouleur(Color.RED);
+		assertEquals("getCouleur", Color.RED, ellipse.getCouleur());
+	}
 
 	// methodes
 	@Test
 	public void toStringt(){
-		String result = "[Ellipse] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98";
+		String result = "[Ellipse] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98 couleur = R51,V51,B51";
 		assertEquals("toString", result, defaultEllipse.toString());
 	}
 	@Test

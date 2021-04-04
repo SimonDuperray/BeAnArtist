@@ -4,9 +4,20 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
+import fr.eseo.poo.projet.artiste.modele.formes.Ellipse;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
+
 public class VueEllipseTest {
+
+	VueEllipse vueEllipse = new VueEllipse(
+		new Ellipse(
+			new Coordonnees(5, 5), 
+			100,
+			100
+		)
+	);
 
 	public VueEllipseTest() {
 		testConstructeurEllipse();
@@ -19,8 +30,11 @@ public class VueEllipseTest {
 		PanneauDessin panneau = new PanneauDessin(900, 400);
 		frame.setContentPane(panneau);
 		frame.setLocationRelativeTo(null);
+		vueEllipse.getForme().setCouleur(java.awt.Color.BLUE);
+		panneau.ajouterVueForme(vueEllipse);
 		frame.setVisible(true);
 		frame.pack();
+		frame.repaint();
 	}
 
 	public static void main(String[] args){

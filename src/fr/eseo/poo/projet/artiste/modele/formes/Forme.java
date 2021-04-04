@@ -3,13 +3,14 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 import java.awt.Color;
+import javax.swing.UIManager;
 
-public abstract class Forme {
+public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloriable {
 	// constantes de classe
 	public static final double LARGEUR_PAR_DEFAUT = 100.0;
 	public static final double HAUTEUR_PAR_DEFAUT = 100.0;
 	public static final double EPSILON = 0.2;
-	public static final Color COULEUR_PAR_DEFAUT = javax.swing.UIManager.getColor("Panel.foreground");
+	public static final Color COULEUR_PAR_DEFAUT = UIManager.getColor("Panel.foreground");
 
 	// attributs
 	private Coordonnees position;

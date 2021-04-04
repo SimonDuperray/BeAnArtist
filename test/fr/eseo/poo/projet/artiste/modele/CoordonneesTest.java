@@ -4,11 +4,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class CoordonneesTest {
-	final double EPSILON = 0.0100000000;
+	final double EPSILON = 0.2;
 	@Test
 	public void ConstructeurVide() {
 		Coordonnees coord = new Coordonnees();
-		assertEquals("EmptyConstructor", "(,0 , ,0)", coord.toString());
+		assertEquals("EmptyConstructor", "(0,0 , 0,0)", coord.toString());
 	}
 	@Test
 	public void Constructeur() {
@@ -44,7 +44,7 @@ public class CoordonneesTest {
 	public void DeplacerDe() {
 		Coordonnees coord = new Coordonnees();
 		coord.deplacerDe(3.4, -0.3);
-		assertEquals("deplacerDe", "(3,4 , -,3)", coord.toString());
+		assertEquals("deplacerDe", "(3,4 , -0,3)", coord.toString());
 		Coordonnees coord1 = new Coordonnees(2.0, 1.5);
 		coord1.deplacerDe(3.4, -0.3);
 		assertEquals("deplacerDe", "(5,4 , 1,2)", coord1.toString());
@@ -54,7 +54,7 @@ public class CoordonneesTest {
 	public void DeplacerVers() {
 		Coordonnees coord = new Coordonnees();
 		coord.deplacerVers(2.43, -0.21);
-		assertEquals("deplacerDe", "(2,43 , -,21)", coord.toString());
+		assertEquals("deplacerDe", "(2,43 , -0,21)", coord.toString());
 		Coordonnees coord1 = new Coordonnees(34.5, -10.4);
 		coord1.deplacerVers(4.67, -3.21);
 		assertEquals("deplacerDe", "(4,67 , -3,21)", coord1.toString());

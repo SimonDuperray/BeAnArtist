@@ -2,6 +2,8 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import org.junit.Test;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
@@ -63,6 +65,12 @@ public class LigneTest {
 		assertEquals("SetC2Abs", coord.getAbscisse(), defaultLigne.getC2().getAbscisse(), EPSILON);
 		assertEquals("SetC2Ord", coord.getOrdonnee(), defaultLigne.getC2().getOrdonnee(), EPSILON);
 	}
+	@Test
+	public void setCouleurT(){
+		Ligne ligne = new Ligne();
+		ligne.setCouleur(Color.RED);
+		assertEquals("getCouleur", Color.RED, ligne.getCouleur());
+	}
 
 	// proprietes
 	@Test
@@ -119,7 +127,7 @@ public class LigneTest {
 		defaultLigne.setC2(defaultCoord);
 		assertEquals(
 			"toString",
-			"[Ligne] c1 : (3,0 , 3,0) c2 : (0,0 , 0,0) longueur : 4,24 angle : 225,0°",
+			"[Ligne] c1 : (3,0 , 3,0) c2 : (0,0 , 0,0) longueur : 4,24 angle : 225,0° couleur = R51,V51,B51",
 			defaultLigne.toString()
 		);
 	}

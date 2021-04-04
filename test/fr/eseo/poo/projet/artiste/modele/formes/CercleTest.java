@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.awt.Color;
+
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class CercleTest {
@@ -59,6 +61,12 @@ public class CercleTest {
 		defaultCercle.setLargeur(200);
 		assertEquals("setHauteur", 200, defaultCercle.getLargeur(), EPSILON);
 	}
+	@Test
+	public void setCouleurT(){
+		Cercle cercle = new Cercle();
+		cercle.setCouleur(Color.RED);
+		assertEquals("getCouleur", Color.RED, cercle.getCouleur());
+	}
 
 	// methodes
 	@Test
@@ -83,7 +91,7 @@ public class CercleTest {
 	}
 	@Test
 	public void toStringt(){
-		String result = "[Cercle] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98";
+		String result = "[Cercle] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98 couleur = R51,V51,B51";
 		assertEquals("toString", result, defaultCercle.toString());
 	}
 
