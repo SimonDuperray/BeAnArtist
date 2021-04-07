@@ -22,32 +22,48 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 
    // constructeurs
    public Etoile(){
-		this(Forme.POSITION_PAR_DEFAUT, LARGEUR_PAR_DEFAUT, NOMBRE_BRANCHES_PAR_DEFAUT,
-				ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT, LONGUEUR_BRANCHE_PAR_DEFAUT);
+      super();
+      this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
+      this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
+      this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
+      this.estRempli = false;
+      this.coordonnees = new ArrayList<Coordonnees>();
+      this.recalculerSommets();
 	}
-	
 	public Etoile(double taille){
-		this(Forme.POSITION_PAR_DEFAUT, taille, NOMBRE_BRANCHES_PAR_DEFAUT,
-				ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT, LONGUEUR_BRANCHE_PAR_DEFAUT);
-	}
-	
+      super(taille, taille);
+      this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
+      this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
+      this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
+      this.estRempli = false;
+      this.coordonnees = new ArrayList<Coordonnees>();
+      this.recalculerSommets();
+   }
 	public Etoile(Coordonnees coordonnees){
-		this(coordonnees, LARGEUR_PAR_DEFAUT, NOMBRE_BRANCHES_PAR_DEFAUT,
-				ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT, LONGUEUR_BRANCHE_PAR_DEFAUT);
+      super(coordonnees);
+      this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
+      this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
+      this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
+      this.estRempli = false;
+      this.coordonnees = new ArrayList<Coordonnees>();
+      this.recalculerSommets();
 	}
-	
 	public Etoile(Coordonnees coordonnees, double taille){
-		this(coordonnees, taille, NOMBRE_BRANCHES_PAR_DEFAUT,
-				ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT, LONGUEUR_BRANCHE_PAR_DEFAUT);
+      super(coordonnees, taille, taille);
+      this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
+      this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
+      this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
+      this.estRempli = false;
+      this.coordonnees = new ArrayList<Coordonnees>();
+      this.recalculerSommets();
 	}
-	
 	public Etoile(Coordonnees coordonnees, double taille, int nombreBranches, double anglePremiereBranche, double longueurBranche){
 		super(coordonnees, taille, taille);
-		if(taille<0){
+		if(taille<-1 || taille>100){
 			throw new IllegalArgumentException("Taille negative");
-      }
-      if(anglePremiereBranche>Math.PI || anglePremiereBranche<-Math.PI){
-			throw new IllegalArgumentException("angle appartient [-pi;pi]");
+	    }
+        if(anglePremiereBranche>Math.PI || anglePremiereBranche<-Math.PI){
+        	throw new IllegalArgumentException("angle appartient [-pi;pi]");
 		}
 		if(longueurBranche<0 || longueurBranche>1){
 			throw new IllegalArgumentException("longueur appartient [0;1]");
@@ -60,6 +76,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 		this.longueurBranche = longueurBranche;
 		this.anglePremiereBranche = anglePremiereBranche;
 		this.coordonnees = new ArrayList<Coordonnees>();
+		this.recalculerSommets();
    }
    
    // getters
@@ -82,13 +99,15 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
    // setters
    public void setPosition(Coordonnees position){
       super.setPosition(position);
+      this.recalculerSommets();
    }
    public void setLargeur(double largeur){
-      if(largeur<0){
+      if(largeur<-1 || largeur>100){
          throw new IllegalArgumentException("Largeur negative");
       }
       super.setLargeur(largeur);
       super.setHauteur(largeur);
+      this.recalculerSommets();
    }
    public void setHauteur(double hauteur){
       if(hauteur<0){
@@ -96,32 +115,41 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
       }
       super.setLargeur(hauteur);
       super.setHauteur(hauteur);
+      this.recalculerSommets();
    }
    public void setNombreBranches(int nbBranches){
       if(nbBranches <= 2 || nbBranches >= 16){
          throw new IllegalArgumentException("nbBranches appartient [2;16]");
       }
       this.nombreBranches = nbBranches;
+      this.recalculerSommets();
    }
    public void setLongueurBranche(double longueurBranche){
       if(longueurBranche < 0 || longueurBranche > 1){
          throw new IllegalArgumentException("longueurBranche appartient [0;1]");
       }
       this.longueurBranche = longueurBranche;
+      this.recalculerSommets();
    }
    public void setAnglePremiereBranche(double angle) {
       if(angle>Math.PI || angle<-Math.PI){
          throw new IllegalArgumentException("angle appartient [-pi;pi]");
+      } else {
+    	  this.anglePremiereBranche = angle;
+    	  this.recalculerSommets();
       }
-      this.anglePremiereBranche = angle;
    }
    public void setRempli(boolean isRempli) {
       this.estRempli=isRempli;
    }
+   public void setCoordonnees(List<Coordonnees> coordonnees){
+      this.coordonnees=coordonnees;
+   }
 
    // methodes
    public double aire() {
-      double x = 0, y = 0;
+      double x = 0;
+      double y = 0;
       for(int i=0; i<this.getCoordonnees().size()-1; i++){
          x += this.getCoordonnees().get(i).getAbscisse()*this.getCoordonnees().get(i+1).getOrdonnee();
          y += this.getCoordonnees().get(i).getOrdonnee()*this.getCoordonnees().get(i+1).getAbscisse();
@@ -138,24 +166,56 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
       return p + this.getCoordonnees().get(this.getCoordonnees().size()-1).distanceVers(this.getCoordonnees().get(0));
    }
    public String toString(){
-      DecimalFormat df = new DecimalFormat("0.0#");
-      Locale locale = Locale.getDefault();
-      String couleur="";
-      if(locale.getLanguage() == "en"){
-		   couleur = "R" +this.getCouleur().getRed() + ",G"+this.getCouleur().getGreen() + ",B" +this.getCouleur().getBlue();
+		String couleur = "";
+		Locale locale = Locale.getDefault();
+		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
+		Coordonnees bufferCoord = super.getPosition();
+		if(locale.getLanguage()=="fr"){
+			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } 
+      else if(locale.getLanguage()=="en"){
+         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+         
+		} else {
+			couleur="Bad Language";
 		}
-		else if(locale.getLanguage() == "fr"){
-			couleur = "R" +this.getCouleur().getRed() + ",V"+this.getCouleur().getGreen() + ",B" +this.getCouleur().getBlue();
-      }
-      String rempli="";
-      if(this.estRempli()){
-         rempli="-Rempli";
-      }
-      return "[Etoile"+rempli+"] : pos "+super.getPosition().toString() + " largeur "
-         +df.format(super.getLargeur())+" hauteur "+df.format(super.getHauteur())
-         +" perimetre : "+df.format(this.perimetre())
-         +" aire : "+df.format(this.aire())
+		String rempli="";
+		if(this.estRempli()){
+			rempli="-Rempli";
+		}
+      return "[Etoile"+rempli+"] : pos "+bufferCoord.toString()
+         +" dim "+decimalFormat.format(super.getLargeur())
+         +" x "+decimalFormat.format(super.getHauteur())
+         + " périmètre : "+decimalFormat.format(this.perimetre())
+         +" aire : "+decimalFormat.format(this.aire())
          +" couleur = "+couleur;
+	}
+   private void recalculerSommets(){
+      this.coordonnees.clear();
+      // centre de l'etoile
+      Coordonnees center = new Coordonnees(
+         (this.getCadreMinX()+this.getCadreMaxX())/2,
+         (this.getCadreMinY()+this.getCadreMaxY())/2
+      );
+      double angle = this.anglePremiereBranche;
+      for (int i=0;i<2*this.getNombreBranches();i++){
+         if(i%2==0){
+            this.coordonnees.add(
+               new Coordonnees(
+                  center.getAbscisse()+this.getLargeur()/2*Math.cos(angle),
+                  center.getOrdonnee()+this.getHauteur()/2*Math.sin(angle)
+               )
+            );
+         } else {
+            this.coordonnees.add(
+               new Coordonnees(
+                  center.getAbscisse()+(1-this.longueurBranche)*this.getLargeur()/2*Math.cos(angle),
+                  center.getOrdonnee()+(1-this.longueurBranche)*this.getHauteur()/2*Math.sin(angle)
+               )
+            );
+         }
+         angle += Math.toRadians(180/ ((double) this.nombreBranches));
+        }
    }
 
 	@Override

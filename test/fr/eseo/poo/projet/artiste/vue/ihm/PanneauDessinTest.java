@@ -20,7 +20,8 @@ public class PanneauDessinTest {
 		PanneauDessin panneau = new PanneauDessin(900, 400);
 		frame.setContentPane(panneau);
 		frame.pack();
-		frame.setLocationRelativeTo(null);frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 	}
 
 	private void testConstructeur(){

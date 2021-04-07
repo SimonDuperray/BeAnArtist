@@ -56,7 +56,7 @@ public class EllipseTest {
 	public void testRempli(){
 		Ellipse testEllipse = new Ellipse();
 		testEllipse.setRempli(true);
-		assertEquals("estRempli", true, testEllipse.getRempli());
+		assertEquals("estRempli", true, testEllipse.estRempli());
 	}
 
 	// setters

@@ -4,6 +4,7 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 import java.text.DecimalFormat;
+
 // external imports
 import java.util.Locale;
 import java.awt.Color;
@@ -81,12 +82,10 @@ public class Ligne extends Forme {
 			+ " angle : " +angle +"°"
 			+ " couleur = "+couleur;		
 	}
-		
 	@Override
 	public double aire() {
 		return 0;
 	}
-
 	@Override
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
@@ -102,5 +101,4 @@ public class Ligne extends Forme {
 			return false;
 		}
 	}
-	
 }

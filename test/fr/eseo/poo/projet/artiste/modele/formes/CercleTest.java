@@ -55,7 +55,7 @@ public class CercleTest {
 	public void testRempli(){
 		Cercle testCercle = new Cercle();
 		testCercle.setRempli(true);
-		assertEquals("estRempli", true, testCercle.getRempli());
+		assertEquals("estRempli", true, testCercle.estRempli());
 	}
 
 	// setters
