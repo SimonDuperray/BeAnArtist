@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
+import java.awt.Polygon;
 
 public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.Remplissable {
    // constantes de classe
@@ -32,6 +33,9 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 	}
 	public Etoile(double taille){
       super(taille, taille);
+      if(taille<-1 || taille>100){
+         throw new IllegalArgumentException("Taille négative");
+      }
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
       this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
       this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
@@ -50,6 +54,9 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 	}
 	public Etoile(Coordonnees coordonnees, double taille){
       super(coordonnees, taille, taille);
+      if(taille<-1 || taille>100){
+         throw new IllegalArgumentException("Taille négative");
+      }
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
       this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
       this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
@@ -220,7 +227,16 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 
 	@Override
 	public boolean contient(Coordonnees position) {
-		// TODO Auto-generated method stub
-		return false;
+      Polygon polygon = new Polygon();
+      for(int i=0; i<this.getCoordonnees().size(); i++) {
+         polygon.addPoint(
+            (int)this.getCoordonnees().get(i).getAbscisse(),
+            (int)this.getCoordonnees().get(i).getOrdonnee()
+         );
+      }
+      return polygon.contains(
+         position.getAbscisse(),
+         position.getOrdonnee()
+      );
 	}
 }
