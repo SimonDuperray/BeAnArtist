@@ -8,7 +8,10 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 import java.awt.Color;
 
 public class ActionChoisirCouleur extends javax.swing.AbstractAction{
-   // constantes de classe
+
+	private static final long serialVersionUID = 1L;
+
+// constantes de classe
    public static final String NOM_ACTION = "Choisir couleur";
 
    // attributs

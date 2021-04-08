@@ -19,9 +19,9 @@ public class PanneauDessinTest {
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 		PanneauDessin panneau = new PanneauDessin(900, 400);
 		frame.setContentPane(panneau);
-		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		frame.pack();
 	}
 
 	private void testConstructeur(){

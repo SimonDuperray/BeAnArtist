@@ -3,7 +3,6 @@ package fr.eseo.poo.projet.artiste.controleur.outils;
 import fr.eseo.poo.projet.artiste.modele.formes.Ligne;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueLigne;
-import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class OutilLigne extends OutilForme {
 

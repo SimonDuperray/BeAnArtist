@@ -12,7 +12,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
    // constantes de classe
    public static final int NOMBRE_BRANCHES_PAR_DEFAUT = 5;
    public static final double LONGUEUR_BRANCHE_PAR_DEFAUT = 0.5;
-   public static final double ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT = 0;
+   public static final double ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT = 0.9;
 
    // attributs
    private List<Coordonnees> coordonnees;
@@ -33,9 +33,9 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 	}
 	public Etoile(double taille){
       super(taille, taille);
-      if(taille<-1 || taille>100){
-         throw new IllegalArgumentException("Taille négative");
-      }
+      if(taille<0){
+          throw new IllegalArgumentException("Taille négative");
+       }
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
       this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
       this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
@@ -54,7 +54,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 	}
 	public Etoile(Coordonnees coordonnees, double taille){
       super(coordonnees, taille, taille);
-      if(taille<-1 || taille>100){
+      if(taille<0){
          throw new IllegalArgumentException("Taille négative");
       }
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
@@ -66,8 +66,8 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 	}
 	public Etoile(Coordonnees coordonnees, double taille, int nombreBranches, double anglePremiereBranche, double longueurBranche){
 		super(coordonnees, taille, taille);
-		if(taille<-1 || taille>100){
-			throw new IllegalArgumentException("Taille negative");
+		if(taille<0){
+			throw new IllegalArgumentException("taille appartient [-1;100]");
 	    }
         if(anglePremiereBranche>Math.PI || anglePremiereBranche<-Math.PI){
         	throw new IllegalArgumentException("angle appartient [-pi;pi]");
@@ -151,6 +151,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
    }
    public void setCoordonnees(List<Coordonnees> coordonnees){
       this.coordonnees=coordonnees;
+      this.recalculerSommets();
    }
 
    // methodes
@@ -221,20 +222,19 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
                )
             );
          }
-         angle += Math.toRadians(180/ ((double) this.nombreBranches));
+         angle += Math.toRadians(180/((double) this.nombreBranches));
         }
    }
 
-	@Override
 	public boolean contient(Coordonnees position) {
-      Polygon polygon = new Polygon();
+      Polygon p = new Polygon();
       for(int i=0; i<this.getCoordonnees().size(); i++) {
-         polygon.addPoint(
-            (int)this.getCoordonnees().get(i).getAbscisse(),
-            (int)this.getCoordonnees().get(i).getOrdonnee()
+         p.addPoint(
+            Math.toIntExact(Math.round(this.getCoordonnees().get(i).getAbscisse())),
+            Math.toIntExact(Math.round(this.getCoordonnees().get(i).getOrdonnee()))
          );
       }
-      return polygon.contains(
+      return p.contains(
          position.getAbscisse(),
          position.getOrdonnee()
       );

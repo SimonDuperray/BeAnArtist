@@ -10,10 +10,12 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirForme extends javax.swing.AbstractAction {
 
-   // constantes de classe
+	private static final long serialVersionUID = 1L;
+// constantes de classe
    public static final String NOM_ACTION_LIGNE = "Ligne";
    public static final String NOM_ACTION_ELLIPSE = "Ellipse";
    public static final String NOM_ACTION_CERCLE = "Cercle";
+   public static final String NOM_ACTION_ETOILE = "Etoile";
 
    // attributs
    private PanneauDessin panneauDessin;
@@ -35,5 +37,8 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
       } else if(event.getActionCommand() == NOM_ACTION_CERCLE){
          this.panneauDessin.associerOutil(new OutilCercle());
       }
+      // else if(event.getActionCommand() == NOM_ACTION_ETOILE){
+      //    this.panneauDessin..associerOutil(new OutilEtoile());
+      // }
    }
 }

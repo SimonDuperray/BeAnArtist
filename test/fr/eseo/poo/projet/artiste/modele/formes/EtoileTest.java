@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.junit.Test;
 
@@ -25,14 +24,14 @@ public class EtoileTest {
 	Etoile fullEtoile = new Etoile(coord, 75, 10, 0.4, 0.8);
 	List<Coordonnees> coordonnees = new ArrayList<Coordonnees>();
 
-	constructeurs
+	//constructeurs
 	@Test
 	public void emptyConstructor(){
 		assertEquals("AbsEtoile", defaultCoord.getAbscisse(), defaultEtoile.getPosition().getAbscisse(), EPSILON);
 		assertEquals("OrdEtoile", defaultCoord.getOrdonnee(), defaultEtoile.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("LargEtoile", 100.0, defaultEtoile.getLargeur(), EPSILON);
 		assertEquals("NbBranchesEtoile", 5, defaultEtoile.getNombreBranches());
-		assertEquals("AngleEtoile", 0.0, defaultEtoile.getAnglePremiereBranche(), EPSILON);
+		assertEquals("AngleEtoile", 0.9, defaultEtoile.getAnglePremiereBranche(), EPSILON);
 		assertEquals("LongBranchesEtoile", 0.5, defaultEtoile.getLongueurBranche(), EPSILON);
 	}
 	@Test
@@ -41,7 +40,7 @@ public class EtoileTest {
 		assertEquals("OrdEtoile", coord.getOrdonnee(), posEtoile.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("LargEtoile", 100.0, posEtoile.getLargeur(), EPSILON);
 		assertEquals("NbBranchesEtoile", 5, posEtoile.getNombreBranches());
-		assertEquals("AngleEtoile", 0.0, posEtoile.getAnglePremiereBranche(), EPSILON);
+		assertEquals("AngleEtoile", 0.9, posEtoile.getAnglePremiereBranche(), EPSILON);
 		assertEquals("LongBranchesEtoile", 0.5, posEtoile.getLongueurBranche(), EPSILON);
 	}
 	@Test
@@ -50,7 +49,7 @@ public class EtoileTest {
 		assertEquals("OrdEtoile", defaultCoord.getOrdonnee(), tailleEtoile.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("LargEtoile", 75.0, tailleEtoile.getLargeur(), EPSILON);
 		assertEquals("NbBranchesEtoile", 5, tailleEtoile.getNombreBranches());
-		assertEquals("AngleEtoile", 0.0, tailleEtoile.getAnglePremiereBranche(), EPSILON);
+		assertEquals("AngleEtoile", 0.9, tailleEtoile.getAnglePremiereBranche(), EPSILON);
 		assertEquals("LongBranchesEtoile", 0.5, tailleEtoile.getLongueurBranche(), EPSILON);
 	}
 	@Test
@@ -59,7 +58,7 @@ public class EtoileTest {
 		assertEquals("OrdEtoile", coord.getOrdonnee(), posTailleEtoile.getPosition().getOrdonnee(), EPSILON);
 		assertEquals("LargEtoile", 75.0, posTailleEtoile.getLargeur(), EPSILON);
 		assertEquals("NbBranchesEtoile", 5, posTailleEtoile.getNombreBranches());
-		assertEquals("AngleEtoile", 0.0, posTailleEtoile.getAnglePremiereBranche(), EPSILON);
+		assertEquals("AngleEtoile", 0.9, posTailleEtoile.getAnglePremiereBranche(), EPSILON);
 		assertEquals("LongBranchesEtoile", 0.5, posTailleEtoile.getLongueurBranche(), EPSILON);
 	}
 	@Test
@@ -75,8 +74,8 @@ public class EtoileTest {
 	// SETTERS
 	@Test
 	public void setterLargeur(){
-		defaultEtoile.setLargeur(123);
-		assertEquals("setLargeur", 123.0, defaultEtoile.getLargeur(), EPSILON);
+		defaultEtoile.setLargeur(99);
+		assertEquals("setLargeur", 99.0, defaultEtoile.getLargeur(), EPSILON);
 	}
 	@Test
 	public void setterHauteur(){
@@ -130,7 +129,7 @@ public class EtoileTest {
 		coordonnees.add(coord1);
 		coordonnees.add(coord2);
 		posEtoile.setCoordonnees(coordonnees);
-		assertEquals("aire", 202.5, posEtoile.aire(), EPSILON);
+		assertEquals("aire", 3673.657, posEtoile.aire(), EPSILON);
 	}
 	@Test
 	public void testPerimetre(){
@@ -140,7 +139,7 @@ public class EtoileTest {
 		coordonnees.add(coord1);
 		coordonnees.add(coord2);
 		posEtoile.setCoordonnees(coordonnees);
-		assertEquals("perimetre", 122.79, posEtoile.perimetre(), EPSILON);
+		assertEquals("perimetre", 332.0327, posEtoile.perimetre(), EPSILON);
 	}
 	@Test
 	public void testToString(){
@@ -152,9 +151,8 @@ public class EtoileTest {
 		coords.add(c2);
 		posEtoile.setCoordonnees(coords);
 		posEtoile.setRempli(true);
-		// Etoile testEtoile = new Etoile();
 		String result = "[Etoile-Rempli] : pos (30,0 , 30,0) dim 100,0 x 100,0 périmètre : "
-			+ "122,79 aire : 202,5 couleur = R51,V51,B51";
+			+ "332,03 aire : 3673,66 couleur = R51,V51,B51";
 		assertEquals("toString", result, posEtoile.toString());
 	}
 }

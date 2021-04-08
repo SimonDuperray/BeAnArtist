@@ -68,6 +68,18 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       groupBtn.add(cercleBtn);
       this.add(cercleBtn);
 
+      // etoile
+      JToggleButton etoileBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_ETOILE
+         )
+      );
+      etoileBtn.setName(ActionChoisirForme.NOM_ACTION_ETOILE);
+      groupBtn.add(etoileBtn);
+      this.add(etoileBtn);
+
       // selectionner
       JToggleButton selectionnerBtn = new JToggleButton(
          new ActionSelectionner(
