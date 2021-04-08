@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilCercle;
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilEllipse;
+import fr.eseo.poo.projet.artiste.controleur.outils.OutilEtoile;
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilLigne;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauBarreOutils;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
@@ -36,9 +37,8 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
          this.panneauDessin.associerOutil(new OutilEllipse());
       } else if(event.getActionCommand() == NOM_ACTION_CERCLE){
          this.panneauDessin.associerOutil(new OutilCercle());
+      } else if(event.getActionCommand() == NOM_ACTION_ETOILE){
+         this.panneauDessin.associerOutil(new OutilEtoile(this.panneauBarreOutils));
       }
-      // else if(event.getActionCommand() == NOM_ACTION_ETOILE){
-      //    this.panneauDessin..associerOutil(new OutilEtoile());
-      // }
    }
 }

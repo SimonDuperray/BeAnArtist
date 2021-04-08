@@ -75,7 +75,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
 		if(longueurBranche<0 || longueurBranche>1){
 			throw new IllegalArgumentException("longueur appartient [0;1]");
 		}
-		if(nombreBranches<= 2 || nombreBranches>=16){
+		if(nombreBranches<3 || nombreBranches>15){
 			throw new IllegalArgumentException("nb branches appartient [2;16]");
 		}
 		this.estRempli = false;
@@ -109,7 +109,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
       this.recalculerSommets();
    }
    public void setLargeur(double largeur){
-      if(largeur<-1 || largeur>100){
+      if(largeur<0){
          throw new IllegalArgumentException("Largeur negative");
       }
       super.setLargeur(largeur);
@@ -125,7 +125,7 @@ public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.R
       this.recalculerSommets();
    }
    public void setNombreBranches(int nbBranches){
-      if(nbBranches <= 2 || nbBranches >= 16){
+      if(nbBranches < 3 || nbBranches > 15){
          throw new IllegalArgumentException("nbBranches appartient [2;16]");
       }
       this.nombreBranches = nbBranches;
