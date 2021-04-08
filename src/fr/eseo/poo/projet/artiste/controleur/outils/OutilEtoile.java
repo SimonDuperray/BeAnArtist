@@ -1,5 +1,6 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Etoile;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
@@ -9,14 +10,14 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauBarreOutils;
 
 public class OutilEtoile extends OutilForme {
    
-   // attributs
+   // attributes
    private Etoile etoile;
    private PanneauBarreOutils panneauBarreOutils;
 
    // constructeurs
    public OutilEtoile(PanneauBarreOutils panneauBarreOutils){
-      this.panneauBarreOutils=panneauBarreOutils;
-      this.etoile=new Etoile();
+      this.panneauBarreOutils = panneauBarreOutils;
+      this.etoile = new Etoile();
    }
 
    // methodes

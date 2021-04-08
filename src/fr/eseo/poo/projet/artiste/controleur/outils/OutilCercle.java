@@ -1,19 +1,22 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// external imports
+import java.awt.event.MouseEvent;
+
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Cercle;
 import fr.eseo.poo.projet.artiste.vue.formes.VueCercle;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
-import java.awt.event.MouseEvent;
 
 public class OutilCercle extends OutilForme {
    // methodes
    protected VueForme creerVueForme(){
+      Cercle cercle = new Cercle();
       double x1 = this.getDebut().getAbscisse();
       double y1 = this.getDebut().getOrdonnee();
       double x2 = this.getFin().getAbscisse();
       double y2 = this.getFin().getOrdonnee();
-      Cercle cercle = new Cercle();
       cercle.setLargeur(
          Math.max(
             Math.abs(x2-x1),
@@ -22,12 +25,12 @@ public class OutilCercle extends OutilForme {
       );
       cercle.setCouleur(this.getPanneauDessin().getCouleurCourante());
       // pattern shapes
-      // from TL to BR
+      // from Top-Left to Bottom-Right
       if(x1<x2 && y1<y2){
          cercle.setPosition(
             new Coordonnees(x1, y1)
          );
-      // from BR to TL
+      // from Bottom-Right to Top-Left
       } else if(x1>x2 && y1>y2){
          cercle.setPosition(
             new Coordonnees(
@@ -35,7 +38,7 @@ public class OutilCercle extends OutilForme {
                y1-cercle.getLargeur()
             )
          );
-      // from BL to TR
+      // from Bottom-Left to Top-Right
       } else if(x1<x2 && y1>y2){
          cercle.setPosition(
             new Coordonnees(
@@ -43,7 +46,7 @@ public class OutilCercle extends OutilForme {
                y1-cercle.getLargeur()
             )
          );
-      // from TR to BL
+      // from Top-Right to Bottom-Left
       } else if(x1>x2 && y1<y2){
          cercle.setPosition(
             new Coordonnees(
@@ -54,9 +57,7 @@ public class OutilCercle extends OutilForme {
       // default
       } else {
          cercle.setPosition(
-            new Coordonnees(
-
-            )
+            new Coordonnees()
          );
       }
       cercle.setRempli(this.getPanneauDessin().getModeRemplissage());

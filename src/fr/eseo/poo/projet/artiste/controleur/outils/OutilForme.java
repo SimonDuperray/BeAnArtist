@@ -1,7 +1,9 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// external imports
 import java.awt.event.MouseEvent;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;

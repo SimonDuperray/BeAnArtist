@@ -1,19 +1,21 @@
 package fr.eseo.poo.projet.artiste.controleur.actions;
 
-import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
-
+// external imports
 import java.awt.event.ActionEvent;
+
+// internal imports
+import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirRemplissage extends javax.swing.AbstractAction {
 
-   // constantes de classe
-   public static final String NOM_ACTION = "Choisir Couleur Remplissage";
+   // class constants
+   public static final String NOM_ACTION = "Couleur Remplissage";
    private static final long serialVersionUID = 1L;
 
-   // attributs
+   // attributes
    private PanneauDessin panneauDessin;
 
-   // constructeur
+   // constructor
    public ActionChoisirRemplissage(PanneauDessin panneauDessin){
       super(NOM_ACTION);
       this.panneauDessin = panneauDessin;

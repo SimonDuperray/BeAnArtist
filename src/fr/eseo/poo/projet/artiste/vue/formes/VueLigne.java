@@ -1,17 +1,20 @@
 package fr.eseo.poo.projet.artiste.vue.formes;
 
+// external imports
+import fr.eseo.poo.projet.artiste.modele.formes.Ligne;
+
+// internal imports
 import java.awt.Graphics2D;
 import java.awt.Color;
 
-import fr.eseo.poo.projet.artiste.modele.formes.Ligne;
-
 public class VueLigne extends VueForme {
 
-   // constructeur
+   // constructor
    public VueLigne(Ligne ligne){
       super(ligne);
    }
 
+   // methode
    public void affiche(Graphics2D g2d) {
       Color bufferCouleur = g2d.getColor();
       g2d.setColor(this.getForme().getCouleur());

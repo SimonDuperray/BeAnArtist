@@ -1,12 +1,15 @@
 package fr.eseo.poo.projet.artiste.vue.formes;
 
+// external imports
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.formes.Ellipse;
 
 public class VueEllipse extends VueForme{
-   // constructeur
+   
+   // constructor
    public VueEllipse(Ellipse ellipse){
       super(ellipse);
    }

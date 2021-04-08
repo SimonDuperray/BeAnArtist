@@ -1,16 +1,21 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// external imports
+import javax.swing.JOptionPane;
+import java.awt.event.MouseEvent;
+
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
-import java.awt.event.MouseEvent;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionSelectionner;
-import javax.swing.JOptionPane;
+// import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
 
-public class OutilSelectionner extends fr.eseo.poo.projet.artiste.controleur.outils.Outil {
-   // attributs
+public class OutilSelectionner extends Outil {
+
+   // attributes
    private Forme formeSelectionnee;
 
-   // constructeur
+   // constructor
    public OutilSelectionner(){}
 
    // methodes

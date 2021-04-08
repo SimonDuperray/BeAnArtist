@@ -1,5 +1,6 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Ellipse;
 import fr.eseo.poo.projet.artiste.vue.formes.VueEllipse;
@@ -17,22 +18,22 @@ public class OutilEllipse extends OutilForme {
       ellipse.setHauteur(Math.abs(y2 - y1));
       ellipse.setCouleur(this.getPanneauDessin().getCouleurCourante());
       // pattern shapes
-      // from TL to BR
+      // from Top-Left to Bottom-Right
       if(x1<x2 && y1<y2){
          ellipse.setPosition(
             new Coordonnees(x1, y1)
          );
-      // from BR to TL
+      // from Bottom-Right to Top-Left
       } else if(x1>x2 && y1>y2){
          ellipse.setPosition(
             new Coordonnees(x2, y2)
          );
-      // from BL to TR
+      // from Bottom-Left to Top-Right
       } else if(x1<x2 && y1>y2){
          ellipse.setPosition(
             new Coordonnees(x1, y2)
          );
-      // from TR to BL
+      // from Top-Right to Bottom-Left
       } else if(x1>x2 && y1<y2){
          ellipse.setPosition(
             new Coordonnees(x2, y1)

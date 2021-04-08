@@ -1,5 +1,6 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
+// external imports
 import java.awt.Dimension;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -9,17 +10,18 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilSelectionner;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
+import javax.swing.JPanel;
 
-public class PanneauDessin extends javax.swing.JPanel{
+public class PanneauDessin extends JPanel{
 
    private static final long serialVersionUID = 1L;
-   // constances de classe
-   private Outil outilCourant;
-   private boolean modeRemplissage;
+
+   // class constants
    public static final int LARGEUR_PAR_DEFAUT = 300;
    public static final int HAUTEUR_PAR_DEFAUT = 300;
    public static final java.awt.Color COULEUR_FOND_PAR_DEFAUT = new Color(0, 0, 255);
@@ -27,8 +29,10 @@ public class PanneauDessin extends javax.swing.JPanel{
    // attributs
    private final List<VueForme> vueFormes;
    private Color couleurCourante;
+   private Outil outilCourant;
+   private boolean modeRemplissage;
 
-   // constructeurs
+   // constructors
    public PanneauDessin(){
       super();
       super.setPreferredSize(
@@ -41,7 +45,6 @@ public class PanneauDessin extends javax.swing.JPanel{
       this.vueFormes = new ArrayList<VueForme>();
       this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
    }
-   
    public PanneauDessin(int largeur, int hauteur, java.awt.Color fond){
       super();
       super.setPreferredSize(new Dimension(largeur, hauteur));

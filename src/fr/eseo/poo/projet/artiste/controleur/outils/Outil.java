@@ -1,12 +1,15 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// external imports
 import java.awt.event.MouseEvent;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public abstract class Outil implements javax.swing.event.MouseInputListener {
-   // attributs
+   
+   // attributes
    private Coordonnees debut, fin;
    private PanneauDessin panneauDessin;
 
@@ -39,7 +42,7 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
    public void mouseExited(MouseEvent event){}
    public void mouseMoved(MouseEvent event){}
    public void mousePressed(MouseEvent event){
-      setDebut(
+      this.setDebut(
          new Coordonnees(
             (double)event.getX(),
             (double)event.getY()

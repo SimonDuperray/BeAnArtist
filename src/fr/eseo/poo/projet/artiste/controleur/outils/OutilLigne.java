@@ -1,15 +1,14 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.formes.Ligne;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueLigne;
 
 public class OutilLigne extends OutilForme {
 
-   // constructeur
-   public OutilLigne(){
-
-   }
+   // constructor
+   public OutilLigne(){}
 
    // methodes
    protected VueForme creerVueForme(){

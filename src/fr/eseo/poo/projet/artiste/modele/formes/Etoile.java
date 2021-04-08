@@ -1,27 +1,31 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
+// external imports
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import java.awt.Polygon;
 
-public class Etoile extends Forme implements fr.eseo.poo.projet.artiste.modele.Remplissable {
-   // constantes de classe
+// internal imports
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
+import fr.eseo.poo.projet.artiste.modele.Remplissable;
+
+public class Etoile extends Forme implements Remplissable {
+   
+   // class constants
    public static final int NOMBRE_BRANCHES_PAR_DEFAUT = 5;
    public static final double LONGUEUR_BRANCHE_PAR_DEFAUT = 0.5;
    public static final double ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT = 0.9;
 
-   // attributs
+   // attributes
    private List<Coordonnees> coordonnees;
    private boolean estRempli;
    private int nombreBranches;
    private double longueurBranche;
    private double anglePremiereBranche;
 
-   // constructeurs
+   // constructors
    public Etoile(){
       super();
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;

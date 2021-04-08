@@ -1,29 +1,30 @@
 package fr.eseo.poo.projet.artiste.controleur.actions;
 
+// external imports
 import java.awt.event.ActionEvent;
-
 import javax.swing.JColorChooser;
-
-import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 import java.awt.Color;
+
+// internal imports
+import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirCouleur extends javax.swing.AbstractAction{
 
 	private static final long serialVersionUID = 1L;
 
-// constantes de classe
+   // class constants
    public static final String NOM_ACTION = "Choisir couleur";
 
-   // attributs
+   // attributes
    private PanneauDessin panneauDessin;
 
-   // constructeur
+   // constructor
    public ActionChoisirCouleur(PanneauDessin panneauDessin){
       super(NOM_ACTION);
       this.panneauDessin=panneauDessin;
    }
 
-   public void actionPerformed(ActionEvent e) {
+   public void actionPerformed(ActionEvent event) {
       Color couleur = JColorChooser.showDialog(
          this.panneauDessin,
          NOM_ACTION,

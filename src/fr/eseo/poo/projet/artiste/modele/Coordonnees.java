@@ -1,19 +1,20 @@
 package fr.eseo.poo.projet.artiste.modele;
 
+// external imports
 import java.text.DecimalFormat;
-
 import java.util.Objects;
 
 public class Coordonnees {
-	// constantes de classe
+
+	// class constants
 	public static final double ABSCISSE_PAR_DEFAUT = 0.0;
 	public static final double ORDONNEE_PAR_DEFAUT = 0.0;
 	
-	// attributs
+	// attributes
 	private double abscisse;
 	private double ordonnee;
 	
-	// constructeurs
+	// constructors
 	public Coordonnees() {
 		this.abscisse=ABSCISSE_PAR_DEFAUT;
 		this.ordonnee=ORDONNEE_PAR_DEFAUT;
@@ -59,24 +60,21 @@ public class Coordonnees {
 		DecimalFormat format = new DecimalFormat("0.0#");
 		return "("+format.format(this.getAbscisse())+" , "+format.format(this.getOrdonnee())+")";
 	}
-	
-	@Override
 	public int hashCode() {
 		return Objects.hash(abscisse, ordonnee);
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
+	public boolean equals(Object object) {
+		if(this==object) {
 			return true;
 		}
-		if (obj == null) {
+		if(object==null) {
 			return false;
 		}
-		if (getClass() != obj.getClass()) {
+		if(getClass()!=object.getClass()) {
 			return false;
 		}
-		Coordonnees other = (Coordonnees) obj;
-		return Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse)
-				&& Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
+		Coordonnees other = (Coordonnees)object;
+		boolean result = Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse) && Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
+		return result;
 	}
 }

@@ -1,20 +1,22 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
-// import component
-import fr.eseo.poo.projet.artiste.modele.Coordonnees;
-
 // external imports
 import java.util.Locale;
 import java.text.DecimalFormat;
 
-public class Ellipse extends Forme implements fr.eseo.poo.projet.artiste.modele.Remplissable {
+// internal imports
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
+import fr.eseo.poo.projet.artiste.modele.Remplissable;
 
+public class Ellipse extends Forme implements Remplissable {
+
+	// class constants
 	public static final double EPSILON = 0.2;
 
-	// attribut
+	// attributes
 	public boolean estRempli;
 
-	// constructeurs
+	// constructors
 	public Ellipse(){
 		super();
 		this.estRempli = false;

@@ -1,22 +1,23 @@
 package fr.eseo.poo.projet.artiste.controleur.actions;
 
+// external imports
 import java.awt.event.ActionEvent;
-
 import javax.swing.JOptionPane;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionEffacer extends javax.swing.AbstractAction {
 
    private static final long serialVersionUID = 1L;
 
-   // constantes de classe
+   // class constants
    public static final String NOM_ACTION = "Tout Effacer";
 
-   // attributs
+   // attributes
    private PanneauDessin panneauDessin;
 
-   // constructeur
+   // constructor
    public ActionEffacer(PanneauDessin panneauDessin){
       super(NOM_ACTION);
       this.panneauDessin=panneauDessin;

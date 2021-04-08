@@ -1,19 +1,19 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
-// import component
-import fr.eseo.poo.projet.artiste.modele.Coordonnees;
-
+// internal imports
+import java.util.Locale;
+import java.awt.Color;
 import java.text.DecimalFormat;
 
 // external imports
-import java.util.Locale;
-import java.awt.Color;
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class Ligne extends Forme {
 
+	// class constants
 	public static final double EPSILON = 0.2;
 
-	// constructeurs
+	// constructors
 	public Ligne() {
 		super();
 	}
@@ -82,11 +82,9 @@ public class Ligne extends Forme {
 			+ " angle : " +angle +"°"
 			+ " couleur = "+couleur;		
 	}
-	@Override
 	public double aire() {
 		return 0;
 	}
-	@Override
 	public double perimetre() {
 		return this.getC1().distanceVers(this.getC2());
 	}

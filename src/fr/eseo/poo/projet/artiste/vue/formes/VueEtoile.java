@@ -1,13 +1,16 @@
 package fr.eseo.poo.projet.artiste.vue.formes;
 
-import fr.eseo.poo.projet.artiste.modele.formes.Etoile;
-import java.awt.Polygon;
-
+// external imports
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
+
+// internal imports
+import fr.eseo.poo.projet.artiste.modele.formes.Etoile;
 
 public class VueEtoile extends VueForme {
-   // constructeur
+   
+   // constructor
    public VueEtoile(Etoile etoile){
       super(etoile);
    }

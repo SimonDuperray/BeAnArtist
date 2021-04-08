@@ -1,19 +1,22 @@
 package fr.eseo.poo.projet.artiste.vue.formes;
 
-import fr.eseo.poo.projet.artiste.modele.formes.Forme;
-
+// external imports
 import java.awt.Graphics2D;
 
+// internal imports
+import fr.eseo.poo.projet.artiste.modele.formes.Forme;
+
 public abstract class VueForme {
-   // attributs
+
+   // attributes
    protected final Forme forme;
 
-   // constructeur
+   // constructor
    public VueForme(Forme forme){
       this.forme=forme;
    }
 
-   // getter
+   // getters
    public Forme getForme(){
       return this.forme;
    }

@@ -1,9 +1,10 @@
 package fr.eseo.poo.projet.artiste.modele;
 
 public interface Remplissable {
-   // getter
+   
+   // getters
    public boolean estRempli();
 
-   // setter
+   // setters
    public void setRempli(boolean isRempli);
 }

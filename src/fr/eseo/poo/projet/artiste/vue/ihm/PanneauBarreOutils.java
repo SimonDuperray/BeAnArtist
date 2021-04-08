@@ -1,5 +1,6 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
+// external imports
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
@@ -7,11 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
-
 import java.awt.Dimension;
-
 import javax.swing.ButtonGroup;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirCouleur;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirForme;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirRemplissage;
@@ -21,15 +21,18 @@ import fr.eseo.poo.projet.artiste.modele.formes.Etoile;
 
 public class PanneauBarreOutils extends javax.swing.JPanel {
 
+   private static final long serialVersionUID = 1L;
+
+   // class constants
    public static final String BRANCHE_SPINNER_NOM = "Nb branches";
    public static final String LONGUEUR_SPINNER_NOM = "Long branches";
 
-   private static final long serialVersionUID = 1L;
+   // attributes
    private PanneauDessin panneauDessin;
    private JSpinner spinnerNbBranches = new JSpinner();
    private JSpinner spinnerLongBranches = new JSpinner();
 
-   // constructeur
+   // constructor
    public PanneauBarreOutils(PanneauDessin panneauDessin){
       this.panneauDessin = panneauDessin;
       initComponents();
@@ -42,7 +45,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
    
    @SuppressWarnings("deprecation")
    public double getLongueurBranche(){
-       return new Double(this.spinnerLongBranches.getModel().getValue().toString());
+      return new Double(this.spinnerLongBranches.getModel().getValue().toString());
    }
 
    // methodes

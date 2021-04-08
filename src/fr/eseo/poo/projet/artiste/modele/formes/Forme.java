@@ -1,23 +1,27 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
-import fr.eseo.poo.projet.artiste.modele.Coordonnees;
-
+// external imports
 import java.awt.Color;
 import javax.swing.UIManager;
 
-public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloriable {
-	// constantes de classe
+// internal imports
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
+import fr.eseo.poo.projet.artiste.modele.Coloriable;
+public abstract class Forme implements Coloriable {
+	
+	// class constants
 	public static final double LARGEUR_PAR_DEFAUT = 100.0;
 	public static final double HAUTEUR_PAR_DEFAUT = 100.0;
 	public static final double EPSILON = 0.2;
 	public static final Color COULEUR_PAR_DEFAUT = UIManager.getColor("Panel.foreground");
 	public static final Coordonnees POSITION_PAR_DEFAUT = new Coordonnees();
-	// attributs
+
+	// attributes
 	private Coordonnees position;
 	private double largeur, hauteur;
 	private Color couleur;
 	
-	// constructeurs
+	// constructors
 	public Forme() {
 		this.position = new Coordonnees();
 		this.largeur=LARGEUR_PAR_DEFAUT;
@@ -63,7 +67,7 @@ public abstract class Forme implements fr.eseo.poo.projet.artiste.modele.Coloria
 		return this.couleur;
 	}
 
-	// bonus functions
+	// bonus methodes
 	private double getFX() {
 		return this.getPosition().getAbscisse();
 	}

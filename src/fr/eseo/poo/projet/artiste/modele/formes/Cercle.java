@@ -1,15 +1,17 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
+// external imports
 import java.text.DecimalFormat;
 import java.util.Locale;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
-
 public class Cercle extends Ellipse {
 
+   // class constants
    public static final double EPSILON = 0.2;
 
-   // constructeurs
+   // constructors
    public Cercle(){
       super();
       this.estRempli=false;

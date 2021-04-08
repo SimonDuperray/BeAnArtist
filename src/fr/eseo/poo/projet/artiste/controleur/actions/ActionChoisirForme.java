@@ -1,7 +1,9 @@
 package fr.eseo.poo.projet.artiste.controleur.actions;
 
+// external imports
 import java.awt.event.ActionEvent;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilCercle;
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilEllipse;
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilEtoile;
@@ -11,18 +13,19 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirForme extends javax.swing.AbstractAction {
 
-	private static final long serialVersionUID = 1L;
-// constantes de classe
+   private static final long serialVersionUID = 1L;
+   
+   // class constants
    public static final String NOM_ACTION_LIGNE = "Ligne";
    public static final String NOM_ACTION_ELLIPSE = "Ellipse";
    public static final String NOM_ACTION_CERCLE = "Cercle";
    public static final String NOM_ACTION_ETOILE = "Etoile";
 
-   // attributs
+   // attributes
    private PanneauDessin panneauDessin;
    private PanneauBarreOutils panneauBarreOutils;
 
-   // constructeur
+   // constructor
    public ActionChoisirForme(PanneauDessin panneauDessin, PanneauBarreOutils panneauBarreOutils, String action){
       super(action);
       this.panneauDessin=panneauDessin;
