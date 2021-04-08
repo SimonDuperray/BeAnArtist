@@ -9,7 +9,7 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
    // attributs
    private Coordonnees debut, fin;
    private PanneauDessin panneauDessin;
-   
+
    // getters
    public Coordonnees getDebut(){
       return this.debut;
@@ -33,21 +33,11 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
    }
 
    // methodes
-   public void mouseClicked(MouseEvent event){
-
-   }
-   public void mouseDragged(MouseEvent event){
-
-   }
-   public void mouseEntered(MouseEvent event){
-
-   }
-   public void mouseExited(MouseEvent event){
-      
-   }
-   public void mouseMoved(MouseEvent event){
-
-   }
+   public void mouseClicked(MouseEvent event){}
+   public void mouseDragged(MouseEvent event){}
+   public void mouseEntered(MouseEvent event){}
+   public void mouseExited(MouseEvent event){}
+   public void mouseMoved(MouseEvent event){}
    public void mousePressed(MouseEvent event){
       setDebut(
          new Coordonnees(

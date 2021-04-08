@@ -10,12 +10,13 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauBarreOutils;
 public class OutilEtoile extends OutilForme {
    
    // attributs
-   private Etoile etoile = new Etoile();
+   private Etoile etoile;
    private PanneauBarreOutils panneauBarreOutils;
 
    // constructeurs
    public OutilEtoile(PanneauBarreOutils panneauBarreOutils){
       this.panneauBarreOutils=panneauBarreOutils;
+      this.etoile=new Etoile();
    }
 
    // methodes
@@ -27,26 +28,24 @@ public class OutilEtoile extends OutilForme {
       double y2 = this.getFin().getOrdonnee();
       double distance = this.getDebut().distanceVers(this.getFin());
       double angle = this.getDebut().angleVers(this.getFin());
-
-      if(Math.abs(x2-x1)==Forme.LARGEUR_PAR_DEFAUT && Math.abs(y2-y1)==Forme.HAUTEUR_PAR_DEFAUT){
-         etoile.setPosition(this.getDebut());
-         etoile.setLargeur(Forme.LARGEUR_PAR_DEFAUT);
-         etoile.setAnglePremiereBranche(Etoile.ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT);
-      } else {
-         double sumCadreX = (etoile.getCadreMaxX()+etoile.getCadreMinX())/2;
-         double sumCadreY = (etoile.getCadreMaxY()+etoile.getCadreMinY())/2;
-         etoile.setPosition(
-            new Coordonnees(x2-sumCadreX, y2-sumCadreY)
-         );
-         etoile.setLargeur(distance);
-         etoile.setAnglePremiereBranche(angle);
-      }
-      
+      if (Math.abs(x2 - x1) == Forme.LARGEUR_PAR_DEFAUT && Math.abs(y2 - y1) == Forme.HAUTEUR_PAR_DEFAUT){
+			etoile.setPosition(this.getDebut());
+			etoile.setLargeur(Forme.LARGEUR_PAR_DEFAUT);
+			etoile.setAnglePremiereBranche(Etoile.ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT);
+		} else {
+			etoile.setLargeur(distance*2);
+			etoile.setAnglePremiereBranche(angle);
+			etoile.setPosition(
+				new Coordonnees(
+               x2 - (etoile.getCadreMaxX() + etoile.getCadreMinX())/2,
+               y2 - (etoile.getCadreMaxY() + etoile.getCadreMinY())/2
+            )
+			);
+		}
       etoile.setCouleur(this.getPanneauDessin().getCouleurCourante());
       etoile.setRempli(this.getPanneauDessin().getModeRemplissage());
       etoile.setNombreBranches(this.panneauBarreOutils.getNbBranches());
       etoile.setLongueurBranche(this.panneauBarreOutils.getLongueurBranche());
-
       return new VueEtoile(etoile);
    }
 }
