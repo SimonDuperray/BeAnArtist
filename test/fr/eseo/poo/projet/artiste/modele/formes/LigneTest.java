@@ -1,11 +1,8 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
 import java.awt.Color;
-
 import org.junit.Test;
-
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {

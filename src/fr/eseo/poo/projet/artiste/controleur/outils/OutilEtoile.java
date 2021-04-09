@@ -11,13 +11,13 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauBarreOutils;
 public class OutilEtoile extends OutilForme {
    
    // attributes
-   private Etoile etoile;
+//   private Etoile etoile;
    private PanneauBarreOutils panneauBarreOutils;
 
    // constructeurs
    public OutilEtoile(PanneauBarreOutils panneauBarreOutils){
       this.panneauBarreOutils = panneauBarreOutils;
-      this.etoile = new Etoile();
+//      this.etoile = new Etoile();
    }
 
    // methodes

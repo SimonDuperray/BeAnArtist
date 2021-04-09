@@ -1,9 +1,5 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilSelectionner;
 
 public class PanneauBarreOutilsTest {
@@ -36,5 +32,4 @@ public class PanneauBarreOutilsTest {
 			}
 		});
 	}
-
 }

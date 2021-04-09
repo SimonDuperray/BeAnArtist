@@ -1,7 +1,5 @@
 package fr.eseo.poo.projet.artiste.controleur.outils;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauBarreOutils;
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 

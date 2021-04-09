@@ -1,9 +1,5 @@
 package fr.eseo.poo.projet.artiste.vue.formes;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class VueCercleTest {

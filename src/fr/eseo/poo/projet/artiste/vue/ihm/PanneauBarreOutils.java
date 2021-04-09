@@ -3,7 +3,6 @@ package fr.eseo.poo.projet.artiste.vue.ihm;
 // external imports
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JColorChooser;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;

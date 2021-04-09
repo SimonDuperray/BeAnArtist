@@ -72,7 +72,8 @@ public class Ellipse extends Forme implements Remplissable {
 		}
 		return "[Ellipse"+rempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
 			+decimalFormat.format(bufferCoord.getOrdonnee())
-			+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
+			+") dim "+decimalFormat.format(super.getLargeur())+" x "
+			+decimalFormat.format(super.getHauteur())
 			+" périmètre : "+decimalFormat.format(this.perimetre())
 			+" aire : "+decimalFormat.format(this.aire())
 			+" couleur = "+couleur;

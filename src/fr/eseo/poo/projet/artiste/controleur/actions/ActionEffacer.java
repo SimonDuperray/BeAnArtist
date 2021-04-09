@@ -23,6 +23,10 @@ public class ActionEffacer extends javax.swing.AbstractAction {
       this.panneauDessin=panneauDessin;
    }
 
+   /**
+    * @author SimonDuperray
+    * @param event
+    */
    public void actionPerformed(ActionEvent event) {
       int reponse = JOptionPane.showConfirmDialog(this.panneauDessin, NOM_ACTION+"?",
          NOM_ACTION, JOptionPane.YES_NO_OPTION);

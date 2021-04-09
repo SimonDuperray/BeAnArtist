@@ -50,7 +50,8 @@ public class Coordonnees {
 		this.ordonnee=nouvelleOrdonnee;
 	}
 	public double distanceVers(Coordonnees coord){
-		return Math.sqrt(Math.pow((coord.getAbscisse() - this.getAbscisse()), 2) + Math.pow((coord.getOrdonnee() - this.getOrdonnee()), 2));
+		return Math.sqrt(Math.pow((coord.getAbscisse() - this.getAbscisse()), 2) 
+			+ Math.pow((coord.getOrdonnee() - this.getOrdonnee()), 2));
 	}
 	public double angleVers(Coordonnees coord) {
         return ((Math.atan2(coord.getOrdonnee() - this.getOrdonnee(),
@@ -74,7 +75,8 @@ public class Coordonnees {
 			return false;
 		}
 		Coordonnees other = (Coordonnees)object;
-		boolean result = Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse) && Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
+		boolean result = Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse) 
+			&& Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
 		return result;
 	}
 }

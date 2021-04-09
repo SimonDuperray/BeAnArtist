@@ -1,11 +1,5 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import java.awt.Color;
-
 public class PanneauDessinTest {
 
 	public PanneauDessinTest(){

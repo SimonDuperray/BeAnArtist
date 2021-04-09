@@ -68,7 +68,13 @@ public class Etoile extends Forme implements Remplissable {
       this.coordonnees = new ArrayList<Coordonnees>();
       this.recalculerSommets();
 	}
-	public Etoile(Coordonnees coordonnees, double taille, int nombreBranches, double anglePremiereBranche, double longueurBranche){
+	public Etoile(
+				Coordonnees coordonnees, 
+				double taille, 
+				int nombreBranches, 
+				double anglePremiereBranche, 
+				double longueurBranche
+			){
 		super(coordonnees, taille, taille);
 		if(taille<0){
 			throw new IllegalArgumentException("taille appartient [-1;100]");
@@ -166,8 +172,10 @@ public class Etoile extends Forme implements Remplissable {
          x += this.getCoordonnees().get(i).getAbscisse()*this.getCoordonnees().get(i+1).getOrdonnee();
          y += this.getCoordonnees().get(i).getOrdonnee()*this.getCoordonnees().get(i+1).getAbscisse();
       }
-      x += this.getCoordonnees().get(this.getCoordonnees().size()-1).getAbscisse()*this.getCoordonnees().get(0).getOrdonnee();
-		y += this.getCoordonnees().get(this.getCoordonnees().size()-1).getOrdonnee()*this.getCoordonnees().get(0).getAbscisse();
+      x += this.getCoordonnees().get(this.getCoordonnees().size()-1).getAbscisse()
+		  *this.getCoordonnees().get(0).getOrdonnee();
+	  y += this.getCoordonnees().get(this.getCoordonnees().size()-1).getOrdonnee()
+		  *this.getCoordonnees().get(0).getAbscisse();
       return Math.abs((x-y)/2);
    }
    public double perimetre() {

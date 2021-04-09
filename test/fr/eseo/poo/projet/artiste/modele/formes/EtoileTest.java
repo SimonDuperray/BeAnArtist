@@ -1,10 +1,8 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Test;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
