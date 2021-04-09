@@ -19,7 +19,8 @@ public class OutilCarreTest {
 		OutilCarre outilCarre = new OutilCarre();
 		panneau.associerOutil(outilCarre);
 		frame.add(panneau, java.awt.BorderLayout.CENTER);
-		frame.add(panneauBarreOutils, java.awt.BorderLayout.EAST);
+		// frame.add(panneauBarreOutils, java.awt.BorderLayout.EAST);
+		frame.add(panneauBarreOutils);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.pack();

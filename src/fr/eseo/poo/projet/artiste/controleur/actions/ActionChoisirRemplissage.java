@@ -8,9 +8,10 @@ import fr.eseo.poo.projet.artiste.vue.ihm.PanneauDessin;
 
 public class ActionChoisirRemplissage extends javax.swing.AbstractAction {
 
+   private static final long serialVersionUID = 1L;
+
    // class constants
    public static final String NOM_ACTION = "Couleur Remplissage";
-   private static final long serialVersionUID = 1L;
 
    // attributes
    private PanneauDessin panneauDessin;
@@ -22,6 +23,11 @@ public class ActionChoisirRemplissage extends javax.swing.AbstractAction {
    }
 
    // methodes
+   /**
+    * Met à jour le mode de remplissage courant du PanneauDessin
+    * @author Simon Duperray
+    * @param event
+    */
    public void actionPerformed(ActionEvent event){
       if(event.getActionCommand()==NOM_ACTION && !this.panneauDessin.getModeRemplissage()){
          this.panneauDessin.setModeRemplissage(true);

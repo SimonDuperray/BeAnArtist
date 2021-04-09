@@ -24,6 +24,11 @@ public class ActionChoisirCouleur extends javax.swing.AbstractAction{
       this.panneauDessin=panneauDessin;
    }
 
+   /**
+    * Met à jour la couleur courante du PanneauDessin
+    * @author Simon Duperray
+    * @param event
+    */
    public void actionPerformed(ActionEvent event) {
       Color couleur = JColorChooser.showDialog(
          this.panneauDessin,

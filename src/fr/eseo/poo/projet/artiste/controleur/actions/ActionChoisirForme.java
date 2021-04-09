@@ -37,6 +37,11 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
    }
 
    // methodes
+   /**
+    * Choix de l'outil devant être créé
+    * @author SimonDuperray
+    * @param event
+    */
    public void actionPerformed(ActionEvent event){
       if(event.getActionCommand() == NOM_ACTION_LIGNE){
          this.panneauDessin.associerOutil(new OutilLigne());

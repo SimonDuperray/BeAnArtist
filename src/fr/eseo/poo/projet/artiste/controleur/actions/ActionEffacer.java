@@ -23,6 +23,13 @@ public class ActionEffacer extends javax.swing.AbstractAction {
       this.panneauDessin=panneauDessin;
    }
 
+   // methodes
+   /**
+    * Supprime toutes les VueFormes dans la List des VueFormes
+    * du PanneauDessin avec la confirmation de l'utilisateur
+    * @author Simon Duperray
+    * @param event
+    */
    public void actionPerformed(ActionEvent event) {
       int reponse = JOptionPane.showConfirmDialog(this.panneauDessin, NOM_ACTION+"?",
          NOM_ACTION, JOptionPane.YES_NO_OPTION);

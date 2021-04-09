@@ -18,7 +18,8 @@ public class OutilEllipseTest {
 		OutilEllipse outilEllipse = new OutilEllipse();
 		panneau.associerOutil(outilEllipse);
 		frame.add(panneau, java.awt.BorderLayout.CENTER);
-		frame.add(panneauBarreOutils, java.awt.BorderLayout.EAST);
+		// frame.add(panneauBarreOutils, java.awt.BorderLayout.EAST);
+		frame.add(panneauBarreOutils);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.pack();

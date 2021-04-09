@@ -12,11 +12,11 @@ public class CoordonneesTest {
 	Coordonnees defaultCoordonnees = new Coordonnees();
 	
 	@Test
-	public void constructeurVide() {
+	public void testConstructeurVide() {
 		assertEquals("EmptyConstructor", "(0,0 , 0,0)", defaultCoordonnees.toString());
 	}
 	@Test
-	public void constructeur() {
+	public void testConstructeur() {
 		Coordonnees firstCoord = new Coordonnees(4.5, 7.2);
 		assertEquals("Constructor", "(4,5 , 7,2)", firstCoord.toString());
 		Coordonnees secondCoord = new Coordonnees(4.54, 7.42);
@@ -24,19 +24,19 @@ public class CoordonneesTest {
 	}
 	
 	@Test
-	public void getDefaultCoord() {
+	public void testGetDefaultCoord() {
 		assertEquals("getDefaultAbs", 0, defaultCoordonnees.getAbscisse(), EPSILON);
 		assertEquals("getDefaultCoo", 0, defaultCoordonnees.getOrdonnee(), EPSILON);
 	}
 	@Test
-	public void getCoord() {
+	public void testGetCoord() {
 		Coordonnees firstCoord = new Coordonnees(3.43, 7.8);
 		assertEquals("getAbs", 3.43, firstCoord.getAbscisse(), EPSILON);
 		assertEquals("getOrd", 7.8, firstCoord.getOrdonnee(), EPSILON);
 	}
 	
 	@Test
-	public void setCoord() {
+	public void testSetCoord() {
 		defaultCoordonnees.setAbscisse(2.34);
 		defaultCoordonnees.setOrdonnee(-1.23);
 		assertEquals("setAbs", 2.34, defaultCoordonnees.getAbscisse(), EPSILON);
@@ -44,7 +44,7 @@ public class CoordonneesTest {
 	}
 	
 	@Test
-	public void deplacerDe() {
+	public void testDeplacerDe() {
 		Coordonnees firstCoord = new Coordonnees(2.0, 1.5);
 		defaultCoordonnees.deplacerDe(3.4, -0.3);
 		assertEquals("deplacerDe", "(3,4 , -0,3)", defaultCoordonnees.toString());
@@ -53,7 +53,7 @@ public class CoordonneesTest {
 	}
 	
 	@Test
-	public void deplacerVers() {
+	public void testDeplacerVers() {
 		Coordonnees firstCoord = new Coordonnees(34.5, -10.4);
 		defaultCoordonnees.deplacerVers(2.43, -0.21);
 		assertEquals("deplacerDe", "(2,43 , -0,21)", defaultCoordonnees.toString());
@@ -62,13 +62,13 @@ public class CoordonneesTest {
 	}
 	
 	@Test
-	public void distanceVers() {
+	public void testDistanceVers() {
 		Coordonnees firstCoord = new Coordonnees(2, 2);
 		assertEquals("DistanceVers", 2.828427, defaultCoordonnees.distanceVers(firstCoord), EPSILON);
 	}
 	
 	@Test
-	public void angleVers() {
+	public void testAngleVers() {
 		Coordonnees firstCoord = new Coordonnees(2, 5);
 		Coordonnees secondCoord = new Coordonnees(1, 9);
 		assertEquals("AngleVers", 1.815774989, firstCoord.angleVers(secondCoord), EPSILON);
