@@ -24,10 +24,6 @@ public class ActionSelectionner extends javax.swing.AbstractAction {
    }
 
    // methodes
-   /**
-    * @author SimonDuperray
-    * @param event
-    */
    public void actionPerformed(ActionEvent event){
       if(event.getActionCommand()==NOM_ACTION){
          this.panneauDessin.associerOutil(

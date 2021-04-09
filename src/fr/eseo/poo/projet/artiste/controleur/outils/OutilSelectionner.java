@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionSelectionner;
+// import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
 
 public class OutilSelectionner extends Outil {
 

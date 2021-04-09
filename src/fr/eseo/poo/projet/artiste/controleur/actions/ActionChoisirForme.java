@@ -26,10 +26,6 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
    private PanneauBarreOutils panneauBarreOutils;
 
    // constructor
-   /**
-    * @author SimonDuperray
-    * @param event
-    */
    public ActionChoisirForme(PanneauDessin panneauDessin, PanneauBarreOutils panneauBarreOutils, String action){
       super(action);
       this.panneauDessin=panneauDessin;
@@ -37,10 +33,6 @@ public class ActionChoisirForme extends javax.swing.AbstractAction {
    }
 
    // methodes
-   /**
-    * @author SimonDuperray
-    * @param event
-    */
    public void actionPerformed(ActionEvent event){
       if(event.getActionCommand() == NOM_ACTION_LIGNE){
          this.panneauDessin.associerOutil(new OutilLigne());

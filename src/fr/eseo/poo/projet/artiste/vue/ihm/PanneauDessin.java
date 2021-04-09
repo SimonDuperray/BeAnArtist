@@ -10,7 +10,6 @@ import java.awt.Graphics2D;
 
 // internal imports
 import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
-//import fr.eseo.poo.projet.artiste.controleur.outils.OutilSelectionner;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
 import javax.swing.JPanel;
@@ -110,13 +109,13 @@ public class PanneauDessin extends JPanel{
       }
    }
    private void dissocierOutil(){
-      if(this.getOutilCourant()!=null && this.getOutilCourant().getPanneauDessin()!=null){
-         // if(this.getOutilCourant().getPanneauDessin() != null){
+      if(this.getOutilCourant() != null){
+         if(this.getOutilCourant().getPanneauDessin() != null){
             this.removeMouseListener(this.getOutilCourant());
             this.removeMouseMotionListener(this.getOutilCourant());
             getOutilCourant().setPanneauDessin(null);
             setOutilCourant(null);
          }
-      // }
+      }
    }
 }
