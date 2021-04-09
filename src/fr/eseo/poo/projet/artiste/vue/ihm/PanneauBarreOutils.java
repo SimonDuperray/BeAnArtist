@@ -134,6 +134,30 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       this.add(labelNbBranches);
       this.add(spinnerNbBranches);
 
+      // rectangle
+      JToggleButton rectangleBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_RECTANGLE
+         )
+      );
+      rectangleBtn.setName(ActionChoisirForme.NOM_ACTION_RECTANGLE);
+      groupBtn.add(rectangleBtn);
+      this.add(rectangleBtn);
+
+      // carre
+      JToggleButton carreBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_CARRE
+         )
+      );
+      carreBtn.setName(ActionChoisirForme.NOM_ACTION_CARRE);
+      groupBtn.add(carreBtn);
+      this.add(carreBtn);
+
       // selectionner
       JToggleButton selectionnerBtn = new JToggleButton(
          new ActionSelectionner(

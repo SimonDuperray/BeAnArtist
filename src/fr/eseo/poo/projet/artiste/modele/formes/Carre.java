@@ -7,28 +7,28 @@ import java.util.Locale;
 // internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
-public class Cercle extends Ellipse {
+public class Carre extends Rectangle {
 
    // class constants
    public static final double EPSILON = 0.2;
 
    // constructors
-   public Cercle(){
+   public Carre(){
       super();
-      this.estRempli=false;
+      this.estRempli = false;
    }
-   public Cercle(double taille){
+   public Carre(double taille){
       super(taille, taille);
-      isNegative();
+      this.isNegative();
       this.estRempli=false;
    }
-   public Cercle(Coordonnees coordonnees){
+   public Carre(Coordonnees coordonnees){
       super(coordonnees);
       this.estRempli=false;
    }
-   public Cercle(Coordonnees coordonnees, double taille){
+   public Carre(Coordonnees coordonnees, double taille){
       super(coordonnees, taille, taille);
-      isNegative();
+      this.isNegative();
       this.estRempli=false;
    }
 
@@ -38,24 +38,21 @@ public class Cercle extends Ellipse {
    }
 
    // setters
-   public void setHauteur(double hauteur) {
+   public void setHauteur(double hauteur){
       super.setHauteur(hauteur);
       super.setLargeur(hauteur);
-      isNegative();
+      this.isNegative();
    }
    public void setLargeur(double largeur){
-      super.setLargeur(largeur);
       super.setHauteur(largeur);
-      isNegative();
+      super.setLargeur(largeur);
+      this.isNegative();
    }
    public void setRempli(boolean rempli){
       this.estRempli=rempli;
    }
 
    // methodes
-   public double perimetre(){
-      return 2*Math.PI*super.getLargeur()/2;
-   }
    public String toString(){
       String couleur="";
 		Locale locale = Locale.getDefault();
@@ -72,16 +69,22 @@ public class Cercle extends Ellipse {
 		if(this.estRempli()){
 			rempli="-Rempli";
 		}
-      return "[Cercle"+rempli+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+      return "[Carré"+rempli+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
          +decimalFormat.format(bufferCoord.getOrdonnee())
          +") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
          +" périmètre : "+decimalFormat.format(this.perimetre())
          +" aire : "+decimalFormat.format(this.aire())
          +" couleur = "+couleur;
-	}
-   public void isNegative(){
+   }
+   public double aire(){
+      return Math.pow(super.getLargeur(), 2);
+   }
+   public double perimetre(){
+      return 4*(super.getLargeur());
+   }
+   private void isNegative(){
       if(super.getLargeur()<0){
-         throw new IllegalArgumentException("Largeur negative");
+         throw new IllegalArgumentException("Largeur négative");
       }
    }
 }

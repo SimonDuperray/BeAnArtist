@@ -1,11 +1,11 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
+// external imports
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-
 import java.awt.Color;
 
+// internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class EllipseTest {
@@ -15,6 +15,7 @@ public class EllipseTest {
 	Coordonnees defaultCoord = new Coordonnees();
 	Coordonnees coord = new Coordonnees(2.0, 2.0);
 	Ellipse defaultEllipse = new Ellipse();
+	Ellipse ellipseRemplie = new Ellipse();
 
 	// constructeurs
 	@Test
@@ -51,34 +52,33 @@ public class EllipseTest {
 		assertEquals("emptyConstructorHaut", 45.0, testEllipse.getHauteur(), EPSILON);
 	}
 
-	// getters
+	@Test
+	public void testNonRempli(){
+		assertEquals("estNonRempli", false, defaultEllipse.estRempli());
+	}
 	@Test
 	public void testRempli(){
-		Ellipse testEllipse = new Ellipse();
-		testEllipse.setRempli(true);
-		assertEquals("estRempli", true, testEllipse.estRempli());
+		ellipseRemplie.setRempli(true);
+		assertEquals("estRempli", true, ellipseRemplie.estRempli());
 	}
 
 	// setters
 	@Test
 	public void setHauteur(){
-		Ellipse testEllipse = new Ellipse();
-		testEllipse.setHauteur(40.0);
-		assertEquals("setHauteur", 40.0, testEllipse.getHauteur(), EPSILON);
-		assertEquals("testGetLargeur", 100.0, testEllipse.getLargeur(), EPSILON);
+		defaultEllipse.setHauteur(40.0);
+		assertEquals("setHauteur", 40.0, defaultEllipse.getHauteur(), EPSILON);
+		assertEquals("testGetLargeur", 100.0, defaultEllipse.getLargeur(), EPSILON);
 	}
 	@Test
 	public void setLargeur(){
-		Ellipse testEllipse = new Ellipse();
-		testEllipse.setLargeur(40.0);
-		assertEquals("setHauteur", 100.0, testEllipse.getHauteur(), EPSILON);
-		assertEquals("testGetLargeur", 40.0, testEllipse.getLargeur(), EPSILON);
+		defaultEllipse.setLargeur(40.0);
+		assertEquals("setHauteur", 100.0, defaultEllipse.getHauteur(), EPSILON);
+		assertEquals("testGetLargeur", 40.0, defaultEllipse.getLargeur(), EPSILON);
 	}
 	@Test
 	public void setCouleurT(){
-		Ellipse ellipse = new Ellipse();
-		ellipse.setCouleur(Color.RED);
-		assertEquals("getCouleur", Color.RED, ellipse.getCouleur());
+		defaultEllipse.setCouleur(Color.RED);
+		assertEquals("getCouleur", Color.RED, defaultEllipse.getCouleur());
 	}
 
 	// methodes

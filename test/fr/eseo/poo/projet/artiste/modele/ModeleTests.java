@@ -8,6 +8,8 @@ import fr.eseo.poo.projet.artiste.modele.formes.CercleTest;
 import fr.eseo.poo.projet.artiste.modele.formes.EllipseTest;
 import fr.eseo.poo.projet.artiste.modele.formes.EtoileTest;
 import fr.eseo.poo.projet.artiste.modele.formes.LigneTest;
+import fr.eseo.poo.projet.artiste.modele.formes.RectangleTest;
+import fr.eseo.poo.projet.artiste.modele.formes.CarreTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
@@ -15,7 +17,9 @@ import fr.eseo.poo.projet.artiste.modele.formes.LigneTest;
 	LigneTest.class, 
 	EllipseTest.class,
 	CercleTest.class,
-	EtoileTest.class
+	EtoileTest.class,
+	RectangleTest.class,
+	CarreTest.class
 })
 public class ModeleTests {
 

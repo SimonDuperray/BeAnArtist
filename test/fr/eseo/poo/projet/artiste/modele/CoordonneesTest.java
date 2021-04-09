@@ -4,74 +4,74 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class CoordonneesTest {
+	
+	// class constants
 	final double EPSILON = 0.2;
+	
+	// instances
+	Coordonnees defaultCoordonnees = new Coordonnees();
+	
 	@Test
 	public void constructeurVide() {
-		Coordonnees coord = new Coordonnees();
-		assertEquals("EmptyConstructor", "(0,0 , 0,0)", coord.toString());
+		assertEquals("EmptyConstructor", "(0,0 , 0,0)", defaultCoordonnees.toString());
 	}
 	@Test
 	public void constructeur() {
-		Coordonnees coord = new Coordonnees(4.5, 7.2);
-		assertEquals("Constructor", "(4,5 , 7,2)", coord.toString());
-		Coordonnees coord2 = new Coordonnees(4.54, 7.42);
-		assertEquals("Constructor", "(4,54 , 7,42)", coord2.toString());
+		Coordonnees firstCoord = new Coordonnees(4.5, 7.2);
+		assertEquals("Constructor", "(4,5 , 7,2)", firstCoord.toString());
+		Coordonnees secondCoord = new Coordonnees(4.54, 7.42);
+		assertEquals("Constructor", "(4,54 , 7,42)", secondCoord.toString());
 	}
 	
 	@Test
 	public void getDefaultCoord() {
-		Coordonnees coord = new Coordonnees();
-		assertEquals("getDefaultAbs", 0, coord.getAbscisse(), EPSILON);
-		assertEquals("getDefaultCoo", 0, coord.getOrdonnee(), EPSILON);
+		assertEquals("getDefaultAbs", 0, defaultCoordonnees.getAbscisse(), EPSILON);
+		assertEquals("getDefaultCoo", 0, defaultCoordonnees.getOrdonnee(), EPSILON);
 	}
 	@Test
 	public void getCoord() {
-		Coordonnees coord = new Coordonnees(3.43, 7.8);
-		assertEquals("getAbs", 3.43, coord.getAbscisse(), EPSILON);
-		assertEquals("getOrd", 7.8, coord.getOrdonnee(), EPSILON);
+		Coordonnees firstCoord = new Coordonnees(3.43, 7.8);
+		assertEquals("getAbs", 3.43, firstCoord.getAbscisse(), EPSILON);
+		assertEquals("getOrd", 7.8, firstCoord.getOrdonnee(), EPSILON);
 	}
 	
 	@Test
 	public void setCoord() {
-		Coordonnees coord = new Coordonnees();
-		coord.setAbscisse(2.34);
-		coord.setOrdonnee(-1.23);
-		assertEquals("setAbs", 2.34, coord.getAbscisse(), EPSILON);
-		assertEquals("setOrd", -1.23, coord.getOrdonnee(), EPSILON);
+		defaultCoordonnees.setAbscisse(2.34);
+		defaultCoordonnees.setOrdonnee(-1.23);
+		assertEquals("setAbs", 2.34, defaultCoordonnees.getAbscisse(), EPSILON);
+		assertEquals("setOrd", -1.23, defaultCoordonnees.getOrdonnee(), EPSILON);
 	}
 	
 	@Test
 	public void deplacerDe() {
-		Coordonnees coord = new Coordonnees();
-		coord.deplacerDe(3.4, -0.3);
-		assertEquals("deplacerDe", "(3,4 , -0,3)", coord.toString());
-		Coordonnees coord1 = new Coordonnees(2.0, 1.5);
-		coord1.deplacerDe(3.4, -0.3);
-		assertEquals("deplacerDe", "(5,4 , 1,2)", coord1.toString());
+		Coordonnees firstCoord = new Coordonnees(2.0, 1.5);
+		defaultCoordonnees.deplacerDe(3.4, -0.3);
+		assertEquals("deplacerDe", "(3,4 , -0,3)", defaultCoordonnees.toString());
+		firstCoord.deplacerDe(3.4, -0.3);
+		assertEquals("deplacerDe", "(5,4 , 1,2)", firstCoord.toString());
 	}
 	
 	@Test
 	public void deplacerVers() {
-		Coordonnees coord = new Coordonnees();
-		coord.deplacerVers(2.43, -0.21);
-		assertEquals("deplacerDe", "(2,43 , -0,21)", coord.toString());
-		Coordonnees coord1 = new Coordonnees(34.5, -10.4);
-		coord1.deplacerVers(4.67, -3.21);
-		assertEquals("deplacerDe", "(4,67 , -3,21)", coord1.toString());
+		Coordonnees firstCoord = new Coordonnees(34.5, -10.4);
+		defaultCoordonnees.deplacerVers(2.43, -0.21);
+		assertEquals("deplacerDe", "(2,43 , -0,21)", defaultCoordonnees.toString());
+		firstCoord.deplacerVers(4.67, -3.21);
+		assertEquals("deplacerDe", "(4,67 , -3,21)", firstCoord.toString());
 	}
 	
 	@Test
 	public void distanceVers() {
-		Coordonnees coord1 = new Coordonnees();
-		Coordonnees coord2 = new Coordonnees(2, 2);
-		assertEquals("DistanceVers", 2.828427, coord1.distanceVers(coord2), EPSILON);
+		Coordonnees firstCoord = new Coordonnees(2, 2);
+		assertEquals("DistanceVers", 2.828427, defaultCoordonnees.distanceVers(firstCoord), EPSILON);
 	}
 	
 	@Test
 	public void angleVers() {
-		Coordonnees coord1 = new Coordonnees(2, 5);
-		Coordonnees coord2 = new Coordonnees(1, 9);
-		assertEquals("AngleVers", 1.815774989, coord1.angleVers(coord2), EPSILON);
+		Coordonnees firstCoord = new Coordonnees(2, 5);
+		Coordonnees secondCoord = new Coordonnees(1, 9);
+		assertEquals("AngleVers", 1.815774989, firstCoord.angleVers(secondCoord), EPSILON);
 	}
 
 }

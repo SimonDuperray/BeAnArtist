@@ -20,7 +20,7 @@ public class CercleTest {
 	public void emptyConstructor(){
 		assertEquals("emptyConstructorAbs", defaultCoord.getAbscisse(), defaultCercle.getPosition().getAbscisse(), EPSILON);
 		assertEquals("emptyConstructorOrd", defaultCoord.getOrdonnee(), defaultCercle.getPosition().getOrdonnee(), EPSILON);
-		assertEquals("emptyConstructorLarg", 100, defaultCercle.getLargeur(), EPSILON);
+		assertEquals("emptyConstructorLarg", 100.0, defaultCercle.getLargeur(), EPSILON);
 		assertEquals("emptyConstructorHaut", 100.0, defaultCercle.getHauteur(), EPSILON);
 	}
 	@Test
