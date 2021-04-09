@@ -41,6 +41,10 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
    public void mouseEntered(MouseEvent event){}
    public void mouseExited(MouseEvent event){}
    public void mouseMoved(MouseEvent event){}
+   /**
+    * Affecte la variabla début à cette valeur
+    * @param event
+    */
    public void mousePressed(MouseEvent event){
       this.setDebut(
          new Coordonnees(
@@ -49,6 +53,10 @@ public abstract class Outil implements javax.swing.event.MouseInputListener {
          )
       );
    }
+   /**
+    * Affecte la variable fin à cette valeur
+    * @param event
+    */
    public void mouseReleased(MouseEvent event){
       setFin(
          new Coordonnees(

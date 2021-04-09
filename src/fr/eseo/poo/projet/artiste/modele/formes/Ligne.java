@@ -52,7 +52,7 @@ public class Ligne extends Forme {
 		super.setHauteur(coord.getOrdonnee() - this.getC1().getOrdonnee());
 	}
 	
-	// methodes
+	// personal methodes
 	private String radToDeg(DecimalFormat format) {
 		String angle;
 		if(this.getC1().angleVers(this.getC2())*180/Math.PI>=0) {
@@ -62,6 +62,8 @@ public class Ligne extends Forme {
 		}
 		return angle;
 	}
+
+	// methodes
 	public String toString() {
 		String couleur="";
 		Locale locale = Locale.getDefault();

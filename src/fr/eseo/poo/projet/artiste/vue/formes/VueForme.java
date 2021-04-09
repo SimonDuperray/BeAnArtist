@@ -22,5 +22,10 @@ public abstract class VueForme {
    }
 
    // methodes
+   /**
+    * Trace l'objet modèle correspondant à la Vue correspondante dans
+    * le contexte graphique passé en paramètre
+    * @param g2d
+    */
    public abstract void affiche(Graphics2D g2d);
 }

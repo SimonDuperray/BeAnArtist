@@ -89,12 +89,13 @@ public class Ellipse extends Forme implements Remplissable {
 		);
 		return Math.PI*(a+b)*(1+((3*h)/(10+Math.sqrt(4-3*h))));
 	}
-	public void isNegative()
-	{
-		if (super.getLargeur()<0)
+	public void isNegative(){
+		if(super.getLargeur()<0){
 			throw new IllegalArgumentException("Largeur negative");
-		if (super.getHauteur()<0)
+		}
+		if(super.getHauteur()<0){
 			throw new IllegalArgumentException("Hauteur negative");
+		}
 	}
 	public boolean contient(Coordonnees position){
 		return ((Math.pow(position.getAbscisse() - (this.getPosition().getAbscisse()

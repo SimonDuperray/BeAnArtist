@@ -54,9 +54,11 @@ public class Coordonnees {
 			+ Math.pow((coord.getOrdonnee() - this.getOrdonnee()), 2));
 	}
 	public double angleVers(Coordonnees coord) {
-        return ((Math.atan2(coord.getOrdonnee() - this.getOrdonnee(),
-        		coord.getAbscisse() - this.getAbscisse())));
-   	}
+      return ((
+			Math.atan2(coord.getOrdonnee() - this.getOrdonnee(),
+			coord.getAbscisse() - this.getAbscisse())
+		));
+   }
 	public String toString(){
 		DecimalFormat format = new DecimalFormat("0.0#");
 		return "("+format.format(this.getAbscisse())+" , "+format.format(this.getOrdonnee())+")";

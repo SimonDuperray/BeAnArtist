@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import javax.swing.JPanel;
 
 // internal imports
 import fr.eseo.poo.projet.artiste.controleur.outils.Outil;
 import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 import fr.eseo.poo.projet.artiste.vue.formes.VueForme;
-import javax.swing.JPanel;
 
 public class PanneauDessin extends JPanel{
 
@@ -23,7 +23,7 @@ public class PanneauDessin extends JPanel{
    public static final int HAUTEUR_PAR_DEFAUT = 300;
    public static final java.awt.Color COULEUR_FOND_PAR_DEFAUT = new Color(0, 0, 255);
    
-   // attributs
+   // attributes
    private final List<VueForme> vueFormes;
    private Color couleurCourante;
    private Outil outilCourant;
@@ -85,6 +85,12 @@ public class PanneauDessin extends JPanel{
    public void ajouterVueForme(VueForme vueForme){
       this.vueFormes.add(vueForme);
    }
+
+   /**
+    * Affiche toutes les formes associées lorsque la fenêtre est ouverte
+    * ou rafraîchie
+    * @param g
+    */
    protected void paintComponent(Graphics g) {
       super.paintComponent(g);
       Graphics2D g2d = (Graphics2D)g.create();
@@ -93,6 +99,11 @@ public class PanneauDessin extends JPanel{
       }
       g2d.dispose(); // nettoie memoire
    }
+   /**
+    * Associe l'outil donné en paramètre en tant qu'OutilCourant
+    * Ajoute l'outil en tant que gestionnaire d'évènement au panneau d'édition
+    * @param outil
+    */
    public void associerOutil(Outil outil){
       if(outil==null){}
       else if(this.getOutilCourant()==null){
@@ -108,6 +119,10 @@ public class PanneauDessin extends JPanel{
          this.addMouseMotionListener(outil);
       }
    }
+   /**
+    * Supprime en tant que gestionnaire d'évènements du panneau d'édition
+    * l'outil associé en tant qu'OutilCourant
+    */
    private void dissocierOutil(){
       if(this.getOutilCourant() != null){
          if(this.getOutilCourant().getPanneauDessin() != null){

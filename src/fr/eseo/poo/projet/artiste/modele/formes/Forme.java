@@ -67,7 +67,7 @@ public abstract class Forme implements Coloriable {
 		return this.couleur;
 	}
 
-	// bonus methodes
+	// personal methodes
 	private double getFX() {
 		return this.getPosition().getAbscisse();
 	}
@@ -128,6 +128,8 @@ public abstract class Forme implements Coloriable {
 		this.position.setAbscisse(nouvelleAbscisse);
 		this.position.setOrdonnee(nouvelleOrdonnee);
 	}
+
+	// abtract methodes
 	public abstract double aire();
 	public abstract double perimetre();
 	public abstract boolean contient(Coordonnees position);
