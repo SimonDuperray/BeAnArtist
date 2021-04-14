@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CoordonneesTest {
 	
 	// class constants
-	final double EPSILON = 0.2;
+	static final double EPSILON = 0.2;
 	
 	// instances
 	Coordonnees defaultCoordonnees = new Coordonnees();

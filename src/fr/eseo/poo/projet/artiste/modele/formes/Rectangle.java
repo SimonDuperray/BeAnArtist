@@ -54,28 +54,27 @@ public class Rectangle extends Forme implements Remplissable {
    }
 
    // methodes
+   private String getCorrectColor(Locale locale){
+      String couleur;
+      if(locale.getLanguage().equals("fr")){
+         couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      }
+      return couleur;
+   }
    public String toString(){
       String couleur = "";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();
-		if(locale.getLanguage()=="fr"){
-			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else if(locale.getLanguage()=="en"){
-			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else {
-			couleur="Bad Language";
-		}
-		String rempli="";
-		if(this.estRempli()){
-			rempli="-Rempli";
-		}
-		return "[Rectangle"+rempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+      String isRempli = this.estRempli() ? "-Rempli" : "";
+		return "[Rectangle"+isRempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
 			+decimalFormat.format(bufferCoord.getOrdonnee())
 			+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
 			+" périmètre : "+decimalFormat.format(this.perimetre())
 			+" aire : "+decimalFormat.format(this.aire())
-			+" couleur = "+couleur;
+			+" couleur = "+this.getCorrectColor(locale);
    }
    private void isNegative(){
       if(super.getLargeur()<0){
@@ -96,10 +95,6 @@ public class Rectangle extends Forme implements Remplissable {
       double y = position.getOrdonnee();
       boolean isInX = x > this.getCadreMinX() && x < this.getCadreMinX()+this.getLargeur();
       boolean isInY = y > this.getCadreMinY() && y < this.getCadreMinY()+this.getHauteur();
-      if(isInX && isInY){
-         return true;
-      } else {
-         return false;
-      }
+      return (isInX && isInY);
    }
 }

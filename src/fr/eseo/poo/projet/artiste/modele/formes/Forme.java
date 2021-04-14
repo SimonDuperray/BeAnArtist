@@ -76,33 +76,53 @@ public abstract class Forme implements Coloriable {
 	}
 	
 	public double getCadreMinX() {
-		if(this.getFX()<this.getFX()+this.getLargeur()) {
-			return this.getFX();
-		} else {
-			return this.getFX() + this.getLargeur();
+		double cadreMinX = this.getFX();
+		// if(this.getFX()<this.getFX()+this.getLargeur()) {
+		// 	cadreMinX = this.getFX();
+		// } else {
+		// 	cadreMinX = this.getFX() + this.getLargeur();
+		// }
+		if(this.getFX()>=this.getFX()+this.getLargeur()) {
+			cadreMinX+=this.getLargeur();
 		}
+		return cadreMinX;
 	}
 	public double getCadreMinY() {
-		if(this.getFY() < this.getFY() + this.getHauteur()) {
-			return this.getFY();
-		} else {
-			return this.getFY() + this.getHauteur();
+		double cadreMinY = this.getFY();
+		// if(this.getFY() < this.getFY() + this.getHauteur()) {
+		// 	cadreMinY = this.getFY();
+		// } else {
+		// 	cadreMinY = this.getFY() + this.getHauteur();
+		// }
+		if(this.getFY()>=this.getFY()+this.getHauteur()) {
+			cadreMinY+=this.getHauteur();
 		}
+		return cadreMinY;
 	}
 	
 	public double getCadreMaxX() {
-		if(this.getFX() > this.getFX() + this.getLargeur()) {
-			return this.getFX();
-		} else {
-			return this.getFX() + this.getLargeur();
+		double cadreMaxX = this.getFX();
+		// if(this.getFX() > this.getFX() + this.getLargeur()) {
+		// 	cadreMaxX = this.getFX();
+		// } else {
+		// 	cadreMaxX = this.getFX() + this.getLargeur();
+		// }
+		if(this.getFX()<=this.getFX()+this.getLargeur()){
+			cadreMaxX+=this.getLargeur();
 		}
+		return cadreMaxX;
 	}
 	public double getCadreMaxY() {
-		if(this.getFY() > this.getFY() + this.getHauteur()) {
-			return this.getFY();
-		} else {
-			return this.getFY() + this.getHauteur();
+		double cadreMaxY = this.getFY();
+		// if(this.getFY() > this.getFY() + this.getHauteur()) {
+		// 	cadreMaxY = this.getFY();
+		// } else {
+		// 	cadreMaxY = this.getFY() + this.getHauteur();
+		// }
+		if(this.getFY()<=this.getFY()+this.getHauteur()){
+			cadreMaxY+=this.getHauteur();
 		}
+		return cadreMaxY;
 	}
 	
 	// setters

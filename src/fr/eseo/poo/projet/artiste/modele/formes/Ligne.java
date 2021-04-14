@@ -68,9 +68,9 @@ public class Ligne extends Forme {
 		String couleur="";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
-		if(locale.getLanguage()=="fr"){
+		if(locale.getLanguage().equals("fr")){
 			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else if(locale.getLanguage()=="en"){
+		} else if(locale.getLanguage().equals("en")){
 			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
 			couleur="Bad Language";
@@ -95,10 +95,6 @@ public class Ligne extends Forme {
 		double distanceC2 = Math.abs(this.getC2().distanceVers(position));
 		double distanceC1C2 = Math.abs(this.getC1().distanceVers(this.getC2()));
 		double distance = distanceC1 + distanceC2 - distanceC1C2;
-		if(distance<=EPSILON){
-			return true;
-		} else {
-			return false;
-		}
+		return(distance<=EPSILON);
 	}
 }

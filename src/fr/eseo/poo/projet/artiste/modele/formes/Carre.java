@@ -58,9 +58,9 @@ public class Carre extends Rectangle {
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
       Coordonnees bufferCoord = super.getPosition();
-      if(locale.getLanguage()=="fr"){
+      if(locale.getLanguage().equals("fr")){
 			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else if(locale.getLanguage()=="en"){
+		} else if(locale.getLanguage().equals("en")){
 			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
 		} else {
 			couleur="Bad Language";

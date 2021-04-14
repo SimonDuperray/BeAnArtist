@@ -17,33 +17,50 @@ public class OutilEllipse extends OutilForme {
       ellipse.setLargeur(Math.abs(x2 - x1));
       ellipse.setHauteur(Math.abs(y2 - y1));
       ellipse.setCouleur(this.getPanneauDessin().getCouleurCourante());
+      // opti
+      if(x1>x2){
+         if(y1<y2){
+            x1=x2;
+         } else {
+            x1=x2;
+            y1=y2;
+         }
+      } else if(y1>y2){
+         y1=y2;
+      }
+      ellipse.setPosition(
+         new Coordonnees(
+            x1,
+            y1
+         )
+      );
       // pattern shapes
       // from Top-Left to Bottom-Right
-      if(x1<x2 && y1<y2){
-         ellipse.setPosition(
-            new Coordonnees(x1, y1)
-         );
-      // from Bottom-Right to Top-Left
-      } else if(x1>x2 && y1>y2){
-         ellipse.setPosition(
-            new Coordonnees(x2, y2)
-         );
-      // from Bottom-Left to Top-Right
-      } else if(x1<x2 && y1>y2){
-         ellipse.setPosition(
-            new Coordonnees(x1, y2)
-         );
-      // from Top-Right to Bottom-Left
-      } else if(x1>x2 && y1<y2){
-         ellipse.setPosition(
-            new Coordonnees(x2, y1)
-         );
-      // default
-      } else {
-         ellipse.setPosition(
-            new Coordonnees(x1, y1)
-         );
-      }
+      // if(x1<x2 && y1<y2){
+      //    ellipse.setPosition(
+      //       new Coordonnees(x1, y1)
+      //    );
+      // // from Bottom-Right to Top-Left
+      // } else if(x1>x2 && y1>y2){
+      //    ellipse.setPosition(
+      //       new Coordonnees(x2, y2)
+      //    );
+      // // from Bottom-Left to Top-Right
+      // } else if(x1<x2 && y1>y2){
+      //    ellipse.setPosition(
+      //       new Coordonnees(x1, y2)
+      //    );
+      // // from Top-Right to Bottom-Left
+      // } else if(x1>x2 && y1<y2){
+      //    ellipse.setPosition(
+      //       new Coordonnees(x2, y1)
+      //    );
+      // // default
+      // } else {
+      //    ellipse.setPosition(
+      //       new Coordonnees(x1, y1)
+      //    );
+      // }
       ellipse.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueEllipse(ellipse);
    }

@@ -24,42 +24,59 @@ public class OutilCercle extends OutilForme {
          )
       );
       cercle.setCouleur(this.getPanneauDessin().getCouleurCourante());
-      // pattern shapes
-      // from Top-Left to Bottom-Right
-      if(x1<x2 && y1<y2){
-         cercle.setPosition(
-            new Coordonnees(x1, y1)
-         );
-      // from Bottom-Right to Top-Left
-      } else if(x1>x2 && y1>y2){
-         cercle.setPosition(
-            new Coordonnees(
-               x1-cercle.getLargeur(),
-               y1-cercle.getLargeur()
-            )
-         );
-      // from Bottom-Left to Top-Right
-      } else if(x1<x2 && y1>y2){
-         cercle.setPosition(
-            new Coordonnees(
-               x1,
-               y1-cercle.getLargeur()
-            )
-         );
-      // from Top-Right to Bottom-Left
-      } else if(x1>x2 && y1<y2){
-         cercle.setPosition(
-            new Coordonnees(
-               x1-cercle.getLargeur(),
-               y1
-            )
-         );
-      // default
-      } else {
-         cercle.setPosition(
-            new Coordonnees()
-         );
+      // opti
+      if(x1>x2){
+         if(y1>y2){
+            x1=x1-cercle.getLargeur();
+            y1=y1-cercle.getLargeur();
+         } else {
+            x1=x1-cercle.getLargeur();
+         }
+      } else if(y1>y2){
+         y1=y1-cercle.getLargeur();
       }
+      cercle.setPosition(
+         new Coordonnees(
+            x1,
+            y1
+         )
+      );
+      // // pattern shapes
+      // // from Top-Left to Bottom-Right
+      // if(x1<x2 && y1<y2){
+      //    cercle.setPosition(
+      //       new Coordonnees(x1, y1)
+      //    );
+      // // from Bottom-Right to Top-Left
+      // } else if(x1>x2 && y1>y2){
+      //    cercle.setPosition(
+      //       new Coordonnees(
+      //          x1-cercle.getLargeur(),
+      //          y1-cercle.getLargeur()
+      //       )
+      //    );
+      // // from Bottom-Left to Top-Right
+      // } else if(x1<x2 && y1>y2){
+      //    cercle.setPosition(
+      //       new Coordonnees(
+      //          x1,
+      //          y1-cercle.getLargeur()
+      //       )
+      //    );
+      // // from Top-Right to Bottom-Left
+      // } else if(x1>x2 && y1<y2){
+      //    cercle.setPosition(
+      //       new Coordonnees(
+      //          x1-cercle.getLargeur(),
+      //          y1
+      //       )
+      //    );
+      // // default
+      // } else {
+      //    cercle.setPosition(
+      //       new Coordonnees()
+      //    );
+      // }
       cercle.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueCercle(cercle);
    }

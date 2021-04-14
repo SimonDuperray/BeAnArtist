@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles version="10">
+   <profile kind="CodeFormatterProfile"
+            name="CheckStyle-Generated BeAnArtist"
+            version="10">
+      <setting id="org.eclipse.jdt.core.formatter.comment.line_length" value="150"/>
+      <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="150"/>
+   </profile>
+</profiles>

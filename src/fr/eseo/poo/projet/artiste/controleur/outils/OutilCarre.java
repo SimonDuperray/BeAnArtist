@@ -24,42 +24,59 @@ public class OutilCarre extends OutilForme {
          )
       );
       carre.setCouleur(this.getPanneauDessin().getCouleurCourante());
+      // opti
+      if(x1>x2){
+         if(y1>y2){
+            x1=x1-carre.getLargeur();
+            y1=y1-carre.getLargeur();
+         } else {
+            x1=x1-carre.getLargeur();
+         }
+      } else if(y1>y2){
+         y1=y1-carre.getLargeur();
+      }
+      carre.setPosition(
+         new Coordonnees(
+            x1,
+            y1
+         )
+      );
       // pattern shapes
       // from Top-Left to Bottom-Right
-      if(x1<x2 && y1<y2){
-         carre.setPosition(
-            new Coordonnees(x1, y1)
-         );
-      // from Bottom-Right to Top-Left
-      } else if(x1>x2 && y1>y2){
-         carre.setPosition(
-            new Coordonnees(
-               x1-carre.getLargeur(),
-               y1-carre.getLargeur()
-            )
-         );
-      // from Bottom-Left to Top-Right
-      } else if(x1<x2 && y1>y2){
-         carre.setPosition(
-            new Coordonnees(
-               x1,
-               y1-carre.getLargeur()
-            )
-         );
-      // from Top-Right to Bottom-Left
-      } else if(x1>x2 && y1<y2){
-         carre.setPosition(
-            new Coordonnees(
-               x1-carre.getLargeur(),
-               y1
-            )
-         );
-      // default
-      } else {
-         carre.setPosition(
-            new Coordonnees()
-         );
-      }
+      // if(x1<x2 && y1<y2){
+      //    carre.setPosition(
+      //       new Coordonnees(x1, y1)
+      //    );
+      // // from Bottom-Right to Top-Left
+      // } else if(x1>x2 && y1>y2){
+      //    carre.setPosition(
+      //       new Coordonnees(
+      //          x1-carre.getLargeur(),
+      //          y1-carre.getLargeur()
+      //       )
+      //    );
+      // // from Bottom-Left to Top-Right
+      // } else if(x1<x2 && y1>y2){
+      //    carre.setPosition(
+      //       new Coordonnees(
+      //          x1,
+      //          y1-carre.getLargeur()
+      //       )
+      //    );
+      // // from Top-Right to Bottom-Left
+      // } else if(x1>x2 && y1<y2){
+      //    carre.setPosition(
+      //       new Coordonnees(
+      //          x1-carre.getLargeur(),
+      //          y1
+      //       )
+      //    );
+      // // default
+      // } else {
+      //    carre.setPosition(
+      //       new Coordonnees()
+      //    );
+      // }
       carre.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueCarre(carre);
    }

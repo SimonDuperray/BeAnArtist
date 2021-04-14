@@ -177,20 +177,28 @@ public class Etoile extends Forme implements Remplissable {
       }
       return p + this.getCoordonnees().get(this.getCoordonnees().size()-1).distanceVers(this.getCoordonnees().get(0));
    }
+   private String getCorrectColor(Locale locale){
+      String couleur;
+      if(locale.getLanguage().equals("fr")){
+         couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      }
+      return couleur;
+   }
    public String toString(){
-		String couleur = "";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();
-		if(locale.getLanguage()=="fr"){
-			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-      } 
-      else if(locale.getLanguage()=="en"){
-         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+		// if(locale.getLanguage()=="fr"){
+		// 	couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      // } 
+      // else if(locale.getLanguage()=="en"){
+      //    couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
          
-		} else {
-			couleur="Bad Language";
-		}
+		// } else {
+		// 	couleur="Bad Language";
+		// }
 		String rempli="";
 		if(this.estRempli()){
 			rempli="-Rempli";
@@ -200,7 +208,7 @@ public class Etoile extends Forme implements Remplissable {
          +" x "+decimalFormat.format(super.getHauteur())
          + " périmètre : "+decimalFormat.format(this.perimetre())
          +" aire : "+decimalFormat.format(this.aire())
-         +" couleur = "+couleur;
+         +" couleur = "+this.getCorrectColor(locale);
 	}
    private void recalculerSommets(){
       this.coordonnees.clear();
