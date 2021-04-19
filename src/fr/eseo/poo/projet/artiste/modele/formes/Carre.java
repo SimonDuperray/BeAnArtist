@@ -82,8 +82,8 @@ public class Carre extends Rectangle {
    public double perimetre(){
       return 4*(super.getLargeur());
    }
-   private void isNegative(){
-      if(super.getLargeur()<0){
+   public void isNegative(){
+      if(super.getLargeur()<0 || super.getHauteur()<0){
          throw new IllegalArgumentException("Largeur négative");
       }
    }

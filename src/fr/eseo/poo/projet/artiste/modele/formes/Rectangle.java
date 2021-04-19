@@ -58,8 +58,10 @@ public class Rectangle extends Forme implements Remplissable {
       String couleur;
       if(locale.getLanguage().equals("fr")){
          couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-      } else {
+      } else if(locale.getLanguage().equals("en")) {
          couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+    	  couleur = "Bad Language";
       }
       return couleur;
    }

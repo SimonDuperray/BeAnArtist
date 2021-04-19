@@ -124,5 +124,4 @@ public class CercleTest {
 		assertEquals("toStringEn", result, defaultCercle.toString());
 		defaultCercle.setRempli(false);
 	}
-
 }

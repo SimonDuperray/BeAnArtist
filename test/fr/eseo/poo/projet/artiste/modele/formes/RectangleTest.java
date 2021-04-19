@@ -2,6 +2,9 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 // external imports
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import java.awt.Color;
 import java.util.Locale;
@@ -83,6 +86,16 @@ public class RectangleTest {
 		defaultRectangle.setCouleur(Color.RED);
 		assertEquals("getCouleur", Color.RED, defaultRectangle.getCouleur());
 	}
+	
+	// exceptions
+	@Test(expected = IllegalArgumentException.class)
+	public void testLargeurNegative() {
+		defaultRectangle.setLargeur(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testHauteurNegative() {
+		defaultRectangle.setHauteur(-10);
+	}
 
 	// methodes
 	@Test
@@ -91,6 +104,22 @@ public class RectangleTest {
 			+ "périmètre : 400,0 aire : 10000,0 couleur = R51,V51,B51";
 		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultRectangle.toString());
+	}
+	@Test
+	public void toStringEn(){
+		String result = "[Rectangle] : pos (0.0 , 0.0) dim 100.0 x 100.0 "
+			+ "périmètre : 400.0 aire : 10000.0 couleur = R51,G51,B51";
+		Locale.setDefault(Locale.ENGLISH);
+		assertEquals("toString", result, defaultRectangle.toString());
+	}
+	@Test
+	public void toStringOther(){
+		String result = "[Rectangle-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "
+			+ "périmètre : 400.0 aire : 10000.0 couleur = Bad Language";
+		Locale.setDefault(Locale.CHINA);
+		defaultRectangle.setRempli(true);
+		assertEquals("toString", result, defaultRectangle.toString());
+		defaultRectangle.setRempli(false);
 	}
 	@Test
 	public void airet(){
@@ -115,5 +144,31 @@ public class RectangleTest {
 			false,
 			defaultRectangle.contient(new Coordonnees(500.0, 120.0))
 		);
+	}
+	@Test
+	public void contientIsInX() {
+		Rectangle rect = new Rectangle(new Coordonnees(), 6, 4);
+		assertFalse("false isInX1", rect.contient(new Coordonnees(10, 10)));
+		assertFalse("false isInX2", rect.contient(new Coordonnees(6, 10)));
+		assertFalse("false isInX3", rect.contient(new Coordonnees(0, 10)));
+		assertFalse("false isInX4", rect.contient(new Coordonnees(0, 10)));
+		assertTrue("false isInY4", rect.contient(new Coordonnees(2, 2)));
+	}
+	@Test
+	public void contientIsInY() {
+		Rectangle rect = new Rectangle(new Coordonnees(), 6, 4);
+		assertFalse("false isInY1", rect.contient(new Coordonnees(10, 10)));
+		assertFalse("false isInY2", rect.contient(new Coordonnees(10, 4)));
+		assertFalse("false isInY3", rect.contient(new Coordonnees(10, 0)));
+		assertFalse("false isInY4", rect.contient(new Coordonnees(10, 0)));
+		assertTrue("false isInY4", rect.contient(new Coordonnees(2, 2)));
+	}
+	@Test
+	public void contientFinal() {
+		Rectangle rect = new Rectangle(new Coordonnees(), 6, 4);
+		assertFalse("false1", rect.contient(new Coordonnees(3, 100)));
+		assertFalse("false2", rect.contient(new Coordonnees(100, 3)));
+		assertFalse("false3", rect.contient(new Coordonnees(100, 100)));
+		assertTrue("true1", rect.contient(new Coordonnees(3, 3)));
 	}
 }

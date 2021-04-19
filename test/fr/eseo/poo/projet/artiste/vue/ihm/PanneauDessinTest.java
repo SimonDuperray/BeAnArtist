@@ -22,7 +22,7 @@ private void testConstructeur(){
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.setTitle("Blues du Businessman");
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
-		PanneauDessin panneau = new PanneauDessin(900, 400);
+		PanneauDessin panneau = new PanneauDessin();
 		frame.setContentPane(panneau);
 		frame.pack();
 		frame.setLocationRelativeTo(null);

@@ -75,6 +75,10 @@ public class CarreTest {
 		defaultCarre.setCouleur(Color.RED);
 		assertEquals("getCouleur", Color.RED, defaultCarre.getCouleur());
 	}
+	@Test(expected = IllegalArgumentException.class)
+	public void largeurNegative() {
+		defaultCarre.isNegative();
+	}
 
 	// methodes
 	@Test
@@ -105,5 +109,18 @@ public class CarreTest {
 		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultCarre.toString());
 	}
-
+	@Test
+	public void toStringtEn(){
+		String result = "[Carré-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 400.0 aire : 10000.0 couleur = R51,G51,B51";
+		Locale.setDefault(Locale.ENGLISH);
+		defaultCarre.setRempli(true);
+		assertEquals("toString", result, defaultCarre.toString());
+		defaultCarre.setRempli(false);
+	}
+	@Test
+	public void toStringtOther(){
+		String result = "[Carré] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 400.0 aire : 10000.0 couleur = Bad Language";
+		Locale.setDefault(Locale.CHINA);
+		assertEquals("toString", result, defaultCarre.toString());
+	}
 }
