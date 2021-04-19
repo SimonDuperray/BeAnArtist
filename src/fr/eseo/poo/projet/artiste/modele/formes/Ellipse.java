@@ -39,7 +39,7 @@ public class Ellipse extends Forme implements Remplissable {
 	public boolean estRempli(){
 		return this.estRempli;
 	}
-
+	
 	// setters
 	public void setHauteur(double hauteur){
 		super.setHauteur(hauteur);

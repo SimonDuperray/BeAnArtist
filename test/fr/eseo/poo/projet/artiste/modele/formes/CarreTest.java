@@ -4,6 +4,7 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.awt.Color;
+import java.util.Locale;
 
 // internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
@@ -101,6 +102,7 @@ public class CarreTest {
 	@Test
 	public void toStringt(){
 		String result = "[Carré] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 400,0 aire : 10000,0 couleur = R51,V51,B51";
+		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultCarre.toString());
 	}
 

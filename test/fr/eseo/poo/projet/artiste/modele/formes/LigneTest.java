@@ -3,6 +3,7 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 import static org.junit.Assert.assertEquals;
 
 import java.awt.Color;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -97,6 +98,52 @@ public class LigneTest {
 		assertEquals("cadreMinX", 0.0, testLigne.getCadreMinX(), EPSILON);
 		assertEquals("cadreMinY", 0.0, testLigne.getCadreMinY(), EPSILON);
 	}
+	// cadre min
+	@Test
+	public void testGetCadreMinY() {
+		Ligne ligne = new Ligne(new Coordonnees(77, 177), 156, 100);
+		assertEquals("cadreminY", 177, ligne.getCadreMinY(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMinY2() {
+		Ligne ligne = new Ligne(new Coordonnees(), 5.0, 10.0);
+		ligne.setC2(new Coordonnees(-5, -10));
+		assertEquals("cadreminY2", -10, ligne.getCadreMinY(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMinX() {
+		Ligne ligne = new Ligne(new Coordonnees(77, 177), 156, 100);
+		assertEquals("cadreminY", 77, ligne.getCadreMinX(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMinX2() {
+		Ligne ligne = new Ligne(new Coordonnees(), 5.0, 10.0);
+		ligne.setC2(new Coordonnees(-5, -10));
+		assertEquals("cadreminY2", -5, ligne.getCadreMinX(), EPSILON);
+	}
+	// cadre max
+	@Test
+	public void testGetCadreMaxY() {
+		Ligne ligne = new Ligne(new Coordonnees(77, 177), 156, 100);
+		assertEquals("cadremaxY", 277, ligne.getCadreMaxY(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMaxY2() {
+		Ligne ligne = new Ligne(new Coordonnees(), 5.0, 10.0);
+		ligne.setC2(new Coordonnees(-5, -10));
+		assertEquals("cadremaxY2", 0, ligne.getCadreMaxY(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMaxX() {
+		Ligne ligne = new Ligne(new Coordonnees(77, 177), 156, 100);
+		assertEquals("cadremaxY", 233, ligne.getCadreMaxX(), EPSILON);
+	}
+	@Test
+	public void testGetCadreMaxX2() {
+		Ligne ligne = new Ligne(new Coordonnees(), 5.0, 10.0);
+		ligne.setC2(new Coordonnees(-5, -10));
+		assertEquals("cadremaxY2", 0, ligne.getCadreMaxX(), EPSILON);
+	}
 
 	// deplacements
 	@Test
@@ -117,6 +164,11 @@ public class LigneTest {
 		assertEquals("c1Ord", 2.0, testLigne.getC1().getOrdonnee(), EPSILON);
 		assertEquals("c2Abs", 3.0, testLigne.getC2().getAbscisse(), EPSILON);
 		assertEquals("c2Ord", 3.0, testLigne.getC2().getOrdonnee(), EPSILON);
+		testLigne.deplacerVers(4.0, 5.0);
+		assertEquals("Newc1Abs", 4.0, testLigne.getC1().getAbscisse(), EPSILON);
+		assertEquals("Newc1Ord", 5.0, testLigne.getC1().getOrdonnee(), EPSILON);
+		assertEquals("Newc2Abs", 5.0, testLigne.getC2().getAbscisse(), EPSILON);
+		assertEquals("Newc2Ord", 6.0, testLigne.getC2().getOrdonnee(), EPSILON);
 	}
 
 	// toString
@@ -130,6 +182,40 @@ public class LigneTest {
 			"[Ligne] c1 : (3,0 , 3,0) c2 : (0,0 , 0,0) longueur : 4,24 angle : 225,0° couleur = R51,V51,B51",
 			defaultLigne.toString()
 		);
+	}
+	@Test
+	public void toStringEn(){
+		Coordonnees coord = new Coordonnees(3.0, 3.0);
+		Locale.setDefault(Locale.ENGLISH);
+		defaultLigne.setC1(coord);
+		defaultLigne.setC2(defaultCoord);
+		String result = "[Ligne] c1 : (3.0 , 3.0) c2 : (0.0 , 0.0) longueur : 4.24 angle : 225.0° couleur = R51,G51,B51";
+		assertEquals(
+			"toString",
+			result,
+			defaultLigne.toString()
+		);
+	}
+	@Test
+	public void toStringOther(){
+		Coordonnees coord = new Coordonnees(3.0, 3.0);
+		Locale.setDefault(Locale.CHINA);
+		defaultLigne.setC1(coord);
+		defaultLigne.setC2(defaultCoord);
+		String result = "[Ligne] c1 : (3.0 , 3.0) c2 : (0.0 , 0.0) longueur : 4.24 angle : 225.0° couleur = Bad Language";
+		assertEquals(
+			"toString",
+			result,
+			defaultLigne.toString()
+		);
+	}
+	@Test
+	public void toStringRadToDeg() {
+		Ligne ligne = new Ligne();
+		ligne.setC1(new Coordonnees(5, 5));
+		ligne.setC2(new Coordonnees(10, 10));
+		String result = "[Ligne] c1 : (5,0 , 5,0) c2 : (10,0 , 10,0) longueur : 7,07 angle : 45,0° couleur = R51,V51,B51";
+		assertEquals("toString radtodeg: ", result, ligne.toString());
 	}
 
 	// contient

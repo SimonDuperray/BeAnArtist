@@ -18,7 +18,7 @@ public class PanneauDessinTest {
 		frame.pack();
 	}
 
-	private void testConstructeur(){
+private void testConstructeur(){
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.setTitle("Blues du Businessman");
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);

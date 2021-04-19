@@ -64,7 +64,6 @@ public class Rectangle extends Forme implements Remplissable {
       return couleur;
    }
    public String toString(){
-      String couleur = "";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();

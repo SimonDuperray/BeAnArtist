@@ -18,5 +18,4 @@ public class OutilLigne extends OutilForme {
       ligne.setC2(this.getFin());
       return new VueLigne(ligne);
    }
-
 }

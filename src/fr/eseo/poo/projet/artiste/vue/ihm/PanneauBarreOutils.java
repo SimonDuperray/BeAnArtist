@@ -47,28 +47,8 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       return new Double(this.spinnerLongBranches.getModel().getValue().toString());
    }
 
-   // methodes
-   public void initComponents(){
-      ButtonGroup groupBtn = new ButtonGroup();
-      // effacer
-      JButton effacerBtn = new JButton(new ActionEffacer(this.panneauDessin));
-      effacerBtn.setName(ActionEffacer.NOM_ACTION);
-      this.add(effacerBtn);
-
-      // toggles buttons
-      // ligne
-      JToggleButton ligneBtn = new JToggleButton(
-         new ActionChoisirForme(
-            this.panneauDessin,
-            this,
-            ActionChoisirForme.NOM_ACTION_LIGNE
-         )
-      );
-      ligneBtn.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
-      groupBtn.add(ligneBtn);
-      this.add(ligneBtn);
-
-      // ellipse
+   // private methods
+   private JToggleButton createToggleEllipse(){
       JToggleButton ellipseBtn = new JToggleButton(
          new ActionChoisirForme(
             this.panneauDessin,
@@ -77,10 +57,9 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
          )
       );
       ellipseBtn.setName(ActionChoisirForme.NOM_ACTION_ELLIPSE);
-      groupBtn.add(ellipseBtn);
-      this.add(ellipseBtn);
-
-      // cercle
+      return ellipseBtn;
+   }
+   private JToggleButton createToggleCercle(){
       JToggleButton cercleBtn = new JToggleButton(
          new ActionChoisirForme(
             this.panneauDessin,
@@ -89,10 +68,20 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
          )
       );
       cercleBtn.setName(ActionChoisirForme.NOM_ACTION_CERCLE);
-      groupBtn.add(cercleBtn);
-      this.add(cercleBtn);
-
-      // etoile
+      return cercleBtn;
+   }
+   private JToggleButton createToggleLigne(){
+      JToggleButton ligneBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_LIGNE
+         )
+      );
+      ligneBtn.setName(ActionChoisirForme.NOM_ACTION_LIGNE);
+      return ligneBtn;
+   }
+   private JToggleButton createToggleEtoile(){
       JToggleButton etoileBtn = new JToggleButton(
          new ActionChoisirForme(
             this.panneauDessin,
@@ -101,6 +90,58 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
          )
       );
       etoileBtn.setName(ActionChoisirForme.NOM_ACTION_ETOILE);
+      return etoileBtn;
+   }
+   private JToggleButton createToggleRectangle(){
+      JToggleButton rectangleBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_RECTANGLE
+         )
+      );
+      rectangleBtn.setName(ActionChoisirForme.NOM_ACTION_RECTANGLE);
+      return rectangleBtn;
+   }
+   private JToggleButton createToggleCarre(){
+      JToggleButton carreBtn = new JToggleButton(
+         new ActionChoisirForme(
+            this.panneauDessin,
+            this,
+            ActionChoisirForme.NOM_ACTION_CARRE
+         )
+      );
+      carreBtn.setName(ActionChoisirForme.NOM_ACTION_CARRE);
+      return carreBtn;
+   }
+
+   // methodes
+   public void initComponents(){
+      ButtonGroup groupBtn = new ButtonGroup();
+
+      JButton effacerBtn = new JButton(new ActionEffacer(this.panneauDessin));
+      effacerBtn.setName(ActionEffacer.NOM_ACTION);
+      this.add(effacerBtn);
+
+      // toggles buttons
+
+      // bouton ligne
+      JToggleButton ligneBtn = this.createToggleLigne();
+      groupBtn.add(ligneBtn);
+      this.add(ligneBtn);
+
+      // // bouton ellipse
+      JToggleButton ellipseBtn = this.createToggleEllipse();
+      groupBtn.add(ellipseBtn);
+      this.add(ellipseBtn);
+
+      // bouton cercle
+      JToggleButton cercleBtn = this.createToggleCercle();
+      groupBtn.add(cercleBtn);
+      this.add(cercleBtn);
+
+      // bouton etoile
+      JToggleButton etoileBtn = this.createToggleEtoile();
       groupBtn.add(etoileBtn);
       this.add(etoileBtn);
 
@@ -108,10 +149,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       JLabel labelLongBranches = new JLabel();
       labelLongBranches.setName(LONGUEUR_SPINNER_NOM);
       SpinnerNumberModel modelLongBrancheSpinner = new SpinnerNumberModel(
-         Etoile.LONGUEUR_BRANCHE_PAR_DEFAUT, 
-         0.00, 
-         1.00, 
-         0.01
+         Etoile.LONGUEUR_BRANCHE_PAR_DEFAUT, 0.00, 1.00, 0.01
       );
       this.spinnerLongBranches.setModel(modelLongBrancheSpinner);
       this.spinnerLongBranches.setName(LONGUEUR_SPINNER_NOM);
@@ -135,26 +173,12 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       this.add(spinnerNbBranches);
 
       // rectangle
-      JToggleButton rectangleBtn = new JToggleButton(
-         new ActionChoisirForme(
-            this.panneauDessin,
-            this,
-            ActionChoisirForme.NOM_ACTION_RECTANGLE
-         )
-      );
-      rectangleBtn.setName(ActionChoisirForme.NOM_ACTION_RECTANGLE);
+      JToggleButton rectangleBtn = this.createToggleRectangle();
       groupBtn.add(rectangleBtn);
       this.add(rectangleBtn);
 
       // carre
-      JToggleButton carreBtn = new JToggleButton(
-         new ActionChoisirForme(
-            this.panneauDessin,
-            this,
-            ActionChoisirForme.NOM_ACTION_CARRE
-         )
-      );
-      carreBtn.setName(ActionChoisirForme.NOM_ACTION_CARRE);
+      JToggleButton carreBtn = this.createToggleCarre();
       groupBtn.add(carreBtn);
       this.add(carreBtn);
 

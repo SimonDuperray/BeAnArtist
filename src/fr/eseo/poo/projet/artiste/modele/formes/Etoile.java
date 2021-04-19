@@ -37,9 +37,7 @@ public class Etoile extends Forme implements Remplissable {
 	}
 	public Etoile(double taille){
       super(taille, taille);
-      if(taille<0){
-          throw new IllegalArgumentException("Taille négative");
-       }
+      this.checkTaille(taille);
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
       this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
       this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
@@ -58,9 +56,7 @@ public class Etoile extends Forme implements Remplissable {
 	}
 	public Etoile(Coordonnees coordonnees, double taille){
       super(coordonnees, taille, taille);
-      if(taille<0){
-         throw new IllegalArgumentException("Taille négative");
-      }
+      this.checkTaille(taille);
       this.longueurBranche = LONGUEUR_BRANCHE_PAR_DEFAUT;
       this.anglePremiereBranche = ANGLE_PREMIERE_BRANCHE_PAR_DEFAUT;
       this.nombreBranches = NOMBRE_BRANCHES_PAR_DEFAUT;
@@ -70,24 +66,36 @@ public class Etoile extends Forme implements Remplissable {
 	}
 	public Etoile(Coordonnees coordonnees, double taille, int nombreBranches, double anglePremiereBranche, double longueurBranche){
 		super(coordonnees, taille, taille);
-		if(taille<0){
-			throw new IllegalArgumentException("taille appartient [-1;100]");
-	    }
-        if(anglePremiereBranche>Math.PI || anglePremiereBranche<-Math.PI){
-        	throw new IllegalArgumentException("angle appartient [-pi;pi]");
-		}
-		if(longueurBranche<0 || longueurBranche>1){
-			throw new IllegalArgumentException("longueur appartient [0;1]");
-		}
-		if(nombreBranches<3 || nombreBranches>15){
-			throw new IllegalArgumentException("nb branches appartient [2;16]");
-		}
+      // exceptions
+      this.checkTaille(taille);
+      this.checkAngle(anglePremiereBranche);
+      this.checkLongueur(longueurBranche);
+      this.checkBranches(nombreBranches);
+      // attributes
 		this.estRempli = false;
 		this.nombreBranches = nombreBranches;
 		this.longueurBranche = longueurBranche;
 		this.anglePremiereBranche = anglePremiereBranche;
 		this.coordonnees = new ArrayList<Coordonnees>();
 		this.recalculerSommets();
+   }
+
+   // private trigger exceptions
+   private void checkTaille(double taille){
+      if(taille<0)
+         throw new IllegalArgumentException("Taille: [0;100]");
+   }
+   private void checkAngle(double angle){
+      if(angle>Math.PI || angle<-Math.PI)
+         throw new IllegalArgumentException("Angle: [-pi;pi]");
+   }
+   private void checkLongueur(double longueur){
+      if(longueur<0 || longueur>1)
+         throw new IllegalArgumentException("Longueur: [0;1]");
+   }
+   private void checkBranches(int branches){
+      if(branches<3 || branches>15)
+         throw new IllegalArgumentException("Branches: [2;16]");
    }
    
    // getters
@@ -113,42 +121,37 @@ public class Etoile extends Forme implements Remplissable {
       this.recalculerSommets();
    }
    public void setLargeur(double largeur){
-      if(largeur<0){
-         throw new IllegalArgumentException("Largeur negative");
-      }
+      this.checkTaille(largeur);
       super.setLargeur(largeur);
       super.setHauteur(largeur);
       this.recalculerSommets();
    }
    public void setHauteur(double hauteur){
-      if(hauteur<0){
-         throw new IllegalArgumentException("Hauteur negative");
-      }
+	  this.checkTaille(hauteur);
       super.setLargeur(hauteur);
       super.setHauteur(hauteur);
       this.recalculerSommets();
    }
    public void setNombreBranches(int nbBranches){
-      if(nbBranches < 3 || nbBranches > 15){
-         throw new IllegalArgumentException("nbBranches appartient [2;16]");
-      }
+      this.checkBranches(nbBranches);
       this.nombreBranches = nbBranches;
       this.recalculerSommets();
    }
    public void setLongueurBranche(double longueurBranche){
-      if(longueurBranche < 0 || longueurBranche > 1){
-         throw new IllegalArgumentException("longueurBranche appartient [0;1]");
-      }
+      this.checkLongueur(longueurBranche);
       this.longueurBranche = longueurBranche;
       this.recalculerSommets();
    }
    public void setAnglePremiereBranche(double angle) {
-      if(angle>Math.PI || angle<-Math.PI){
-         throw new IllegalArgumentException("angle appartient [-pi;pi]");
-      } else {
-    	  this.anglePremiereBranche = angle;
-    	  this.recalculerSommets();
-      }
+//      if(angle>Math.PI || angle<-Math.PI){
+//         throw new IllegalArgumentException("angle appartient [-pi;pi]");
+//      } else {
+//    	  this.anglePremiereBranche = angle;
+//    	  this.recalculerSommets();
+//      }
+	   this.checkAngle(angle);
+	   this.anglePremiereBranche=angle;
+	   this.recalculerSommets();
    }
    public void setRempli(boolean isRempli) {
       this.estRempli=isRempli;
@@ -181,8 +184,10 @@ public class Etoile extends Forme implements Remplissable {
       String couleur;
       if(locale.getLanguage().equals("fr")){
          couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-      } else {
+      } else if(locale.getLanguage().equals("en")){
          couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+    	  couleur="Bad Language";
       }
       return couleur;
    }
@@ -190,15 +195,6 @@ public class Etoile extends Forme implements Remplissable {
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();
-		// if(locale.getLanguage()=="fr"){
-		// 	couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-      // } 
-      // else if(locale.getLanguage()=="en"){
-      //    couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-         
-		// } else {
-		// 	couleur="Bad Language";
-		// }
 		String rempli="";
 		if(this.estRempli()){
 			rempli="-Rempli";

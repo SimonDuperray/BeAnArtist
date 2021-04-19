@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.awt.Color;
+import java.util.Locale;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
@@ -75,6 +76,10 @@ public class CercleTest {
 		cercle.setCouleur(Color.RED);
 		assertEquals("getCouleur", Color.RED, cercle.getCouleur());
 	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetLargeurNegative() {
+		Cercle cercle = new Cercle(-10);
+	}
 
 	// methodes
 	@Test
@@ -100,7 +105,24 @@ public class CercleTest {
 	@Test
 	public void toStringt(){
 		String result = "[Cercle] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98 couleur = R51,V51,B51";
+		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultCercle.toString());
+	}
+	@Test
+	public void toStringEn() {
+		String result = "[Cercle-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 314.16 aire : 7853.98 couleur = R51,G51,B51";
+		Locale.setDefault(Locale.ENGLISH);
+		defaultCercle.setRempli(true);
+		assertEquals("toStringEn", result, defaultCercle.toString());
+		defaultCercle.setRempli(false);
+	}
+	@Test
+	public void toStringOther() {
+		String result = "[Cercle-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 314.16 aire : 7853.98 couleur = Bad Language";
+		Locale.setDefault(Locale.CHINA);
+		defaultCercle.setRempli(true);
+		assertEquals("toStringEn", result, defaultCercle.toString());
+		defaultCercle.setRempli(false);
 	}
 
 }

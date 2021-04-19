@@ -23,35 +23,35 @@ public abstract class Forme implements Coloriable {
 	
 	// constructors
 	public Forme() {
-		this.position = new Coordonnees();
+		this.position = POSITION_PAR_DEFAUT;
 		this.largeur=LARGEUR_PAR_DEFAUT;
 		this.hauteur=HAUTEUR_PAR_DEFAUT;
 		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	public Forme(double largeur, double hauteur) {
-		this.position = new Coordonnees();
+		this.position = POSITION_PAR_DEFAUT;
 		this.largeur=largeur;
 		this.hauteur=hauteur;
 		this.couleur=COULEUR_PAR_DEFAUT;
 	}
 	public Forme(Coordonnees position) {
 		this.position = position;
-		this.largeur=LARGEUR_PAR_DEFAUT;
-		this.hauteur=HAUTEUR_PAR_DEFAUT;
-		this.couleur=COULEUR_PAR_DEFAUT;
+		this.largeur = LARGEUR_PAR_DEFAUT;
+		this.hauteur = HAUTEUR_PAR_DEFAUT;
+		this.couleur = COULEUR_PAR_DEFAUT;
 	}
 	public Forme(Coordonnees position, double largeur, double hauteur) {
 		this.position = position;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		this.couleur=COULEUR_PAR_DEFAUT;
+		this.couleur = COULEUR_PAR_DEFAUT;
 	}
-	public Forme(Coordonnees position, double largeur, double hauteur, Color couleur){
-		this.position = position;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
-		this.couleur = couleur;
-	}
+//	public Forme(Coordonnees position, double largeur, double hauteur, Color couleur){
+//		this.position = position;
+//		this.largeur = largeur;
+//		this.hauteur = hauteur;
+//		this.couleur = couleur;
+//	}
 	
 	// getters
 	public Coordonnees getPosition() {
@@ -76,24 +76,16 @@ public abstract class Forme implements Coloriable {
 	}
 	
 	public double getCadreMinX() {
-		double cadreMinX = this.getFX();
-		// if(this.getFX()<this.getFX()+this.getLargeur()) {
-		// 	cadreMinX = this.getFX();
-		// } else {
-		// 	cadreMinX = this.getFX() + this.getLargeur();
-		// }
+		double cadreMinX;
+		cadreMinX = this.getFX();
 		if(this.getFX()>=this.getFX()+this.getLargeur()) {
 			cadreMinX+=this.getLargeur();
 		}
 		return cadreMinX;
 	}
 	public double getCadreMinY() {
-		double cadreMinY = this.getFY();
-		// if(this.getFY() < this.getFY() + this.getHauteur()) {
-		// 	cadreMinY = this.getFY();
-		// } else {
-		// 	cadreMinY = this.getFY() + this.getHauteur();
-		// }
+		double cadreMinY;
+		cadreMinY = this.getFY();
 		if(this.getFY()>=this.getFY()+this.getHauteur()) {
 			cadreMinY+=this.getHauteur();
 		}
@@ -101,24 +93,16 @@ public abstract class Forme implements Coloriable {
 	}
 	
 	public double getCadreMaxX() {
-		double cadreMaxX = this.getFX();
-		// if(this.getFX() > this.getFX() + this.getLargeur()) {
-		// 	cadreMaxX = this.getFX();
-		// } else {
-		// 	cadreMaxX = this.getFX() + this.getLargeur();
-		// }
+		double cadreMaxX;
+		cadreMaxX = this.getFX();
 		if(this.getFX()<=this.getFX()+this.getLargeur()){
 			cadreMaxX+=this.getLargeur();
 		}
 		return cadreMaxX;
 	}
 	public double getCadreMaxY() {
-		double cadreMaxY = this.getFY();
-		// if(this.getFY() > this.getFY() + this.getHauteur()) {
-		// 	cadreMaxY = this.getFY();
-		// } else {
-		// 	cadreMaxY = this.getFY() + this.getHauteur();
-		// }
+		double cadreMaxY;
+		cadreMaxY = this.getFY();
 		if(this.getFY()<=this.getFY()+this.getHauteur()){
 			cadreMaxY+=this.getHauteur();
 		}
@@ -140,17 +124,17 @@ public abstract class Forme implements Coloriable {
 	}
 	
 	// methodes
-	public void deplacerDe(double deltaX, double deltaY) {
-		this.position.setAbscisse(this.position.getAbscisse()+deltaX);
-		this.position.setOrdonnee(this.position.getOrdonnee()+deltaY);
+	public void deplacerDe(double dx, double dy) {
+		this.position.setAbscisse(this.position.getAbscisse()+dx);
+		this.position.setOrdonnee(this.position.getOrdonnee()+dy);
 	}
-	public void deplacerVers(double nouvelleAbscisse, double nouvelleOrdonnee) {
-		this.position.setAbscisse(nouvelleAbscisse);
-		this.position.setOrdonnee(nouvelleOrdonnee);
+	public void deplacerVers(double nx, double ny) {
+		this.position.setAbscisse(nx);
+		this.position.setOrdonnee(ny);
 	}
 
 	// abtract methodes
 	public abstract double aire();
 	public abstract double perimetre();
-	public abstract boolean contient(Coordonnees position);
+	public abstract boolean contient(Coordonnees coord);
 }

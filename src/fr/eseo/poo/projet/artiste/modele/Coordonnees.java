@@ -77,8 +77,7 @@ public class Coordonnees {
 			return false;
 		}
 		Coordonnees other = (Coordonnees)object;
-		boolean result = Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse) 
-			&& Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
-		return result;
+		return Double.doubleToLongBits(abscisse) == Double.doubleToLongBits(other.abscisse)
+				&& Double.doubleToLongBits(ordonnee) == Double.doubleToLongBits(other.ordonnee);
 	}
 }

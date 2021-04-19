@@ -1,9 +1,12 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -70,7 +73,38 @@ public class EtoileTest {
 		assertEquals("AngleEtoile", 0.4, fullEtoile.getAnglePremiereBranche(), EPSILON);
 		assertEquals("LongBranchesEtoile", 0.8, fullEtoile.getLongueurBranche(), EPSILON);
 	}
+	
+	// EXCEPTIONS
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadTaille() {
+		defaultEtoile.setLargeur(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadAngleInf() {
+		defaultEtoile.setAnglePremiereBranche(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadAngleSup() {
+		defaultEtoile.setAnglePremiereBranche(10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadLongueurInf() {
+		defaultEtoile.setLongueurBranche(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadLongueurSup() {
+		defaultEtoile.setLongueurBranche(10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadNbInf() {
+		defaultEtoile.setNombreBranches(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void setBadNbSup() {
+		defaultEtoile.setNombreBranches(20);
+	}
 
+	
 	// SETTERS
 	@Test
 	public void setterLargeur(){
@@ -150,9 +184,62 @@ public class EtoileTest {
 		coords.add(c1);
 		coords.add(c2);
 		posEtoile.setCoordonnees(coords);
-		posEtoile.setRempli(true);
-		String result = "[Etoile-Rempli] : pos (30,0 , 30,0) dim 100,0 x 100,0 périmètre : "
+		String result = "[Etoile] : pos (30,0 , 30,0) dim 100,0 x 100,0 périmètre : "
 			+ "332,03 aire : 3673,66 couleur = R51,V51,B51";
+		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, posEtoile.toString());
+	}
+	@Test
+	public void testToStringEn(){
+		List<Coordonnees> coords = new ArrayList<Coordonnees>();
+		coords.add(new Coordonnees(30, 30));
+		Coordonnees c1 = new Coordonnees(35, 45);
+		Coordonnees c2 = new Coordonnees(23, 90);
+		coords.add(c1);
+		coords.add(c2);
+		posEtoile.setCoordonnees(coords);
+		posEtoile.setRempli(true);
+		String result = "[Etoile-Rempli] : pos (30.0 , 30.0) dim 100.0 x 100.0 périmètre : "
+			+ "332.03 aire : 3673.66 couleur = R51,G51,B51";
+		Locale.setDefault(Locale.ENGLISH);
+		assertEquals("toString", result, posEtoile.toString());
+	}
+	@Test
+	public void testToStringOther(){
+		List<Coordonnees> coords = new ArrayList<Coordonnees>();
+		coords.add(new Coordonnees(30, 30));
+		Coordonnees c1 = new Coordonnees(35, 45);
+		Coordonnees c2 = new Coordonnees(23, 90);
+		coords.add(c1);
+		coords.add(c2);
+		posEtoile.setCoordonnees(coords);
+		posEtoile.setRempli(true);
+		String result = "[Etoile-Rempli] : pos (30.0 , 30.0) dim 100.0 x 100.0 périmètre : "
+			+ "332.03 aire : 3673.66 couleur = Bad Language";
+		Locale.setDefault(Locale.CHINA);
+		assertEquals("toString", result, posEtoile.toString());
+	}
+	// contient
+	@Test
+	public void contientFalse() {
+		List<Coordonnees> coords = new ArrayList<Coordonnees>();
+		coords.add(new Coordonnees(30, 30));
+		Coordonnees c1 = new Coordonnees(35, 45);
+		Coordonnees c2 = new Coordonnees(23, 90);
+		coords.add(c1);
+		coords.add(c2);
+		posEtoile.setCoordonnees(coords);
+		assertFalse("contient false: ", posEtoile.contient(new Coordonnees(35, 45)));
+	}
+	@Test
+	public void contientTrue() {
+		List<Coordonnees> coords = new ArrayList<Coordonnees>();
+		coords.add(new Coordonnees(30, 30));
+		Coordonnees c1 = new Coordonnees(35, 45);
+		Coordonnees c2 = new Coordonnees(23, 90);
+		coords.add(c1);
+		coords.add(c2);
+		posEtoile.setCoordonnees(coords);
+		assertTrue("contient true: ", defaultEtoile.contient(new Coordonnees(50, 50)));
 	}
 }

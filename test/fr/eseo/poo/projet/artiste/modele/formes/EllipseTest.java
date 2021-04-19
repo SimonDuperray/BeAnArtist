@@ -2,8 +2,11 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 // external imports
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
 import org.junit.Test;
 import java.awt.Color;
+import java.util.Locale;
 
 // internal imports
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
@@ -80,12 +83,37 @@ public class EllipseTest {
 		defaultEllipse.setCouleur(Color.RED);
 		assertEquals("getCouleur", Color.RED, defaultEllipse.getCouleur());
 	}
+	@Test(expected = IllegalArgumentException.class)
+	public void whenExceptionThrownThenExpectationSatisfiedLargeurNegative() {
+		defaultEllipse.setLargeur(-10);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void whenExceptionThrownThenExpectationSatisfiedHauteurNegative() {
+		defaultEllipse.setHauteur(-10);
+	}
 
 	// methodes
 	@Test
 	public void toStringt(){
 		String result = "[Ellipse] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 314,16 aire : 7853,98 couleur = R51,V51,B51";
+		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultEllipse.toString());
+	}
+	@Test
+	public void toStringEn() {
+		String result = "[Ellipse-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 314.16 aire : 7853.98 couleur = R51,G51,B51";
+		Locale.setDefault(Locale.ENGLISH);
+		defaultEllipse.setRempli(true);
+		assertEquals("toStringEn", result, defaultEllipse.toString());
+		defaultEllipse.setRempli(false);
+	}
+	@Test
+	public void toStringOther() {
+		String result = "[Ellipse-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 314.16 aire : 7853.98 couleur = Bad Language";
+		Locale.setDefault(Locale.CHINA);
+		defaultEllipse.setRempli(true);
+		assertEquals("toStringEn", result, defaultEllipse.toString());
+		defaultEllipse.setRempli(false);
 	}
 	@Test
 	public void airet(){
