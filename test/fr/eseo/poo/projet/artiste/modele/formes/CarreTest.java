@@ -19,7 +19,11 @@ public class CarreTest {
 	Coordonnees defaultCoord = new Coordonnees();
 	Coordonnees position = new Coordonnees(2.0, 5.0);
 
-	// constructeurs
+	/*
+	*  CONSTRUCTEURS
+	*/
+
+	// constructeur vide
 	@Test
 	public void emptyConstructor(){
 		assertEquals("emptyConstructorAbs", defaultCoord.getAbscisse(), defaultCarre.getPosition().getAbscisse(), EPSILON);
@@ -27,6 +31,7 @@ public class CarreTest {
 		assertEquals("emptyConstructorLarg", 100.0, defaultCarre.getLargeur(), EPSILON);
 		assertEquals("emptyConstructorHaut", 100.0, defaultCarre.getHauteur(), EPSILON);
 	}
+	// constructeur taille
 	@Test
 	public void dimConstructor(){
 		Carre testCarre = new Carre(30.0);
@@ -35,6 +40,7 @@ public class CarreTest {
 		assertEquals("emptyConstructorLarg", 30.0, testCarre.getLargeur(), EPSILON);
 		assertEquals("emptyConstructorHaut", 30.0, testCarre.getHauteur(), EPSILON);
 	}
+	// constructeur position
 	@Test
 	public void coordConstructor(){
 		Carre testCarre = new Carre(position);
@@ -43,6 +49,7 @@ public class CarreTest {
 		assertEquals("emptyConstructorLarg", 100.0, testCarre.getLargeur(), EPSILON);
 		assertEquals("emptyConstructorHaut", 100.0, testCarre.getLargeur(), EPSILON);
 	}
+	// constructeur position et taille
 	@Test
 	public void fullConstructor(){
 		Carre testCarre = new Carre(position, 20.0);
@@ -52,37 +59,57 @@ public class CarreTest {
 		assertEquals("emptyConstructorHaut", 20.0, testCarre.getHauteur(), EPSILON);
 	}
 
-	// getters
+	/*
+	*  GETTERS
+	*/
+	
+	// get rempli
 	@Test
 	public void testRempli(){
 		defaultCarre.setRempli(true);
 		assertEquals("estRempli", true, defaultCarre.estRempli());
 	}
 
-	// setters
+	/*
+	*  SETTERS
+	*/
+
+	// set hauteur
 	@Test
 	public void setHauteur(){
 		defaultCarre.setHauteur(100);
 		assertEquals("setHauteur", 100, defaultCarre.getHauteur(), EPSILON);
 	}
+	// set largeur
 	@Test
 	public void setLargeur(){
 		defaultCarre.setLargeur(200);
 		assertEquals("setHauteur", 200, defaultCarre.getLargeur(), EPSILON);
 	}
+	// set couleur
 	@Test
 	public void setCouleurT(){
 		defaultCarre.setCouleur(Color.RED);
 		assertEquals("getCouleur", Color.RED, defaultCarre.getCouleur());
 	}
+
+	/*
+	*  EXCEPTIONS
+	*/
+
+	// largeur negative
 	@Test(expected = IllegalArgumentException.class)
 	public void largeurNegative() {
 		defaultCarre.isNegative();
 	}
 
-	// methodes
+	/*
+	*  METHODES
+	*/
+
+	// perimetre
 	@Test
-	public void perimetret(){
+	public void testPerimetre(){
 		Carre testCarre = new Carre(1.0);
 		double perimetre = 4*testCarre.getLargeur();
 		assertEquals(
@@ -92,8 +119,9 @@ public class CarreTest {
 			EPSILON
 		);
 	}
+	// aire
 	@Test
-	public void airet(){
+	public void testAire(){
 		Carre testCarre = new Carre(1.0);
 		double aire = Math.pow(testCarre.getLargeur(), 2);
 		assertEquals(
@@ -103,12 +131,14 @@ public class CarreTest {
 			EPSILON
 		);
 	}
+	// toString fr
 	@Test
 	public void toStringt(){
 		String result = "[Carré] : pos (0,0 , 0,0) dim 100,0 x 100,0 "+ "périmètre : 400,0 aire : 10000,0 couleur = R51,V51,B51";
 		Locale.setDefault(Locale.FRANCE);
 		assertEquals("toString", result, defaultCarre.toString());
 	}
+	// toString en - rempli
 	@Test
 	public void toStringtEn(){
 		String result = "[Carré-Rempli] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 400.0 aire : 10000.0 couleur = R51,G51,B51";
@@ -117,6 +147,7 @@ public class CarreTest {
 		assertEquals("toString", result, defaultCarre.toString());
 		defaultCarre.setRempli(false);
 	}
+	// toString other
 	@Test
 	public void toStringtOther(){
 		String result = "[Carré] : pos (0.0 , 0.0) dim 100.0 x 100.0 "+ "périmètre : 400.0 aire : 10000.0 couleur = Bad Language";
