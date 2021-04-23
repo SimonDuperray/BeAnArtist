@@ -130,7 +130,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       groupBtn.add(ligneBtn);
       this.add(ligneBtn);
 
-      // // bouton ellipse
+      // bouton ellipse
       JToggleButton ellipseBtn = this.createToggleEllipse();
       groupBtn.add(ellipseBtn);
       this.add(ellipseBtn);

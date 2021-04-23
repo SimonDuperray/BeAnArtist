@@ -41,42 +41,6 @@ public class OutilCercle extends OutilForme {
             y1
          )
       );
-      // // pattern shapes
-      // // from Top-Left to Bottom-Right
-      // if(x1<x2 && y1<y2){
-      //    cercle.setPosition(
-      //       new Coordonnees(x1, y1)
-      //    );
-      // // from Bottom-Right to Top-Left
-      // } else if(x1>x2 && y1>y2){
-      //    cercle.setPosition(
-      //       new Coordonnees(
-      //          x1-cercle.getLargeur(),
-      //          y1-cercle.getLargeur()
-      //       )
-      //    );
-      // // from Bottom-Left to Top-Right
-      // } else if(x1<x2 && y1>y2){
-      //    cercle.setPosition(
-      //       new Coordonnees(
-      //          x1,
-      //          y1-cercle.getLargeur()
-      //       )
-      //    );
-      // // from Top-Right to Bottom-Left
-      // } else if(x1>x2 && y1<y2){
-      //    cercle.setPosition(
-      //       new Coordonnees(
-      //          x1-cercle.getLargeur(),
-      //          y1
-      //       )
-      //    );
-      // // default
-      // } else {
-      //    cercle.setPosition(
-      //       new Coordonnees()
-      //    );
-      // }
       cercle.setRempli(this.getPanneauDessin().getModeRemplissage());
       return new VueCercle(cercle);
    }

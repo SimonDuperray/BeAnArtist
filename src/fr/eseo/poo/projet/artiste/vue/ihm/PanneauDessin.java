@@ -119,10 +119,10 @@ public class PanneauDessin extends JPanel{
          this.addMouseMotionListener(outil);
       }
    }
-   /**
-    * Supprime en tant que gestionnaire d'évènements du panneau d'édition
-    * l'outil associé en tant qu'OutilCourant
-    */
+   // /**
+   //  * Supprime en tant que gestionnaire d'évènements du panneau d'édition
+   //  * l'outil associé en tant qu'OutilCourant
+   //  */
    private void dissocierOutil(){
       if(this.getOutilCourant() != null){
          if(this.getOutilCourant().getPanneauDessin() != null){
