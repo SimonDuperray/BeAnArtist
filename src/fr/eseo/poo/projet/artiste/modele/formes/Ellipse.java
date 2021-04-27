@@ -84,7 +84,7 @@ public class Ellipse extends Forme implements Remplissable {
 		double b = super.getHauteur()/2;
 		double h = Math.pow(
 			(a-b)/(a+b),
-			2
+			2 
 		);
 		return Math.PI*(a+b)*(1+((3*h)/(10+Math.sqrt(4-3*h))));
 	}

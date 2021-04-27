@@ -227,7 +227,7 @@ public class Etoile extends Forme implements Remplissable {
             );
          }
          angle += Math.toRadians(180/((double) this.nombreBranches));
-        }
+      }
    }
 
 	public boolean contient(Coordonnees position) {

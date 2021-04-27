@@ -100,7 +100,7 @@ public class CarreTest {
 	// largeur negative
 	@Test(expected = IllegalArgumentException.class)
 	public void largeurNegative() {
-		defaultCarre.isNegative();
+		defaultCarre.setHauteur(-5);
 	}
 
 	/*

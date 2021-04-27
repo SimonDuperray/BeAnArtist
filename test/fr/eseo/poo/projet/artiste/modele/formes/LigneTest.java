@@ -198,6 +198,7 @@ public class LigneTest {
 	@Test
 	public void toStringt(){
 		Coordonnees coord = new Coordonnees(3.0, 3.0);
+		Locale.setDefault(Locale.FRANCE);
 		defaultLigne.setC1(coord);
 		defaultLigne.setC2(defaultCoord);
 		assertEquals(
@@ -240,7 +241,7 @@ public class LigneTest {
 		Ligne ligne = new Ligne();
 		ligne.setC1(new Coordonnees(5, 5));
 		ligne.setC2(new Coordonnees(10, 10));
-		String result = "[Ligne] c1 : (5,0 , 5,0) c2 : (10,0 , 10,0) longueur : 7,07 angle : 45,0° couleur = R51,V51,B51";
+		String result = "[Ligne] c1 : (5,0 , 5,0) c2 : (10,0 , 10,0) longueur : 7,07 angle : 45,0° couleur = R51,G51,B51";
 		assertEquals("toString radtodeg: ", result, ligne.toString());
 	}
 	// contient true

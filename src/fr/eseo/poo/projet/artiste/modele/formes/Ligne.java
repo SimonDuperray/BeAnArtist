@@ -26,10 +26,10 @@ public class Ligne extends Forme {
 	public Ligne(Coordonnees coordonnees, double largeur, double hauteur) {
 		super(coordonnees, largeur, hauteur);
 	}
-//	public Ligne(Coordonnees coordonnees, double largeur, double hauteur, Color couleur){
-//		super(coordonnees, largeur, hauteur, couleur);
-//	}
-//	
+	// public Ligne(Coordonnees coordonnees, double largeur, double hauteur, Color couleur){
+	// 	super(coordonnees, largeur, hauteur, couleur);
+	// }
+	
 	// getters
 	public Coordonnees getC1() {
 		return super.getPosition();
