@@ -45,7 +45,6 @@ public class VueEtoileTest {
 		panneau.ajouterVueForme(vueEtoile1);
 		panneau.ajouterVueForme(vueEtoile2);
 		frame.setVisible(true);
-		frame.pack();
 		frame.repaint();
 	}
 	

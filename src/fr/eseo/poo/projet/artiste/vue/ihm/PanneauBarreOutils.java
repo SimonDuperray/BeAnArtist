@@ -208,6 +208,6 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       boutonFond.setName(ActionChoisirRemplissage.NOM_ACTION);
       this.add(boutonFond);
 
-      this.setLayout(new GridLayout(6, 2));
+      this.setLayout(new GridLayout(6, 3));
    }
 }

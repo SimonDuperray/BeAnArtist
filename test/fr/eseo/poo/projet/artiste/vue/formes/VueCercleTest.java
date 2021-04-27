@@ -16,7 +16,7 @@ public class VueCercleTest {
 		frame.setContentPane(panneau);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		frame.pack();
+		frame.repaint();
 	}
 
 	public static void main(String[] args){

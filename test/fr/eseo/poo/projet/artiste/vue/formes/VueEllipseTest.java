@@ -29,7 +29,6 @@ public class VueEllipseTest {
 		vueEllipse.getForme().setCouleur(java.awt.Color.BLUE);
 		panneau.ajouterVueForme(vueEllipse);
 		frame.setVisible(true);
-		frame.pack();
 		frame.repaint();
 	}
 

@@ -28,7 +28,6 @@ public class VueLigneTest {
 		vueLigne.getForme().setCouleur(java.awt.Color.RED);
 		panneau.ajouterVueForme(vueLigne);
 		frame.setVisible(true);
-		frame.pack();
 		frame.repaint();
 	}
 

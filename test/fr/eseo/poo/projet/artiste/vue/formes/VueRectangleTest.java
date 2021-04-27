@@ -30,7 +30,6 @@ public class VueRectangleTest {
 		vueRectangle.getForme().setCouleur(java.awt.Color.BLUE);
 		panneau.ajouterVueForme(vueRectangle);
 		frame.setVisible(true);
-		frame.pack();
 		frame.repaint();
 	}
 
