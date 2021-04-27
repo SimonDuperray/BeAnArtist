@@ -64,17 +64,20 @@ public class Ligne extends Forme {
 	}
 
 	// methodes
+	private String getCorrectColor(Locale locale){  
+      String couleur;
+		if(locale.getLanguage().equals("fr")){
+         couleur = "R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else if(locale.getLanguage().equals("en")){
+         couleur = "R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+         couleur = "Bad Language";
+		}
+		return couleur;
+   }
 	public String toString() {
-		String couleur="";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
-		if(locale.getLanguage().equals("fr")){
-			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else if(locale.getLanguage().equals("en")){
-			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else {
-			couleur="Bad Language";
-		}
 		String angle = this.radToDeg(decimalFormat);
 		return "[Ligne] c1 : (" +decimalFormat.format(this.getC1().getAbscisse())
 			+ " , " +decimalFormat.format(this.getC1().getOrdonnee())
@@ -82,7 +85,7 @@ public class Ligne extends Forme {
 			+ " , " +decimalFormat.format(this.getC2().getOrdonnee())
 			+ ") longueur : " +decimalFormat.format(this.perimetre())
 			+ " angle : " +angle +"°"
-			+ " couleur = "+couleur;		
+			+ " couleur = "+this.getCorrectColor(locale);		
 	}
 	public double aire() {
 		return 0;

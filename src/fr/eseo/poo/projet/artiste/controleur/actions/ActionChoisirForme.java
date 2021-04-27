@@ -2,6 +2,7 @@ package fr.eseo.poo.projet.artiste.controleur.actions;
 
 // external imports
 import java.awt.event.ActionEvent;
+import java.sql.ConnectionBuilder;
 
 // internal imports
 import fr.eseo.poo.projet.artiste.controleur.outils.OutilCercle;

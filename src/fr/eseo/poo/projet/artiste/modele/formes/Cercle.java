@@ -56,28 +56,27 @@ public class Cercle extends Ellipse {
    public double perimetre(){
       return 2*Math.PI*super.getLargeur()/2;
    }
+   private String getCorrectColor(Locale locale){  
+      String couleur;
+      if(locale.getLanguage().equals("fr")){
+         couleur = "R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else if(locale.getLanguage().equals("en")){
+         couleur = "R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else {
+         couleur = "Bad Language";
+      }
+      return couleur;
+   }
    public String toString(){
-      String couleur="";
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
       Coordonnees bufferCoord = super.getPosition();
-      if(locale.getLanguage().equals("fr")){
-			couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else if(locale.getLanguage().equals("en")){
-			couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-		} else {
-			couleur="Bad Language";
-      }
-      String rempli="";
-		if(this.estRempli()){
-			rempli="-Rempli";
-		}
-      return "[Cercle"+rempli+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+      return "[Cercle"+(this.estRempli() ? "-Rempli" : "")+"] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
          +decimalFormat.format(bufferCoord.getOrdonnee())
          +") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
          +" périmètre : "+decimalFormat.format(this.perimetre())
          +" aire : "+decimalFormat.format(this.aire())
-         +" couleur = "+couleur;
+         +" couleur = "+this.getCorrectColor(locale);
 	}
    public void isNegative(){
       if(super.getLargeur()<0){

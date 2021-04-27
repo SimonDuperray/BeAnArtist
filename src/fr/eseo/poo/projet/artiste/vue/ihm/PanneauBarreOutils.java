@@ -8,6 +8,8 @@ import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+
 import javax.swing.ButtonGroup;
 
 // internal imports
@@ -205,5 +207,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       );
       boutonFond.setName(ActionChoisirRemplissage.NOM_ACTION);
       this.add(boutonFond);
+
+      this.setLayout(new GridLayout(6, 2));
    }
 }

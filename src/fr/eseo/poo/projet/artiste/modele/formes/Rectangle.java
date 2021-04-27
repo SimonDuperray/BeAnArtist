@@ -54,14 +54,14 @@ public class Rectangle extends Forme implements Remplissable {
    }
 
    // methodes
-   private String getCorrectColor(Locale locale){
+   private String getCorrectColor(Locale locale){  
       String couleur;
       if(locale.getLanguage().equals("fr")){
-         couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
-      } else if(locale.getLanguage().equals("en")) {
-         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+         couleur = "R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+      } else if(locale.getLanguage().equals("en")){
+         couleur = "R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
       } else {
-    	  couleur = "Bad Language";
+         couleur = "Bad Language";
       }
       return couleur;
    }
@@ -69,8 +69,7 @@ public class Rectangle extends Forme implements Remplissable {
 		Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();
-      String isRempli = this.estRempli() ? "-Rempli" : "";
-		return "[Rectangle"+isRempli+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
+		return "[Rectangle"+(this.estRempli() ? "-Rempli" : "")+ "] : pos ("+decimalFormat.format(bufferCoord.getAbscisse())+" , "
 			+decimalFormat.format(bufferCoord.getOrdonnee())
 			+") dim "+decimalFormat.format(super.getLargeur())+" x "+decimalFormat.format(super.getHauteur())
 			+" périmètre : "+decimalFormat.format(this.perimetre())

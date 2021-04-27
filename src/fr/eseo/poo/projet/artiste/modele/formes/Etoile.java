@@ -180,26 +180,22 @@ public class Etoile extends Forme implements Remplissable {
       }
       return p + this.getCoordonnees().get(this.getCoordonnees().size()-1).distanceVers(this.getCoordonnees().get(0));
    }
-   private String getCorrectColor(Locale locale){
+   private String getCorrectColor(Locale locale){  
       String couleur;
       if(locale.getLanguage().equals("fr")){
-         couleur="R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+         couleur = "R"+getCouleur().getRed()+",V"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
       } else if(locale.getLanguage().equals("en")){
-         couleur="R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
+         couleur = "R"+getCouleur().getRed()+",G"+getCouleur().getGreen()+",B"+getCouleur().getBlue();
       } else {
-    	  couleur="Bad Language";
+         couleur = "Bad Language";
       }
       return couleur;
    }
    public String toString(){
-		Locale locale = Locale.getDefault();
+      Locale locale = Locale.getDefault();
 		DecimalFormat decimalFormat = new DecimalFormat("0.0#");
 		Coordonnees bufferCoord = super.getPosition();
-		String rempli="";
-		if(this.estRempli()){
-			rempli="-Rempli";
-		}
-      return "[Etoile"+rempli+"] : pos "+bufferCoord.toString()
+      return "[Etoile"+(this.estRempli() ? "-Rempli" : "")+"] : pos "+bufferCoord.toString()
          +" dim "+decimalFormat.format(super.getLargeur())
          +" x "+decimalFormat.format(super.getHauteur())
          + " périmètre : "+decimalFormat.format(this.perimetre())

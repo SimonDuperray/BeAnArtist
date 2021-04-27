@@ -24,7 +24,6 @@ public class OutilCarre extends OutilForme {
          )
       );
       carre.setCouleur(this.getPanneauDessin().getCouleurCourante());
-      // opti
       if(x1>x2){
          if(y1>y2){
             x1=x1-carre.getLargeur();

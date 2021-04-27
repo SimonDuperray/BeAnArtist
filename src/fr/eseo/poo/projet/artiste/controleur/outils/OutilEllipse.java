@@ -17,7 +17,6 @@ public class OutilEllipse extends OutilForme {
       ellipse.setLargeur(Math.abs(x2 - x1));
       ellipse.setHauteur(Math.abs(y2 - y1));
       ellipse.setCouleur(this.getPanneauDessin().getCouleurCourante());
-      // opti
       if(x1>x2){
          if(y1<y2){
             x1=x2;
