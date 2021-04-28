@@ -35,10 +35,10 @@ public class Ligne extends Forme {
 		return super.getPosition();
 	}
 	public Coordonnees getC2() {
-		double abs, ord;
-		abs = this.getC1().getAbscisse() + super.getLargeur();
-		ord = this.getC1().getOrdonnee() + super.getHauteur();
-		return new Coordonnees(abs, ord);
+		return new Coordonnees(
+			this.getC1().getAbscisse() + super.getLargeur(),
+			this.getC1().getOrdonnee() + super.getHauteur()
+		);
 	}
 	
 	// setters
