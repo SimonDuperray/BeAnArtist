@@ -208,6 +208,7 @@ public class EtoileTest {
 		coordonnees.add(coord2);
 		posEtoile.setCoordonnees(coordonnees);
 		assertEquals("perimetre", 332.0327, posEtoile.perimetre(), EPSILON);
+		System.out.println("Perimetre: " + posEtoile.perimetre());
 	}
 	// toString fr
 	@Test

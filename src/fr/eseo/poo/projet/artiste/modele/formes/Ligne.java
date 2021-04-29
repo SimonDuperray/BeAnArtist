@@ -2,7 +2,6 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 // internal imports
 import java.util.Locale;
-import java.awt.Color;
 import java.text.DecimalFormat;
 
 // external imports
