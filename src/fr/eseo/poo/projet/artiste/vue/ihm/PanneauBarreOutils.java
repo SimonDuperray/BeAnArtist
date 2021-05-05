@@ -19,6 +19,7 @@ import fr.eseo.poo.projet.artiste.controleur.actions.ActionChoisirRemplissage;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionEffacer;
 import fr.eseo.poo.projet.artiste.controleur.actions.ActionSelectionner;
 import fr.eseo.poo.projet.artiste.modele.formes.Etoile;
+import fr.eseo.poo.projet.artiste.modele.formes.Polygone;
 
 public class PanneauBarreOutils extends javax.swing.JPanel {
 
@@ -27,11 +28,15 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
    // class constants
    public static final String BRANCHE_SPINNER_NOM = "Nb branches";
    public static final String LONGUEUR_SPINNER_NOM = "Long branches";
+   public static final String BRANCHE_SPINNER_NOM_POL = "Nb cotes";
+   public static final String LONGUEUR_SPINNER_NOM_POL = "Long Cotes";
 
    // attributes
    private PanneauDessin panneauDessin;
    private JSpinner spinnerNbBranches = new JSpinner();
    private JSpinner spinnerLongBranches = new JSpinner();
+   private JSpinner spinnerNbCotes = new JSpinner();
+   private JSpinner spinnerLongCotes = new JSpinner();
 
    // constructor
    public PanneauBarreOutils(PanneauDessin panneauDessin){
@@ -149,12 +154,12 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 
       // etoile spinner longueur branches
       JLabel labelLongBranches = new JLabel();
-      labelLongBranches.setName(LONGUEUR_SPINNER_NOM);
+      labelLongBranches.setName(LONGUEUR_SPINNER_NOM_POL);
       SpinnerNumberModel modelLongBrancheSpinner = new SpinnerNumberModel(
          Etoile.LONGUEUR_BRANCHE_PAR_DEFAUT, 0.00, 1.00, 0.01
       );
       this.spinnerLongBranches.setModel(modelLongBrancheSpinner);
-      this.spinnerLongBranches.setName(LONGUEUR_SPINNER_NOM);
+      this.spinnerLongBranches.setName(LONGUEUR_SPINNER_NOM_POL);
       this.spinnerLongBranches.setPreferredSize(new Dimension(50, 30));
       this.add(labelLongBranches);
       this.add(spinnerLongBranches);
@@ -173,6 +178,38 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
       this.spinnerNbBranches.setPreferredSize(new Dimension(50, 30));
       this.add(labelNbBranches);
       this.add(spinnerNbBranches);
+      
+   // bouton polygone
+      JToggleButton polygoneBtn = this.createToggleEtoile();
+      groupBtn.add(polygoneBtn);
+      this.add(polygoneBtn);
+
+      // polygone spinner longueur branches
+      JLabel labelLongCotes = new JLabel();
+      labelLongCotes.setName(LONGUEUR_SPINNER_NOM);
+      SpinnerNumberModel modelLongCotesSpinner = new SpinnerNumberModel(
+         Polygone.LONGUEUR_COTES_PAR_DEFAUT, 0.00, 1.00, 0.01
+      );
+      this.spinnerLongCotes.setModel(modelLongCotesSpinner);
+      this.spinnerLongCotes.setName(LONGUEUR_SPINNER_NOM);
+      this.spinnerLongCotes.setPreferredSize(new Dimension(50, 30));
+      this.add(labelLongCotes);
+      this.add(spinnerLongCotes);
+
+      // polyogne spinner nb branches
+      JLabel labelNbCotes = new JLabel();
+      labelNbCotes.setName(BRANCHE_SPINNER_NOM_POL);
+      SpinnerNumberModel modelNbCotesSpinner = new SpinnerNumberModel(
+         Polygone.NOMBRE_COTES_PAR_DEFAUT, 
+         3, 
+         15, 
+         1
+      );
+      this.spinnerNbCotes.setName(BRANCHE_SPINNER_NOM_POL);
+      this.spinnerNbCotes.setModel(modelNbCotesSpinner);
+      this.spinnerNbCotes.setPreferredSize(new Dimension(50, 30));
+      this.add(labelNbCotes);
+      this.add(spinnerNbCotes);
 
       // rectangle
       JToggleButton rectangleBtn = this.createToggleRectangle();

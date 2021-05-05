@@ -35,7 +35,6 @@ public class VueEtoileTest {
 		frame.setTitle("Etre un Artiste - Etoile");
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 		Etoile e = new Etoile(new Coordonnees(10,10),200,5,0,0.75);
-		System.out.println("size: "+e.getCoordonnees().size());
 		PanneauDessin panneau = new PanneauDessin(900, 400);
 		frame.setContentPane(panneau);
 		frame.setLocationRelativeTo(null);

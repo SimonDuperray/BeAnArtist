@@ -143,12 +143,6 @@ public class Etoile extends Forme implements Remplissable {
       this.recalculerSommets();
    }
    public void setAnglePremiereBranche(double angle) {
-//      if(angle>Math.PI || angle<-Math.PI){
-//         throw new IllegalArgumentException("angle appartient [-pi;pi]");
-//      } else {
-//    	  this.anglePremiereBranche = angle;
-//    	  this.recalculerSommets();
-//      }
 	   this.checkAngle(angle);
 	   this.anglePremiereBranche=angle;
 	   this.recalculerSommets();
@@ -174,14 +168,11 @@ public class Etoile extends Forme implements Remplissable {
       return Math.abs((x-y)/2);
    }
    public double perimetre() {
-//      double p = 0;
-//      for(int i=0; i<this.getCoordonnees().size()-1; i++){
-//         p += this.getCoordonnees().get(i).distanceVers(this.getCoordonnees().get(i+1));
-//      }
-//      return p + this.getCoordonnees().get(this.getCoordonnees().size()-1).distanceVers(this.getCoordonnees().get(0));
-	   double distance = this.getCoordonnees().get(0).distanceVers(this.getCoordonnees().get(1));
-
-       return distance*this.getNombreBranches()*2;
+     double p = 0;
+     for(int i=0; i<this.getCoordonnees().size()-1; i++){
+        p += this.getCoordonnees().get(i).distanceVers(this.getCoordonnees().get(i+1));
+     }
+     return p + this.getCoordonnees().get(this.getCoordonnees().size()-1).distanceVers(this.getCoordonnees().get(0));
    }
    private String getCorrectColor(Locale locale){  
       String couleur;
